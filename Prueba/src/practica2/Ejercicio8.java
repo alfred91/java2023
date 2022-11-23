@@ -20,12 +20,11 @@ public class Ejercicio8 {
 		System.out.println("LA SUMA ES: " + suma); 
 		 
 		 
-		suma=suma+n3; 
+		suma=suma+n3; a
 		 
 		 System.out.println(suma); 
 		 
 		} 
-		 
 		 
 		}
 }

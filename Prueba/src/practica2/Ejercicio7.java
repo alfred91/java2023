@@ -20,4 +20,4 @@ public class Ejercicio7 {
 			 
 			} 
 		}}
-// EN VEZ DE ; HABIA , DESPUES DE INT SUMA=0
+// EN VEZ DE PUNTO Y COMA, HABIA UNA COMA DESPUES DE INT SUMA=0
