@@ -22,8 +22,7 @@ public class Ejercicio8 {
 		 
 		suma=suma+n3; 
 		 
-		 a
-		System.out.println(suma); 
+		 System.out.println(suma); 
 		 
 		} 
 		 
