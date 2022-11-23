@@ -14,7 +14,7 @@ int numero=0, error;
 			numero = Integer.parseInt(sc.nextLine());
 			error = 0;
 		} catch (Exception e) {
-			System.out.println("Te hassss equivocado, introduce un entero por favor");
+			System.out.println("Te has equivocado, introduce un entero por favor");
 			error=1;}
 		} 
 	while (error==1);
