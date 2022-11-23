@@ -21,10 +21,9 @@ public class EjemploIf2 {
 		
 	}else {
 		if (edad<=18)
-			System.out.println("Hola adolescente macho")
+			System.out.println("Hola adolescente macho");
 			else 
-				if (edad<=55) {System.out.println("Hola hombre")
-				else System.out.println("Que hay de nuevo viejo?")	
-	}
-
-}
+				if (edad<=55)
+					{ System.out.println("Hola hombre");}
+				else {System.out.println("Que hay de nuevo viejo?");}	
+	}}}
