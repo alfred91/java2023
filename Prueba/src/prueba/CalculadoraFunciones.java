@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CalculadoraFunciones {
 	public static double leerTeclado() {
 		double numero=0;
-		Scanner sc = new Scanner 
+		Scanner sc = new Scanner(System.in);
 	}
 
 	public static void main(String[] args)throws Exception {
