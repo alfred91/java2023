@@ -3,7 +3,7 @@ package Tema3;
 public class Ejercicio22 {
 
 	public static int divisor(int numero) {
-		return divisor;
+		return divisor(;
 	}
 	public static void main(String[] args) {
 	int i=0;
