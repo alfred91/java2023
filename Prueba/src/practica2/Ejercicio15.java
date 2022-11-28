@@ -6,7 +6,7 @@ public class Ejercicio15 {
 		
 	double cantidad = 2000;
 	double interes = 0.275;
-	double retencion = 18.0/100;
+	double retencion = 0.18;
 	double misIntereses, misInteresesRetencion;
 	
 	misIntereses = cantidad * interes / 2;
