@@ -14,6 +14,10 @@ public class Ejercicio18 {
 		float x1=1,y1=2;
 			System.out.println(x1+""+y1);
 			
+			boolean c=true;
+			c=a<b&&c;
+			System.out.println(c);
+			
 		 // c = a < b && c; ESTA NO SE COMO SE ARREGLA, ME SUGIERE ALGO DE BOOLEAN
 		
 		//x=a/b;
@@ -21,10 +25,11 @@ public class Ejercicio18 {
 		int x = a/b;
 			System.out.println(x);
 	
-		d=a+b;	//d=a+b++; aqui suma a=10 + b=3, el ++ sobra
+		d=a+b++;//++DESPUES SIGNIFICA QUE LA OPERACION SE VA A REALIZAR DESPUES DEL PUNTO Y COMA**	// Se suma uno a la b y despues se suma con a
+	
 			System.out.println(d);
 		
-		e=a-b;	//e=++a-b; aqui resta a=10 - b=3, el ++ sobra
+		e=++a-b; // Se le suma primero 1 a la a y luego se resta b
 			System.out.println(e);
 			
 		//	y=(float)a/b;

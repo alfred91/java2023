@@ -2,6 +2,16 @@ package Tema3;
 import java.util.Scanner;
 
 public class Ejercicio24{
+	
+	public static int mostrarAlreves(int num) {
+		int u,d,c;
+		int resultado;
+		c=num/100;
+		d= (num%100)/10;
+		u= (num%100)%10;
+		resultado= ((u*100)+(d*10)+c);
+		return resultado;
+	}
 
 public static void main(String[] args) {
 
@@ -21,4 +31,5 @@ decenas=numero%100/10;
 
 
 	System.out.println(""+unidades+""+decenas+""+centenas);
+	sc.close();
 }}
