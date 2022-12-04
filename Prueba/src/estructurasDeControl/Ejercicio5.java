@@ -5,9 +5,12 @@ import java.util.Scanner;
 public class Ejercicio5 {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int error=0; int num=0;
-
+		int numero=0;
+	 
+			do{ Scanner sc = new Scanner(System.in);
+			System.out.println("Dime un numero");
+			numero = Integer.parseInt(sc.nextLine());
+				}		
+			while (numero<1 || numero>10);
 	}
-
 }
