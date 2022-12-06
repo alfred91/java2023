@@ -10,7 +10,7 @@ public class Ejercicio17 {
 		uno=sc.nextInt();
 		System.out.println("Introduce el 2º numero: ");
 		dos=sc.nextInt();
-		
+		if(dos>uno) {
 		pares=(dos-uno)/2+1;
 		for (i=uno;i<=dos;i++)
 			
@@ -18,5 +18,13 @@ public class Ejercicio17 {
 				System.out.println(i);
 		;}
 		System.out.println("Contador de números pares : "+pares);
-	}
+		}	else {
+			pares=(uno-dos)/2+1;
+			for (i=dos;i<=uno;i++)
+		
+	{ if(i%2==0)
+			System.out.println(i);
+	;}
+	System.out.println("Contador de números pares : "+pares);{}
+		}}
 }
