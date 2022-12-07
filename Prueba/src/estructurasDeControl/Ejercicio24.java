@@ -4,34 +4,14 @@ import java.util.Scanner;
 public class Ejercicio24 {
 	
 	public static void main(String[] args) {
-		double numero=0, suma=0;
-		double media=0;
-		double total=0;
-		double cantidad=0;
-		double mayor=0;
-		double menor=0;
-		int i=0;
-		int numeros[];
-		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Introduce una cantidad: ");
-		cantidad= Double.parseDouble(sc.nextLine());
+		System.out.println("Introduce un numero entre 1 y 999");
+		int n=0;
+		int i=0;
+		n=sc.nextInt();
 		
-		for(i=1;i<=cantidad;i++) {
-			
-			System.out.println("Dime un número");
-			numero = Double.parseDouble(sc.nextLine());
-			
-			if (numero!=0) {
-			total=total+numero;
-			suma=suma+1;
-			media=total/suma;
-			numero=numeros[];
-			}
-			}
-		sc.close();
-		
-		System.out.println(" La media deberia ser: "+media);
-		System.out.println();
-		}
-	}
+		if (n>0&&n<1000)
+		for (i=0;n>0;n/=10,i*=10)
+		    i+=n%10;
+		System.out.println("El nº al reves: "+i/10); 
+	}}
