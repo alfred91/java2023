@@ -14,6 +14,7 @@ System.out.println("Dime el año: ");
  day=sc.nextInt();
  System.out.println("Dime el mes: ");
  month=sc.nextInt();
+ sc.close();
  
  if (day>=1&&day<=31&&month>=1&&month<=12&&year>1&&year<3000) {
 
@@ -33,7 +34,7 @@ System.out.println("Dime el año: ");
 	 {
 		day=day+1;}
 	 }
- else if (day==29 && month==2);{
+  if (day==29 && month==2);{
 	day=1;
 	month=month+1;
 	}
