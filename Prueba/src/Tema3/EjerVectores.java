@@ -9,7 +9,7 @@ public class EjerVectores {
 			tabla[i]= (int) (Math.random()-10+1);
 		}
 		for (int i=0; i<tabla.length; i++) {
-			System.out.println(tabla[i]+" ");
+			System.out.print(tabla[i]+" ");
 		}
 		System.out.println();
 		//Pedirlo por teclado
@@ -22,10 +22,8 @@ public class EjerVectores {
 		
 		tabla[3] =numero;
 			for (int i=0;i<tabla.length;i++) {
-				System.out.println(tabla[i]+" ");
+				System.out.print(tabla[i]+" ");
 			}
 		
 		}
 	}
-
-
