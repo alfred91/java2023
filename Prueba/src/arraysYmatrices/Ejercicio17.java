@@ -1,5 +1,7 @@
 package arraysYmatrices;
 
+import java.util.Arrays;
+
 public class Ejercicio17 {
 
 	public static void pintarMatriz(int[][] matriz) {
@@ -10,7 +12,6 @@ public class Ejercicio17 {
 			System.out.println();
 		}
 	}
-	
 	public static void ordenarPorColumnas(int matriz[][]) {
 		for(int j=0; j<matriz[0].length; j++) {
 			for(int i=0; i<matriz.length; i++) {
@@ -26,22 +27,18 @@ public class Ejercicio17 {
 			}
 		}
 	}
-	
 	public static void ordenarPorFilas(int matriz[][]) {
-		for(int j=0; j<matriz[0].length; j++) {
-			for(int i=0; i<matriz.length; i++) {
+	
+		
+				for(int i=0; i<matriz.length; i++) {
+					Arrays.sort(matriz[i]);}
 				
-				//Ordenar
-				for(int h=0; h<matriz.length-1; h++) {
-					if (matriz[h][j] > matriz[h+1][j]) {
-						int aux = matriz[h][j];
-						matriz[h][j] = matriz[h+1][j];
-						matriz[h+1][j] = aux;
+				//Pintar
+				pintarMatriz(matriz);
+			
 					}
-				}
-			}
-		}
-	}
+				
+			
 	public static void main(String[] args) {
 		
 		int[][] matriz = new int[10][10];
@@ -63,6 +60,6 @@ public class Ejercicio17 {
 		System.out.println("-------FILAS-----------");
 		
 		ordenarPorFilas(matriz);
-		pintarMatriz(matriz);
+		
 	}
 }

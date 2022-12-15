@@ -26,6 +26,7 @@ if (mayor=='n') {
 	System.out.println("Este  numero es mayor que el que has pensado? ('s' para si, 'n' para no, 'x' si acierto)");
 	mayor=sc.next().charAt(0);
 	Random r3=new Random();
+	
 	int n3=r3.nextInt(100-n2+1)+n2;
 	System.out.println("Es "+n3+" ?");
 	System.out.println("Este  numero es mayor que el que has pensado? ('s' para si, 'n' para no, 'x' si acierto)");
