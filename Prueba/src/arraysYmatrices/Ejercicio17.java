@@ -48,17 +48,21 @@ public class Ejercicio17 {
 		
 		for(int i=0; i < matriz.length; i++) {
 			for(int j=0; j < matriz[i].length; j++) {
-				matriz[i][j] = (int) (Math.random() * 100 + 1);
+				matriz[i][j] = (int) (Math.random() * 500 + 1);
 			}
 		}
-		
 		//Pintar
 		pintarMatriz(matriz);
 		
-		System.out.println("------------------");
+		System.out.println("-------COLUMNAS-----------");
 		
 		ordenarPorColumnas(matriz);
 		
 		pintarMatriz(matriz);		
+		
+		System.out.println("-------FILAS-----------");
+		
+		ordenarPorFilas(matriz);
+		pintarMatriz(matriz);
 	}
 }
