@@ -29,9 +29,6 @@ public class Ejercicio14{
         
         System.out.println("El mayor es:  "+mayor(tabla1));
         System.out.println("El mayor del 2:  "+mayor(tabla2));
-        if (mayor(tabla1)>mayor(tabla2)) {System.out.println("El mayor es "+mayor(tabla1));}
-        else System.out.println("El mayor es "+mayor(tabla2));
-               
         
         
     }

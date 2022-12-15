@@ -51,7 +51,6 @@ public class Ejercicio16{
                         encontrado=true;
                     }
                 }
-                 
                 //Sino lo agregamos
                 if(!encontrado){
                     numeros[numero_elementos++] = aleatorio;
