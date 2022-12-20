@@ -7,7 +7,7 @@ public class Ejercicio7 {
 		        // using StringBuilder() constructor
 		        StringBuilder str = new StringBuilder();
 		 
-		        str.append("GFG");
+		        str.append("A");
 		 
 		        // print string
 		        System.out.println("String = " + str.toString());
@@ -15,7 +15,7 @@ public class Ejercicio7 {
 		        // create a StringBuilder object
 		        // using StringBuilder(CharSequence) constructor
 		        StringBuilder str1
-		            = new StringBuilder("AAAABBBCCCC");
+		            = new StringBuilder("Objeto StringBuilder");
 		 
 		        // print string
 		        System.out.println("String1 = " + str1.toString());

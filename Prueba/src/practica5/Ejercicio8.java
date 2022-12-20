@@ -8,17 +8,17 @@ public class Ejercicio8 {
 		}
 	}
 	
-	public static void numAleatorios(int vector[], int min, int max) {
+	public static void numAle(int vector[], int min, int max) {
 		for (int i = 0; i < vector.length; i++) {
 			int num = (int)(Math.random() * (max - min + 1) + min);
-		    while (comprobarNum(vector,num)) {
+		    while (chkNum(vector,num)) {
 		    	num = (int)(Math.random() * (max - min + 1) + min);
 		    }
 		    vector[i] = num;
 		}
 	}
 	
-	public static boolean comprobarNum(int vector[], int num) {
+	public static boolean chkNum(int vector[], int num) {
 		for (int i = 0; i < vector.length; i++) {
 		    if(vector[i] == num) {
 		    	return true;
@@ -27,7 +27,7 @@ public class Ejercicio8 {
 		return false;
 	}
 
-	public static void ordenacionBurbuja(int vector[]) {
+	public static void burbuja(int vector[]) {
 		int aux;
 		for (int i = 0; i < vector.length - 1; i++) {
 			for(int j = 0; j < vector.length - 1; j++) {
@@ -43,12 +43,12 @@ public class Ejercicio8 {
 	public static void main(String[] args) {
 		int vector[] = new int[50];
 		
-		System.out.print(" Original ");
-		numAleatorios(vector, 1, 100);
+		System.out.print("Original ");
+		numAle(vector, 1, 100);
 		pintarVector(vector);
 		System.out.println("");
-		System.out.print(" Ordenado  ");
-		ordenacionBurbuja(vector);
+		System.out.print("Ordenado ");
+		burbuja(vector);
 		pintarVector(vector);		
 	}
 }

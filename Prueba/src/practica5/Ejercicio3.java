@@ -8,7 +8,7 @@ public class Ejercicio3 {
 		System.out.println("Escribe un texto: ");
 			String frase= sc.nextLine();
 		
-		System.out.println("Introduce un caracter a buscar: ");
+		System.out.println("Introduce una palabra o carácter a buscar: ");
 			String palabraBuscar = sc.nextLine();
 		
 		int contador = 0;
@@ -25,6 +25,22 @@ public class Ejercicio3 {
 			} 			
 		}
 		
-		System.out.println("La palabra " + palabraBuscar + " aparece " + contador + " veces.");
+		if(palabraBuscar.length()==1 && contador==1 ) {
+		
+			System.out.println("El carácter '" + palabraBuscar + "' aparece " + contador + " vez.");
+		}
+			else if (palabraBuscar.length()==1 & contador >1 ) {
+				
+				System.out.println("El carácter '"+palabraBuscar+"' aparece "+contador+" veces");
+	}
+				else if(palabraBuscar.length()>1 && contador==1) {
+				
+						System.out.println("La palabra '" + palabraBuscar + "' aparece " + contador + " vez.");}
+				
+					else if (palabraBuscar.length()>1 && contador>1) {
+				
+								System.out.println("La palabra '" + palabraBuscar + "' aparece " + contador + " veces.");
+		}
+						
 	}
 }
