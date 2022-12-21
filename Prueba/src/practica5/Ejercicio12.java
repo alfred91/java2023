@@ -2,13 +2,10 @@ package practica5;
 
 public class Ejercicio12 {
 	
-
 	public static void pintarVector(int vector[]) {
-		System.out.print("[");
 		for (int i = 0; i < vector.length; i++) {
 			System.out.print(vector[i]+",");
 		}
-		System.out.print("]");
 	}
 	
 	public static void numAleatorios(int vector[], int min, int max) {
@@ -30,7 +27,6 @@ public class Ejercicio12 {
 		return false;
 	}
 	
-
 	public static void ordenarVectorInsercion(int vector[]) {
 		for (int i = 0; i < vector.length; i++) {
 			int aux = vector[i];
@@ -46,14 +42,14 @@ public class Ejercicio12 {
 
 		int vector[] = new int[100];
 		
-		System.out.print("Vector -> ");
+		System.out.print("Vector: ");
 		numAleatorios(vector, 1, 1000);
 		ordenarVectorInsercion(vector);
 		pintarVector(vector);
-		System.out.print("\n> Los 10 mayores son: ");
+		System.out.println("");
+		System.out.print("Los 10 mayores: ");
 		for (int i = vector.length - 1; i >= 90; i--) {
 			System.out.print(vector[i]+", ");
-		}
-		
+		}		
 	}
 }
