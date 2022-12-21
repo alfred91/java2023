@@ -1,85 +1,160 @@
 package primeraevaluacion;
-import java.util.ArrayList;
- 
+
+import java.util.Scanner;
+
 public class Laberinto {
- 
-    private Casilla[][] tablero;
- 
-    private ArrayList<ArrayList<Casilla>> caminos;
- 
-    public Laberinto(Casilla[][] tablero) {
-        this.tablero = tablero;
-        caminos = new ArrayList<>();
-    }
- 
-    public boolean arribaDisponible(Casilla casillaActual, Casilla casillaDestino) {
- 
-        if (casillaDestino != null && !casillaDestino.isVisitado()) {
-            return casillaActual.arribaDisponible();
-        }
- 
-        return false;
-    }
+	
+	/**
+	 * Pinta el tablero del laberinto
+	 * @param tablero
+	 */
+	public static void pintar(char[][] tablero) {
+		for(int i=0; i<tablero.length; i++) {
+			for(int j=0; j<tablero[0].length; j++) {
+				System.out.print(tablero[i][j] + " " );
+			}
+			System.out.println();
+		}
+	}
+	
+	/**
+	 * Generar salida del tablero de forma aleatoria
+	 * @param args
+	 */
+	public static int[] generarSalida(char[][] tablero) {
+		int[] salida = new int[2];
+		int aleatorio = 0;
+		int posicion = 0;
+		
+		//Generar aleatorio entre 1 y 4
+		//1 - arriba
+		//2 - abajo
+		//3 - derecha
+		//4 - izquierda
+		
+		aleatorio = (int) (Math.random() * 4) + 1;
+		posicion = (int) (Math.random() * 19);
+		
+		switch (aleatorio) {
+		case 1:
+			salida[0] = 0;
+			salida[1] = posicion;
+			break;
+		case 2:
+			salida[0] = 19;
+			salida[1] = posicion;
+			break;
+		case 3:
+			salida[0] = posicion;
+			salida[1] = 19;
+			break;
+		case 4:
+			salida[0] = posicion;
+			salida[1] = 0;
+			break;
+		}
+		
+		return salida;
+	}
 
-    public boolean derechaDisponible(Casilla casillaActual, Casilla casillaDestino) {
- 
-        if (casillaDestino != null && !casillaDestino.isVisitado()) {
-            return casillaActual.derechaDisponible();
-        }
- 
-        return false;
-    }
+	public static void main(String[] args) {
 
-    public boolean abajoDisponible(Casilla casillaActual, Casilla casillaDestino) {
- 
-        if (casillaDestino != null && !casillaDestino.isVisitado()) {
-            return casillaActual.abajoDisponible();
-        }
- 
-        return false;
-    }
- 
+		char[][] laberinto = new char[20][20];
+		
+		//Rellenar con .
+		for(int i=0; i<laberinto.length; i++) {
+			for(int j=0; j<laberinto[0].length; j++) {
+				laberinto[i][j] = '.';
+			}
+		}
+		
+		//Rellenar la parte superior e inferior con -
+		for(int i=0; i<laberinto.length; i++) {
+			laberinto[0][i] = '-';
+			laberinto[19][i] = '-';
+		}
+		
+		//Rellenar derecha e izquierda con |
+		for(int i=0; i<laberinto.length; i++) {
+			laberinto[i][0] = '|';
+			laberinto[i][19] = '|';
+		}
 
-    public boolean izquierdaDisponible(Casilla casillaActual, Casilla casillaDestino) {
- 
-        if (casillaDestino != null && !casillaDestino.isVisitado()) {
-            return casillaActual.izquierdaDisponible();
-        }
- 
-        return false;
-    }
- 
+		//Colocar inicio
+		laberinto[0][0] = '@';
+		
+		//Colocar bomba
+		int bombaX = (int) (Math.random() * 18) + 1;
+		int bombaY = (int) (Math.random() * 18) + 1;
+		//laberinto[bombaX][bombaY] = 'X';
+		
+		//Generar la salida
+		int[] salida = generarSalida(laberinto);
+		
+		//Colocar salida
+		laberinto[salida[0]][salida[1]] = '#';
+		
+		//Pintar tablero
+		pintar(laberinto);
+		
+		
+		//Moverser por el tablero
+		Scanner sc = new Scanner(System.in);
+		int opcion = 0;
+		int movimientos = 0;
+		int jugadorX = 0;
+		int jugadorY = 0;
+		char aux = 'I';
+		
+		do {
+			System.out.println("Introduce opción");
+			System.out.println("1. Derecha");
+			System.out.println("2. Izquierda");
+			System.out.println("3. Abajo");
+			System.out.println("4. Arriba");
+			
+			laberinto[jugadorX][jugadorY] = aux;
+			
+			opcion = Integer.parseInt(sc.nextLine());
+			switch (opcion) {
+				case 1:
+					jugadorY++;
+					break;
+				case 2:
+					jugadorY--;
+					break;
+				case 3:
+					jugadorX++;
+					break;
+				case 4:
+					jugadorX--;
+					break;
+			}
+			
+			movimientos++;
+			
+			try {
+				if (laberinto[jugadorX][jugadorY] == '#') {
+					System.out.println("Has ganado. Lo has hecho en " + movimientos + " movimientos.");
+					break;
+				} else if (jugadorX == bombaX && jugadorY == bombaY) {
+					System.out.println("Booom. Explotaste y perdiste");
+					break;
+				} else {
+					aux = laberinto[jugadorX][jugadorY];
+					laberinto[jugadorX][jugadorY] = '@';
+				}				
+			} catch (IndexOutOfBoundsException ex) {
+				System.out.println("Has perdido, te has salido del tablero");
+				break;
+			}
+			
+			//Pintar tablero
+			pintar(laberinto);
+			
+		} while (opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4);
+		
+		
+	}
 
-    public Casilla getCasillaAt(int x, int y) {
-        if (dentroDelLimite(x, y)) {
-            return tablero[x][y];
-        }
-        return null;
-    }
-
-    public boolean dentroDelLimite(int x, int y) {
- 
-        return (x >= 0 && x < tablero.length) && (y >= 0 && y < tablero[0].length);
- 
-    }
-
-    public void añadirCamino(ArrayList<Casilla> camino) {
-        if (camino != null && !camino.isEmpty()) {
-            caminos.add(camino);
-        }
-    }
- 
-    public void mostrarCaminos() {
- 
-        int i = 1;
-        for (ArrayList<Casilla> camino : caminos) {
-            System.out.println("Camino: " + i);
-            for (Casilla c : camino) {
-                System.out.println(c);
-            }
-            i++;
-        }
- 
-    }
- 
 }

@@ -43,12 +43,15 @@ public class Ejercicio2 {
 		      	suma=dado1+suma;
 		      	ntiradas=ntiradas+1;
 		      dado2 = (int)(Math.random() * 6) + 1;
-		      	suma1=dado2+suma;
+		      	suma1=dado2+suma1;
 		      	total=suma+suma1;
 		      	
 		      System.out.println(dado1 + " " + dado2);
 		      
-		    } while (dado1 + dado2 !=12);
+		    } while (dado1 !=6 || dado2 !=6);
+		    
+		    
+		    
 		    
 		    total=total-12;
 		    System.out.println(suma+" "+suma1);
