@@ -8,6 +8,10 @@ public class Enemigo {
 	private int nivel;
 	private int damage;
 	
+	public static int NumEnemigos;
+	
+	
+	
 	public Enemigo() {
 		
 		super();
@@ -16,6 +20,7 @@ public class Enemigo {
 		this.salud=100;
 		this.nivel=1;
 		this.damage=20;
+		
 	}
 	
 	
@@ -65,10 +70,7 @@ public class Enemigo {
 	this.nivel = nivel+1;
 	this.salud=salud+2;
 	}
-	public void recibirDamage() {
-		
-		
-	}
+
 	public int getDamage() {
 		return damage;
 	}
@@ -96,6 +98,9 @@ public class Enemigo {
 	}
 	public void recibirdano(int i) {
 		this.salud=(this.salud-this.damage);
-		if (this.salud<=0) {System.out.println(this.nombre+" Estas muerto ");}
+		
+		if (this.salud<=0) {System.out.println(this.nombre+" Estas muerto ");
+		Enemigo.NumEnemigos--;}
 	}
 }
+ 
