@@ -1,5 +1,6 @@
 package ejemplo1;
 
+
 public class Aplicacion {
 
 	public static void main(String[] args) {
@@ -22,5 +23,10 @@ public class Aplicacion {
 		System.out.println(cocheMiTia2);
 
 	}
+	
+	public static void main2() {
+		
+	}
+
 
 }
