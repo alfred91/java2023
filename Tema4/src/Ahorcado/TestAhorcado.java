@@ -1,5 +1,3 @@
-
-
 package Ahorcado;
 
 public class TestAhorcado {
