@@ -171,7 +171,7 @@ public class Empleado {
 		return (this.salarioBrutoMensual - descuento);
 	}
 
-	@Override
+
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Empleado [nombre=");

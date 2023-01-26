@@ -8,7 +8,7 @@ public class Partida {
 
 	public Partida() {
 		super();
-		this.enemigos = new ArrayList<>();
+		this.enemigos = new ArrayList<Enemigo>();
 	}
 	
 	public void nuevoEnemigo(Enemigo e) {
