@@ -23,10 +23,4 @@ public class Aplicacion {
 		System.out.println(cocheMiTia2);
 
 	}
-	
-	public static void main2() {
-		
-	}
-
-
 }
