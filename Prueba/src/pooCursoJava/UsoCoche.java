@@ -6,7 +6,7 @@ public class UsoCoche {
 
 		Coche Audi=new Coche();
 		
-		System.out.println("Este coche tiene "+Audi.ruedas+" ruedas.");
+		System.out.println("Este coche tiene ruedas.");
 		
 	}
 

@@ -2,11 +2,11 @@ package pooCursoJava;
 
 public class Coche {
 
-	int ruedas;
-	int largo;
-	int ancho;
-	int motor;
-	int peso;
+	private int ruedas;
+	private int largo;
+	private int ancho;
+	private int motor;
+	private int peso_plataforma;
 	
 //	CONSTRUCTOR
 	
@@ -15,8 +15,9 @@ public class Coche {
 		largo=3000;
 		ancho=1800;
 		motor=5000;
-		peso=3000;
+		peso_plataforma=1500;
 	}
+	
 	public static void main(String[] args) {
 
 		Coche Audi=new Coche();
