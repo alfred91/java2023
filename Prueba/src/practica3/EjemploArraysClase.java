@@ -12,7 +12,6 @@ public class EjemploArraysClase {
 		}
 		System.out.println("]");
 	}
-	
 		//CREA UN ARRAY DE 6
 		//PIDE POR TECLADO 6 ENTEROS Y GUARDALOS EN EL ARRAY
 		//PINTA EL ARRAY 
@@ -20,12 +19,11 @@ public class EjemploArraysClase {
 	
 	public static void main(String[]args) {
 		int elem[]=new int[6];
-		Scanner.sc=new Scanner(System.in);
+		Scanner sc=new Scanner(System.in);
 		try {
 			for (int i=0; i< elem.length;i++) {
-				elem[i] = Integer.parseInt(sc.nextLine);
-				
-			}
+				elem[i] = Integer.parseInt(sc.nextLine());
+						}}
 			catch (Exception e) {
 				System.out.println("Error leyendo de teclado");
 			}
@@ -34,9 +32,4 @@ public class EjemploArraysClase {
 			int suma=0;
 		}
 			
-		}
-		
-		
-
-
 	}
