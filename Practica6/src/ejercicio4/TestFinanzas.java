@@ -1,10 +1,8 @@
 package ejercicio4;
 
-public class Aplicacion {
+public class TestFinanzas {
 
 	public static void main(String[] args) {
-				
-		System.out.println(Finanzas.euros);
 
 	}
 

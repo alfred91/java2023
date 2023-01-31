@@ -33,8 +33,8 @@ public class Pajaro {
 		this.color = "color";
 	}
 	public void printPajaro(){
-		System.out.println("edad"+this.edad);
-		System.out.println("color"+this.color);
+		System.out.println("Edad: "+this.edad);
+		System.out.println("Color: "+this.color);
 
 	}
 }
