@@ -2,30 +2,47 @@ package ejemplosNotaExpediente;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
-
+import java.util.Objects;
 public class expedienteAlumno {
 
 	//TIPO ENUMERADEO, SOLO PUEDE TOMAR UNO DE ESTOS TRES VALORES
 	
 	enum Modalidad{FPB,GRADOMEDIO,GRADOSUPERIOR}
 	enum Curso{PRIMERO,SEGUNDO}
-	enum Sexo{MASCULINO,FEMENINO,NSNC}
+	enum Sexo{MASCULINO,FEMENINO,OTRO}
 	
 	//Atributos o propiedades
 	
 	private Modalidad modalidad;
 	private String nombre;
 	private String apellidos;
+	private Sexo sexo;
+	public Sexo getSexo() {
+		return sexo;
+	}
+
+
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
+
+
+	public expedienteAlumno(Sexo sexo) {
+		super();
+		this.sexo = sexo;
+	}
+
 	private LocalDate fechanacimiento;	
 	private Curso curso;
 	private int identificador; //Se genera en el constructor
 	
-	public expedienteAlumno(Modalidad modalidad, String nombre, String apellidos, LocalDate fechanacimiento,
+	public expedienteAlumno(Modalidad modalidad, String nombre, String apellidos,Sexo sexo, LocalDate fechanacimiento,
 			Curso curso) {
 		super();
 		this.modalidad = modalidad;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
+		this.sexo = sexo;
 		this.fechanacimiento = fechanacimiento;
 		this.curso = curso;
 		this.calificaciones=new ArrayList<>(); 	//ESTO SE AÑADE A MANO!!
@@ -71,6 +88,7 @@ public class expedienteAlumno {
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
+	
 
 	/**
 	 * @return the fechanacimiento
@@ -119,7 +137,7 @@ public class expedienteAlumno {
 	//Atributos static
 	
 	private static int numAlumnos=0;
-	
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -129,6 +147,8 @@ public class expedienteAlumno {
 		builder.append(nombre);
 		builder.append(", apellidos=");
 		builder.append(apellidos);
+		builder.append(", sexo=");
+		builder.append(sexo);
 		builder.append(", fechanacimiento=");
 		builder.append(fechanacimiento);
 		builder.append(", curso=");
@@ -166,11 +186,12 @@ public class expedienteAlumno {
 	public int getEdad() {
 		if (this.getEdad()>=18 && (LocalDate.now().getMonthValue()>this.getFechanacimiento().getMonthValue())) {
 			
-		return LocalDate.now().getYear() - this.fechanacimiento.getYear();
-				} else {return LocalDate.now().getYear() - this.fechanacimiento.getYear()-1;
+			return LocalDate.now().getYear() - this.fechanacimiento.getYear();
+				} else {
+						return LocalDate.now().getYear() - this.fechanacimiento.getYear()-1;
 										
+					}
 			}
-		}
 				
 	public boolean mayorEdad() {
 		if (this.getEdad()>=18 && (LocalDate.now().getMonthValue()>this.getFechanacimiento().getMonthValue()))
@@ -182,33 +203,27 @@ public class expedienteAlumno {
 	// SI ESTA EN FPB TITULA CON MAXIMO UNA SUSPENSA	
 	
 	public boolean titula() {
+		int numSuspensas = this.getNumSuspensas();
 		
-		if(this.modalidad ==modalidad.GRADOMEDIO || this.modalidad == modalidad.GRADOSUPERIOR) {
-			if (numSuspensas==0)
+		if (this.modalidad == Modalidad.GRADOMEDIO || this.modalidad == Modalidad.GRADOSUPERIOR) {
+			if (numSuspensas == 0)
 				return true;
-			else return false;}
-		else { if numSuspens
-		
-			//RECORRER LAS CALIFICACIONES Y VER SI HAY ALGUNO SUSPENSO
-			boolean titula=true;
-			for (NotasCurso nc:this.calificaciones) {
-				if (!nc.estaAprobado())
-					titula=false;
-			}
-			return titula;
+			else
+				return false;
 			
 		} else {
-			
-			int contadorSuspensas=0;
-				for(NotasCurso nc:this.calificaciones) {
-					if (!nc.estaAprobado())
-						contadorSuspensas++;
-			}
-				if(contadorSuspensas <=1)
-					return true;
-				else return false;
-		}
+			//FPB
+			if (numSuspensas <= 1)
+				return true;
+			else
+				return false;	
+		} 
 	}
+	
+	/**
+	 * Devuelve el número de asignaturas suspensas
+	 * @return
+	 */
 	
 	public int getNumSuspensas() {
 		
@@ -224,11 +239,11 @@ public class expedienteAlumno {
 	public double mediaExpediente() {
 		double acumulador=0;
 		for (NotasCurso nc: this.calificaciones) {
-			acumulador = acumulador + nc.getNotafinal();
+			acumulador = acumulador + nc.getNotaFinal();
 		}
 		return acumulador/this.calificaciones.size();
 	}
-	//Añade nota de curso a las calificaciones
+	//Añade una nueva nota de curso a las calificaciones
 	public void addNota(NotasCurso nc) {
 		this.calificaciones.add(nc);
 	}

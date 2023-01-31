@@ -3,115 +3,159 @@ package ejemplosNotaExpediente;
 import java.util.Objects;
 
 public class NotasCurso {
-	
+
 	private String asignatura;
-	private String curso;
-	private double nota1ev;
-	private double nota2ev;
-	private double nota3ev;
-	private double notafinal;
+	private int curso; //1 o 2
+	private double nota1EV;
+	private double nota2EV;
+	private double nota3EV;
+	private double notaFinal;
 	
+	
+	public NotasCurso(String asignatura, int curso) {
+		super();
+		this.asignatura = asignatura;
+		this.curso = curso;
+		this.nota1EV = 0;
+		this.nota2EV = 0;
+		this.nota3EV = 0;
+		this.notaFinal = 0;
+	}
+
+
+	public NotasCurso(String asignatura, int curso, double nota1ev, double nota2ev, double nota3ev) {
+		super();
+		this.asignatura = asignatura;
+		this.curso = curso;
+		this.nota1EV = nota1ev;
+		this.nota2EV = nota2ev;
+		this.nota3EV = nota3ev;
+		this.notaFinal = (this.nota1EV + this.nota2EV + this.nota3EV) / 3;
+	}
+
+
 	/**
 	 * @return the asignatura
 	 */
 	public String getAsignatura() {
 		return asignatura;
 	}
+
+
 	/**
 	 * @param asignatura the asignatura to set
 	 */
 	public void setAsignatura(String asignatura) {
 		this.asignatura = asignatura;
 	}
+
+
 	/**
 	 * @return the curso
 	 */
-	public String getCurso() {
+	public int getCurso() {
 		return curso;
 	}
+
+
 	/**
 	 * @param curso the curso to set
 	 */
-	public void setCurso(String curso) {
+	public void setCurso(int curso) {
 		this.curso = curso;
-	}
-	/**
-	 * @return the nota1ev
-	 */
-	public double getNota1ev() {
-		return nota1ev;
-	}
-	/**
-	 * @param nota1ev the nota1ev to set
-	 */
-	public void setNota1ev(double nota1ev) {
-		this.nota1ev = nota1ev;
-	}
-	/**
-	 * @return the nota2ev
-	 */
-	public double getNota2ev() {
-		return nota2ev;
-	}
-	/**
-	 * @param nota2ev the nota2ev to set
-	 */
-	public void setNota2ev(int nota2ev) {
-		this.nota2ev = nota2ev;
-	}
-	/**
-	 * @return the nota3ev
-	 */
-	public double getNota3ev() {
-		return nota3ev;
-	}
-	/**
-	 * @param nota3ev the nota3ev to set
-	 */
-	public void setNota3ev(double nota3ev) {
-		this.nota3ev = nota3ev;
-	}
-	/**
-	 * @return the notafinal
-	 */
-	public double getNotafinal() {
-		return notafinal;
 	}
 
-	
-	
+
 	/**
-	 * @param asignatura
-	 * @param curso
-	 * @param nota1ev
-	 * @param nota2ev
-	 * @param nota3ev
-	 * @param notafinal
+	 * @return the nota1EV
 	 */
-	public NotasCurso(String asignatura, String curso, int nota1ev, int nota2ev, int nota3ev, int notafinal) {
-		super();
-		this.asignatura = asignatura;
-		this.curso = curso;
-		this.nota1ev = nota1ev;
-		this.nota2ev = nota2ev;
-		this.nota3ev = nota3ev;
-		this.notafinal = notafinal;
+	public double getNota1EV() {
+		return nota1EV;
 	}
+
+
 	/**
-	 * 
+	 * @param nota1ev the nota1EV to set
 	 */
-	public NotasCurso() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setNota1EV(double nota1ev) {
+		nota1EV = nota1ev;
+		this.calcularNotaFinal();
+	}
+
+
+	/**
+	 * @return the nota2EV
+	 */
+	public double getNota2EV() {
+		return nota2EV;
+	}
+
+
+	/**
+	 * @param nota2ev the nota2EV to set
+	 */
+	public void setNota2EV(double nota2ev) {
+		nota2EV = nota2ev;
+		this.calcularNotaFinal();
+	}
+
+
+	/**
+	 * @return the nota3EV
+	 */
+	public double getNota3EV() {
+		return nota3EV;
+	}
+
+
+	/**
+	 * @param nota3ev the nota3EV to set
+	 */
+	public void setNota3EV(double nota3ev) {
+		nota3EV = nota3ev;
+		this.calcularNotaFinal();
+	}
+
+
+	/**
+	 * @return the notaFinal
+	 */
+	public double getNotaFinal() {
+		return notaFinal;
 	}
 	
-	private double calcularNotaFinal() {
-		return (this.nota1ev+this.nota2ev+this.nota3ev)/3;
+	
+	private void calcularNotaFinal() {
+		this.notaFinal = (this.nota1EV + this.nota2EV + this.nota3EV) / 3;
 	}
+
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("NotasCurso [curso=");
+		builder.append(curso);
+		builder.append(", asignatura=");
+		builder.append(asignatura);
+		builder.append(", nota1EV=");
+		builder.append(nota1EV);
+		builder.append(", nota2EV=");
+		builder.append(nota2EV);
+		builder.append(", nota3EV=");
+		builder.append(nota3EV);
+		builder.append(", notaFinal=");
+		builder.append(notaFinal);
+		builder.append("]");
+		return builder.toString();
+	}
+
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(asignatura, curso, nota1ev, nota2ev, nota3ev);
+		return Objects.hash(asignatura, curso, nota1EV, nota2EV, nota3EV);
 	}
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -120,18 +164,18 @@ public class NotasCurso {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		
 		NotasCurso other = (NotasCurso) obj;
-		
-		return Objects.equals(asignatura, other.asignatura) && Objects.equals(curso, other.curso)
-				&& Double.doubleToLongBits(nota1ev) == Double.doubleToLongBits(other.nota1ev)
-				&& Double.doubleToLongBits(nota2ev) == Double.doubleToLongBits(other.nota2ev)
-				&& Double.doubleToLongBits(nota3ev) == Double.doubleToLongBits(other.nota3ev);
+		return Objects.equals(asignatura, other.asignatura) && curso == other.curso
+				&& Double.doubleToLongBits(nota1EV) == Double.doubleToLongBits(other.nota1EV)
+				&& Double.doubleToLongBits(nota2EV) == Double.doubleToLongBits(other.nota2EV)
+				&& Double.doubleToLongBits(nota3EV) == Double.doubleToLongBits(other.nota3EV);
 	}
 	
+	
 	public boolean estaAprobado() {
-		if (this.notafinal>=5)
+		if (this.notaFinal >= 5)
 			return true;
-			else return false;
+		else
+			return false;
 	}
 }
