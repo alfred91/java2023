@@ -19,21 +19,23 @@ package ejercicio6;
 		distancia_tierra = d;
 		}
 		public void printPosicion() {
-		System.out.print("El satélite se encuentra en ");
+		System.out.print("El satelite se encuentra en ");
 		System.out.print("el paralelo "+paralelo+" meridiano "+meridiano);
-		System.out.print(" a una distancia de la Tierra de"+distancia_tierra+" kms.");
+		System.out.print(" a una distancia de la Tierra de "+distancia_tierra+" kms.");
 		}
 		
 		public void variaAltura(double desplazamiento) {
-			
+			distancia_tierra=desplazamiento+distancia_tierra;
 		}
 		
 		boolean enOrbita() {
+			if(distancia_tierra==0) {return false;
+			} else {
+				return true;	}
 			
-			return false;
-			
-		}
+			}
 		public void variaPosicion(double variap, double variam) {
-			
+			paralelo=paralelo+=variap;
+			meridiano=meridiano+=variam;
 		}
 		}

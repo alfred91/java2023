@@ -1,10 +1,8 @@
 package ejercicio1;
 
+import java.util.Scanner;
+
 public class Aplicacion {
 
-	public static void main(String[] args) {
-System.out.println();
-
-	}
 
 }

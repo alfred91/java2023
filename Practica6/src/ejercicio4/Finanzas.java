@@ -8,8 +8,7 @@ public double euros;
 
 public Finanzas(double dolares, double euros) {
 		super();
-		this.dolares = euros*0.64;
-		this.euros = dolares*1.36;
+		this.valorDolareuro=
 	}
 
 	public void dolaresToEuros(double dolares) {
@@ -59,7 +58,5 @@ public Finanzas(double dolares, double euros) {
 		System.out.println("Introduce cantidad en $: ");
 		euros=sc.nextDouble();
 		return (int) dolares;
-		
 	}
-	
 }
