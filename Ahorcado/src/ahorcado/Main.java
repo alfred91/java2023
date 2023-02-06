@@ -27,7 +27,7 @@ public class Main {
 			if(!algunaLetraAcertada) {
 				System.out.println("No has acertado "); --intentos;}
 						
-			else --intentos;
+			else --intentos; System.out.println("Correcto ");
 			if (intentos==0) {System.out.println("Has agotado los intentos");
 				juegoTerminado=true;
 				}
@@ -35,20 +35,20 @@ public class Main {
 						boolean juegoGanado=!hayGuiones(palabraGuiones);
 							if(juegoGanado) {System.out.println("Has ganado el juego");
 							juegoTerminado=true;}
-			}
+					}
 		
 				} while (!juegoTerminado);
 					sc.close();
 			}
 	
-	static String damePalabraSecreta() {
-		
-		String [] palabras = {"casa","perro","coche"};
-			Random r=new Random();
-				int n= r.nextInt(palabras.length);
-				
-					return palabras[n];
-	}
+		static String damePalabraSecreta() {
+			
+			String [] palabras = {"casa","perro","coche"};
+				Random r=new Random();
+					int n= r.nextInt(palabras.length);
+					
+						return palabras[n];
+		}
 	
 	static char[] dameGuionesDePalabra(String palabra) {
 
@@ -58,15 +58,14 @@ public class Main {
 
 	for (int i=0;i<palabraGuiones.length;i++) {
 		palabraGuiones[i]='-';
-	}
+			}
 				return palabraGuiones;
-				
-	}
+		}
 	
-	static boolean hayGuiones(char[]array) {
+		static boolean hayGuiones(char[]array) {
 		
-		for (char l:array) {
-			if(l=='-') return true;
-		} return false;
-	}
+			for (char l:array) {
+				if(l=='-') return true;
+			} return false;
+		}
 }
