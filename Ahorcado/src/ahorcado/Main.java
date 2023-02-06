@@ -25,12 +25,13 @@ public class Main {
 				}
 					
 			if(!algunaLetraAcertada) {
-				System.out.println("No has acertado "); --intentos;
+				System.out.println("No has acertado "); --intentos;}
 						
-				if (intentos==0) {System.out.println("Has agotado los intentos");
+			else --intentos;
+			if (intentos==0) {System.out.println("Has agotado los intentos");
 				juegoTerminado=true;
-				}}
-					else { 
+				}
+					else {
 						boolean juegoGanado=!hayGuiones(palabraGuiones);
 							if(juegoGanado) {System.out.println("Has ganado el juego");
 							juegoTerminado=true;}
