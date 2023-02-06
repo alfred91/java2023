@@ -27,7 +27,7 @@ public class Main {
 			if(!algunaLetraAcertada) {
 				System.out.println("No has acertado "); --intentos;}
 						
-			else --intentos; System.out.println("Correcto ");
+			else {--intentos; System.out.println("Correcto ");}
 			if (intentos==0) {System.out.println("Has agotado los intentos");
 				juegoTerminado=true;
 				}
