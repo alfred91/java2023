@@ -1,13 +1,20 @@
 package ejercicio5;
+import java.util.Scanner;
 
 public class Numero {
 
-	private int numero=0;
+	private int numero;
 
-	public Numero() {
-				super();
-		// TODO Auto-generated constructor stub
+	private Numero(int numero) {
+		super();
+		
+		this.numero = numero;
+		numero = 0;
+	
+		
 	}
 	
+	public String suma() {
 	
+	}
 }
