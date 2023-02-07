@@ -12,7 +12,18 @@ public class Curso {
 		this.nombre = nombre;
 		
 		//Crear el ArrayList
-		alumnos = new ArrayList<>(35);
+		this.alumnos = new ArrayList<>(35);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Curso [nombre=");
+		builder.append(nombre);
+		builder.append(", alumnos=");
+		builder.append(alumnos);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	/**
