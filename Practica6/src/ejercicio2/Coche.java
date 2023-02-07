@@ -9,21 +9,21 @@ public class Coche {
 		this.velocidad=0;
 	}
 
-public int getVelocidad() {
-	return velocidad;}
-
-	public void setVelocidad(int velocidad) {
-		this.velocidad=velocidad;
-	}
-		public void acelera(int mas) {
-			this.velocidad=this.velocidad+mas;
+	public int getVelocidad() {
+		return velocidad;}
+	
+		public void setVelocidad(int velocidad) {
+			this.velocidad=velocidad;
 		}
-		public void frena(int menos) {
-			
-			if (menos<=this.velocidad) {
+			public void acelera(int mas) {
+				this.velocidad=this.velocidad+mas;
+			}
+			public void frena(int menos) {
 				
-				this.velocidad=this.velocidad-menos;
-				} 
-			else this.velocidad=0;
+				if (menos<=this.velocidad) {
+					
+					this.velocidad=this.velocidad-menos;
+					} 
+				else this.velocidad=0;
+			}
 	}
-}

@@ -8,12 +8,12 @@ public double euros;
 
 public Finanzas(double dolares, double euros) {
 		super();
-		this.valorDolareuro=
+		this.dolares=dolares;
 	}
 
 	public void dolaresToEuros(double dolares) {
 		this.dolares=dolares*1.36;
-		this.euros=euros;
+		
 	}
 	
 	public void eurosToDolares(double euros) {
