@@ -3,7 +3,7 @@ package ejercicio9;
 public class Jugador {
 	
 String nombre,clase;
-static int dañoArma;
+private int dañoArma;
 int nivel=1;
 double salud=200;
 
@@ -11,7 +11,7 @@ public Jugador(String nombre, String clase, int dañoArma, int nivel, int salud)
 	super();
 	this.nombre = nombre;
 	this.clase = clase;
-	Jugador.dañoArma = dañoArma;
+	this.dañoArma = dañoArma;
 	this.nivel=nivel;
 	this.salud=salud;
 }	
@@ -32,7 +32,7 @@ public int getDañoArma() {
 	return dañoArma;
 }
 public void setDañoArma(int dañoArma) {
-	Jugador.dañoArma = dañoArma;
+	this.dañoArma= dañoArma;
 }
 public int getNivel() {
 	return nivel;

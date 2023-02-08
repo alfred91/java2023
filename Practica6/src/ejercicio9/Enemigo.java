@@ -69,7 +69,7 @@ public class Enemigo implements Cloneable {
 	}
 
 	public void recibirDaño(int dañoArma) {
-		// TODO Auto-generated method stub
+		this.salud=this.salud-dañoArma;
 		
 	}
 	
