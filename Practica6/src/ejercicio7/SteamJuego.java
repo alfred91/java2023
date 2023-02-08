@@ -36,10 +36,10 @@ public String getImagen() {
 public void setImagen(String imagen) {
 	this.imagen = imagen;
 }
-public String getMediaJugadoresDiarios() {
+public int getMediaJugadoresDiarios() {
 	for (int i=0;i<=this.mediaJugadoresDiarios;i++) {
 				}
-	return "Media Jugadores: "+mediaJugadoresDiarios;
+	return mediaJugadoresDiarios;
 }
 public void setMediaJugadoresDiarios(int mediaJugadoresDiarios) {
 	this.mediaJugadoresDiarios = mediaJugadoresDiarios;
@@ -67,5 +67,8 @@ public int getPuestoMasVendidos() {
 }
 public void setPuestoMasVendidos(int puestoMasVendidos) {
 	this.puestoMasVendidos = puestoMasVendidos;
-}}
-//*public void jugadoresDia(int jugadoresHoy) {((this.jugadoresDia(jugadoresHoy)*this.diasDeSalida)+this.jugadoresDia(jugadoresHoy)/(this.diasDeSalida);
+}
+public int jugadoresDia(int jugadoresHoy) {
+	return ((this.jugadoresDia(jugadoresHoy)*this.diasDeSalida)+this.jugadoresDia(jugadoresHoy)/(this.diasDeSalida));
+	}
+}
