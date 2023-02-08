@@ -36,8 +36,10 @@ public String getImagen() {
 public void setImagen(String imagen) {
 	this.imagen = imagen;
 }
-public int getMediaJugadoresDiarios() {
-	return mediaJugadoresDiarios;
+public String getMediaJugadoresDiarios() {
+	for (int i=0;i<=this.mediaJugadoresDiarios;i++) {
+				}
+	return "Media Jugadores: "+mediaJugadoresDiarios;
 }
 public void setMediaJugadoresDiarios(int mediaJugadoresDiarios) {
 	this.mediaJugadoresDiarios = mediaJugadoresDiarios;
