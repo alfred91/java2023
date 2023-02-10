@@ -4,15 +4,15 @@ public class Jugador {
 	
 String nombre,clase;
 private int dañoArma;
-int nivel=1;
-double salud=200;
+private int nivel;
+double salud;
 
 public Jugador(String nombre, String clase, int dañoArma, int nivel, int salud) {
 	super();
 	this.nombre = nombre;
 	this.clase = clase;
 	this.dañoArma = dañoArma;
-	this.nivel=nivel;
+	this.nivel=1;
 	this.salud=salud;
 }	
 
@@ -46,10 +46,10 @@ public double getSalud() {
 public void setSalud(double salud) {
 	this.salud = salud;
 }
-public int subirNivel() {
+public void subirNivel() {
 	this.nivel=nivel+1;
-	this.salud=salud+Math.pow(2.5, nivel);
-	return nivel;
+	this.salud=this.salud+Math.pow(2.5, this.nivel);
+	System.out.println("Has subido de nivel!! Ahora eres nivel "+this.nivel+" . Tu salud se ha incrementado en: "+Math.pow(2.5, this.nivel)+" puntos");
 	}
 public double recibirDaño(int daño) {
 	salud=salud-daño;
@@ -58,38 +58,9 @@ public double recibirDaño(int daño) {
 
 public void golpear(Enemigo enemigo) { 
     enemigo.recibirDaño(this.getDañoArma()); 
-}
+	}
 @Override
 public String toString() {
-	StringBuilder builder = new StringBuilder();
-	builder.append("Jugador [nombre=");
-	builder.append(nombre);
-	builder.append(", clase=");
-	builder.append(clase);
-	builder.append(", nivel=");
-	builder.append(nivel);
-	builder.append(", salud=");
-	builder.append(salud);
-	builder.append(", getNombre()=");
-	builder.append(getNombre());
-	builder.append(", getClase()=");
-	builder.append(getClase());
-	builder.append(", getDañoArma()=");
-	builder.append(getDañoArma());
-	builder.append(", getNivel()=");
-	builder.append(getNivel());
-	builder.append(", getSalud()=");
-	builder.append(getSalud());
-	builder.append(", subirNivel()=");
-	builder.append(subirNivel());
-	builder.append(", getClass()=");
-	builder.append(getClass());
-	builder.append(", hashCode()=");
-	builder.append(hashCode());
-	builder.append(", toString()=");
-	builder.append(super.toString());
-	builder.append("]");
-	return builder.toString();
-}
-
+	return "Jugador [Nombre=" + nombre + ", Clase =" + clase + ", Lvl=" + nivel + ", Salud=" + salud
+			+ ", Dmg=" + dañoArma + "]";}
 }

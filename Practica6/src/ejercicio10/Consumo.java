@@ -16,18 +16,31 @@ public class Consumo {
 		this.pgas = pgas;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Consumo [kms=");
+		builder.append(kms);
+		builder.append(", litros=");
+		builder.append(litros);
+		builder.append(", vmed=");
+		builder.append(vmed);
+		builder.append(", pgas=");
+		builder.append(pgas);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	double getTiempo() {
-		return (kms/vmed)*60;
+		return kms/vmed*60;
 	}
 	
 	double consumoEuros() {
-		return (pgas*litros)/100;
+		return (pgas*litros);
 	}
 	
 	double consumoMedio() {
-		for (int kms=0;kms<=100;kms++) {
-				return litros;	}
-		return litros;
+		return(kms/litros);
 	}
 	
 	double kms,litros,vmed,pgas;
@@ -49,7 +62,7 @@ public class Consumo {
 	/**
 	 * @return the litros
 	 */
-	public double getLitros() {
+	public double getLitros(double litros) {
 		return litros;
 	}
 
