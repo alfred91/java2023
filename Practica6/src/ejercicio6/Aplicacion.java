@@ -4,17 +4,18 @@ public class Aplicacion {
 
 	public static void main(String[] args) {
 		
-	Satelite satelite = new Satelite(100,100,1000);
+	Satelite satelite1 = new Satelite(100,100,1000);
+
+	satelite1.printPosicion();
+	System.out.println();
+	System.out.print("Variamos la altura +50. ");
+	satelite1.variaAltura(50);
+	System.out.println(" Variamos la posicion +50 +50.");
+	satelite1.variaPosicion(50,50);
+	satelite1.printPosicion();
+	System.out.println();
+	System.out.println(satelite1.enOrbita());
+
 	
-	satelite.printPosicion();
-	System.out.println();
-	satelite.variaAltura(50);
-	satelite.variaPosicion(50,50);
-	satelite.printPosicion();
-	System.out.println();
-	if(satelite.enOrbita()==true) {
-		System.out.println("El satelite esta en orbita");}
-	else {
-		System.out.println("Estamos con los pies en la tierra");}
 	}
 }

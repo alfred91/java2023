@@ -13,6 +13,7 @@ package ejercicio6;
 		Satelite () {
 		meridiano=paralelo=distancia_tierra=0;
 		}
+			
 		public void setPosicion(double m, double p, double d) {
 		meridiano = m;
 		paralelo = p;
@@ -28,14 +29,34 @@ package ejercicio6;
 			distancia_tierra=desplazamiento+distancia_tierra;
 		}
 		
-		boolean enOrbita() {
-			if(distancia_tierra==0) {return false;
+		String enOrbita() {
+			if(distancia_tierra==0) {return "El satelite esta en tierra.";
 			} else {
-				return true;	}
+				return "El satelite esta en orbita.";	}
 			
 			}
 		public void variaPosicion(double variap, double variam) {
 			paralelo=paralelo+=variap;
 			meridiano=meridiano+=variam;
+		}
+		@Override
+		public String toString() {
+			StringBuilder builder = new StringBuilder();
+			builder.append("Satelite [meridiano=");
+			builder.append(meridiano);
+			builder.append(", paralelo=");
+			builder.append(paralelo);
+			builder.append(", distancia_tierra=");
+			builder.append(distancia_tierra);
+			builder.append(", enOrbita()=");
+			builder.append(enOrbita());
+			builder.append(", getClass()=");
+			builder.append(getClass());
+			builder.append(", hashCode()=");
+			builder.append(hashCode());
+			builder.append(", toString()=");
+			builder.append(super.toString());
+			builder.append("]");
+			return builder.toString();
 		}
 		}

@@ -1,62 +1,57 @@
 package ejercicio4;
-import java.util.Scanner;
 
 public class Finanzas {
-	
-public double dolares;
-public double euros;
 
-public Finanzas(double dolares, double euros) {
+	private String tipo;
+	private double cantidad;
+	
+	public Finanzas(String tipo, int cantidad) {
 		super();
-		this.dolares=dolares;
+		this.tipo = tipo;
+		this.cantidad = cantidad;
 	}
 
-	public void dolaresToEuros(double dolares) {
-		this.dolares=dolares*1.36;
-		
+	/**
+	 * @return the tipo
+	 */
+	public String getTipo() {
+		return tipo;
+	}
+
+	/**
+	 * @param tipo the tipo to set
+	 */
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	/**
+	 * @return the cantidad
+	 */
+	public double getCantidad() {
+		return cantidad;
+	}
+
+	/**
+	 * @param cantidad the cantidad to set
+	 */
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	@Override
+	public String toString() {
+		return "finanzas [tipo=" + tipo + ", cantidad=" + cantidad + "]";
 	}
 	
-	public void eurosToDolares(double euros) {
-		this.euros=euros*0.64;
-		this.dolares=dolares;
-	}
-
-	/**
-	 * @return the dolares
-	 */
-	public double getDolares() {
-		return dolares;
-	}
-
-	/**
-	 * @param dolares the dolares to set
-	 */
-	public void setDolares(double dolares) {
-		this.dolares = dolares;
-	}
-
-	/**
-	 * @return the euros
-	 */
-	public double getEuros() {
-		return euros;
-	}
-
-	/**
-	 * @param euros the euros to set
-	 */
-	public void setEuros(double euros) {
-		this.euros = euros;
-	}
-
-	/**
-	 * @param dolares
-	 * @param euros
-	 */
-	public int cambioDivisas(int dolares) {
-		Scanner sc =new Scanner(System.in);
-		System.out.println("Introduce cantidad en $: ");
-		euros=sc.nextDouble();
-		return (int) dolares;
-	}
+	public String finanzas() {
+	
+		if (this.tipo == "dolares") {
+			return 	this.cantidad * 1.36+" €";
+			
+		} else { 
+			return 	this.cantidad / 1.36+" $";
+			}
+	 	}
+	
 }
