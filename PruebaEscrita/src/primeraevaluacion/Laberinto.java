@@ -1,9 +1,14 @@
 package primeraevaluacion;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Laberinto {
+public class Laberinto<Casilla> {
 	
+	public Laberinto(Casilla[][] tablero) {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * Pinta el tablero del laberinto
 	 * @param tablero
@@ -155,6 +160,41 @@ public class Laberinto {
 		} while (opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4);
 		
 		
+	}
+
+	public void mostrarCaminos() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void añadirCamino(ArrayList<Casilla> clone) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Casilla getCasillaAt(int posXnueva, int posYnueva) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean arribaDisponible(Casilla casillaActual, Casilla aux) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean derechaDisponible(Casilla casillaActual, Casilla aux) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean abajoDisponible(Casilla casillaActual, Casilla aux) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean izquierdaDisponible(Casilla casillaActual, Casilla aux) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
