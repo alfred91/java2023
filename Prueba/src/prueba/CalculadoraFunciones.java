@@ -2,11 +2,8 @@ package prueba;
 
 import java.util.Scanner;
 
-public class CalculadoraFunciones {
-	public static double leerTeclado() {
-		double numero=0;
-		Scanner sc = new Scanner(System.in);
-	}
+public class CalculadoraFunciones{
+
 
 	public static void main(String[] args)throws Exception {
 		int opcion = 0;
@@ -16,7 +13,10 @@ public class CalculadoraFunciones {
 		//CREAR SCANNER
 
 		Scanner sc = new Scanner(System.in);
-		
+		System.out.println("Primer numero: ");
+		numero1=sc.nextDouble();
+		System.out.println("Segundo numero: ");
+		numero2=sc.nextDouble();
 			//PINTAR TODAS LAS OPCIONES
 			do {
 			
@@ -40,7 +40,14 @@ public class CalculadoraFunciones {
 			//HACER ALGO EN FUNCION DE LA OPCION ESCOGIDA
 			
 			switch (opcion) {
-			case
-			}
-	sc.close();
-	}}
+			
+			case 1: System.out.println(numero1+numero2);
+				break;
+			case 2: System.out.println(numero1-numero2);	
+				break;
+			case 3: System.out.println(numero1*numero2);
+				break;
+			case 4: System.out.println(numero1/numero2);	
+				break; 			}
+			} while(opcion!=5);}
+}

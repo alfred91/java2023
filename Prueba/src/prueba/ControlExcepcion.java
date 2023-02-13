@@ -3,12 +3,12 @@ package prueba;
 public class ControlExcepcion {
 
 public static double dividir(double num1, double num2) {
-	return num1/num2;
-	if (num2==0) {
+	
+	if (num2==0){
 throw new ArithmeticException ("Division por czero by JJ");}
 	
-			return -1;
-		}
+	else return num1/num2;}
+		
 
 	public static void main(String[] args) {
 int numero = 5;

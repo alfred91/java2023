@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class EjemploEscanerString {
 
 	public static void main(String[] args) {
-		String nombre, apellido1, apellido2;
+		String nombre = null, apellido1 = null;
+		String apellido2 = null;
 		
 		Scanner sc = new Scanner(System.in);
 		try {
@@ -15,11 +16,11 @@ public class EjemploEscanerString {
 		System.out.println("Introduce tu apellido 1");
 		apellido1 = sc.nextLine();
 		System.out.println("Introduce tu apellido 2");
-		apellido2 = sc.nextline();
+		apellido2 = sc.nextLine();
 		
-	} catch (Exeption e) {
+	} catch (Exception e) {
 		System.out.println("Error leyendo de teclado");
 	}
-		System.out.println("Te llamas" +nombre+ ""+apellido1+""+apellido2+);
+		System.out.println("Te llamas: "+nombre+" "+apellido1+" "+apellido2);
 	}
 }
