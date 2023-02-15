@@ -33,7 +33,7 @@ public class Main {
 				}
 					else {
 						boolean juegoGanado=!hayGuiones(palabraGuiones);
-							if(juegoGanado) {System.out.println("Has ganado el juego");
+							if(juegoGanado) {System.out.println("Has ganado!!");
 							juegoTerminado=true;}
 					}
 		
