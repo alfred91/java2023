@@ -3,13 +3,11 @@ package pract9ej2;
 import java.util.ArrayList;
 
 public class Banco {
+	
 	private String nombre;
-
 	private ArrayList<CuentaBancaria> cuentas;
-/**
-	 * @param nombre
-	 */
-	Banco(String nombre) {
+
+	public Banco(String nombre) {
 		super();
 		this.nombre = nombre;
 		this.cuentas=new ArrayList<>();
@@ -35,6 +33,29 @@ public class Banco {
 		
 			builder.append("]");
 			return builder.toString();
+	}
+	
+	public CuentaBancaria getCuenta(String numeroCuenta) {
+//FORMA1. Buscando con indexOf con un objeto vacío solo con el número de cuenta
+		CuentaBancaria cb=new CuentaBancaria (0,false,false,0);
+		cb.setNumeroCuenta(numeroCuenta);
+		
+		int posicion=cuentas.indexOf(cb);
+		if (posicion>=0)
+			return cuentas.get(posicion);
+		else
+			return null;
+		
+	//FORMA2. Buscando yo directamente una cuenta con ese número de cuenta
+				/*
+				for(CuentaBancaria cb : this.cuentas) {
+					if (cb.getNumeroCuenta().equals(numeroCuenta)) {
+						return cb;
+					}
+				}
+				
+				return null;
+				*/
 	}
 
 }

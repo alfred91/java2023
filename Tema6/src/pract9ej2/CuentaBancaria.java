@@ -4,6 +4,12 @@ import java.util.Objects;
 
 public class CuentaBancaria {
 	
+	protected String numeroCuenta;
+	protected double saldo;
+	protected boolean tieneTarjetaCredito;
+	protected boolean tieneTarjetaDebito;
+	protected double comisiones;
+	
 /**
 	 * @param numeroCuenta
 	 * @param saldo
@@ -12,10 +18,10 @@ public class CuentaBancaria {
 	 * @param comisiones
 	 */
 	
-	CuentaBancaria(String numeroCuenta, double saldo, boolean tieneTarjetaCredito, boolean tieneTarjetaDebito,
+	CuentaBancaria( double saldo, boolean tieneTarjetaCredito, boolean tieneTarjetaDebito,
 			double comisiones) {
 		super();
-		this.numeroCuenta = numeroCuenta;
+		this.numeroCuenta = generarNumeroCuenta();
 		this.saldo = saldo;
 		this.tieneTarjetaCredito = tieneTarjetaCredito;
 		this.tieneTarjetaDebito = tieneTarjetaDebito;
@@ -29,9 +35,86 @@ public class CuentaBancaria {
 		this.tieneTarjetaDebito=otra.tieneTarjetaDebito;
 		this.comisiones=otra.comisiones;}
 	
-			private String numeroCuenta;
-			private double saldo;
-			private boolean tieneTarjetaCredito;
+
+			private String generarNumeroCuenta() {
+				
+				StringBuilder sb = new StringBuilder(20);
+				sb.append("ES");
+				for (int i=0;i<18;i++) {
+					sb.append((int)Math.random()*10);
+					}
+				return sb.toString();
+	}
+			
+			/**
+			 * @return the numeroCuenta
+			 */
+			public String getNumeroCuenta() {
+				return numeroCuenta;
+			}
+
+			/**
+			 * @param numeroCuenta the numeroCuenta to set
+			 */
+			public void setNumeroCuenta(String numeroCuenta) {
+				this.numeroCuenta = numeroCuenta;
+			}
+
+			/**
+			 * @return the saldo
+			 */
+			public double getSaldo() {
+				return saldo;
+			}
+
+			/**
+			 * @param saldo the saldo to set
+			 */
+			public void setSaldo(double saldo) {
+				this.saldo = saldo;
+			}
+
+			/**
+			 * @return the tieneTarjetaCredito
+			 */
+			public boolean isTieneTarjetaCredito() {
+				return tieneTarjetaCredito;
+			}
+
+			/**
+			 * @param tieneTarjetaCredito the tieneTarjetaCredito to set
+			 */
+			public void setTieneTarjetaCredito(boolean tieneTarjetaCredito) {
+				this.tieneTarjetaCredito = tieneTarjetaCredito;
+			}
+
+			/**
+			 * @return the tieneTarjetaDebito
+			 */
+			public boolean isTieneTarjetaDebito() {
+				return tieneTarjetaDebito;
+			}
+
+			/**
+			 * @param tieneTarjetaDebito the tieneTarjetaDebito to set
+			 */
+			public void setTieneTarjetaDebito(boolean tieneTarjetaDebito) {
+				this.tieneTarjetaDebito = tieneTarjetaDebito;
+			}
+			
+			/**
+			 * @return the comisiones
+			 */
+			public double getComisiones() {
+				return comisiones;
+			}
+
+			/**
+			 * @param comisiones the comisiones to set
+			 */
+			public void setComisiones(double comisiones) {
+				this.comisiones = comisiones;
+			}
 			@Override
 			public String toString() {
 				StringBuilder builder = new StringBuilder();
@@ -47,23 +130,11 @@ public class CuentaBancaria {
 				builder.append(comisiones);
 				builder.append("]");
 				return builder.toString();
-			}
-			private boolean tieneTarjetaDebito;
-			private double comisiones;
-			
-			
-			private String generarNumeroCuenta() {
+						}		
 				
-				StringBuilder sb = new StringBuilder(20);
-				sb.append("ES");
-				for (int i=0;i<18;i++) {
-					sb.append((int)Math.random()*10);
-					}
-				return sb.toString();
-	}
 			@Override
 			public int hashCode() {
-				return Objects.hash(comisiones, numeroCuenta, saldo, tieneTarjetaCredito, tieneTarjetaDebito);
+				return Objects.hash(numeroCuenta);
 			}
 			@Override
 			public boolean equals(Object obj) {
@@ -75,11 +146,8 @@ public class CuentaBancaria {
 					return false;
 				CuentaBancaria other = (CuentaBancaria) obj;
 				
-				return Double.doubleToLongBits(comisiones) == Double.doubleToLongBits(other.comisiones)
-						&& Objects.equals(numeroCuenta, other.numeroCuenta)
-						&& Double.doubleToLongBits(saldo) == Double.doubleToLongBits(other.saldo)
-						&& tieneTarjetaCredito == other.tieneTarjetaCredito
-						&& tieneTarjetaDebito == other.tieneTarjetaDebito;
+				return Objects.equals(numeroCuenta, other.numeroCuenta);
+					
 			}
 			
 			public void ingresar(double cantidad) {

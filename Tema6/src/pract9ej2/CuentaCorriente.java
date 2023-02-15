@@ -4,18 +4,17 @@ public class CuentaCorriente extends CuentaBancaria {
 
 	private double modifComisiones=0.4;
 	
-	public CuentaCorriente(String numeroCuenta, double saldo,
-			double comisiones) {
-		super(numeroCuenta, saldo, true,true, comisiones);
-		this.modifComisiones=this.modifComisiones*this.modifComisiones;
+	public CuentaCorriente(double saldo, double comisiones) {
+		super(saldo, true, true, comisiones);
 		
-		// TODO Auto-generated constructor stub
+		this.modifComisiones = this.modifComisiones * this.modifComisiones;
+		
 	}
 
 	public CuentaCorriente(CuentaCorriente otra) {
 		
 		super(otra);
-		// TODO Auto-generated constructor stub
+	
 	}
 
 }
