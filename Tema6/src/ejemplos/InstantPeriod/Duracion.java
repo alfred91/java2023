@@ -19,7 +19,7 @@ public class Duracion {
 		Duration duracion = Duration.between(inicio, fin);
 		System.out.println(duracion);
 		
-		//Duration para calcular la diferencia entre horas
+		//Duracion para calcular la diferencia entre horas
 		LocalTime f1 = LocalTime.of(22,20,20);
 		LocalTime f2 = LocalTime.of(23,33, 0);
 		

@@ -1,14 +1,13 @@
 package ejemplos.Enumerado;
 
 public class JugadorNBA {
-/**
-	 * @param nombre
-	 * @param altura
-	 * @param peso
-	 * @param posicion
-	 * @param equipo
-	 */
-	JugadorNBA(String nombre, double altura, double peso, String posicion, EquipoNBA equipo) {
+	
+	private String nombre;
+	private double altura,peso;
+	private String posicion;
+	private EquipoNBA equipo;
+
+	public JugadorNBA(String nombre, double altura, double peso, String posicion, EquipoNBA equipo) {
 		super();
 		this.nombre = nombre;
 		this.altura = altura;
@@ -16,29 +15,7 @@ public class JugadorNBA {
 		this.posicion = posicion;
 		this.equipo = equipo;
 	}
-@Override
-public String toString() {
-	StringBuilder builder = new StringBuilder();
-	builder.append("JugadorNBA [nombre=");
-	builder.append(nombre);
-	builder.append(", altura=");
-	builder.append(altura);
-	builder.append(", peso=");
-	builder.append(peso);
-	builder.append(", posicion=");
-	builder.append(posicion);
-	builder.append(", equipo=");
-	builder.append(equipo.get);
-	builder.append("]");
-	return builder.toString();
-}
-private String nombre;
-private double altura,peso;
-private String posicion;
-private EquipoNBA equipo;
-/**
- * @return the nombre
- */
+
 public String getNombre() {
 	return nombre;
 }
@@ -95,5 +72,21 @@ public EquipoNBA getEquipo() {
  */
 public void setEquipo(EquipoNBA equipo) {
 	this.equipo = equipo;
+}
+@Override
+public String toString() {
+	StringBuilder builder = new StringBuilder();
+	builder.append("JugadorNBA [nombre=");
+	builder.append(nombre);
+	builder.append(", altura=");
+	builder.append(altura);
+	builder.append(", peso=");
+	builder.append(peso);
+	builder.append(", posicion=");
+	builder.append(posicion);
+	builder.append(", equipo=");
+	builder.append(equipo.getNombreCompleto());
+	builder.append("]");
+	return builder.toString();
 }
 }
