@@ -47,12 +47,23 @@ public class Jugador {
             } else {
                 danio = 20;
             }
+ 
         }
         enemigo.quitarVida(danio);
     }
-    
-    @Override
-    public String toString() {
-        return nick + " (" + clase + ", salud: " + salud + ")";
-    }
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Jugador [nick=");
+		builder.append(nick);
+		builder.append(", clase=");
+		builder.append(clase);
+		builder.append(", salud=");
+		builder.append(salud);
+		builder.append(", arma=");
+		builder.append(arma);
+		builder.append("]");
+		return builder.toString();
+	}
 }

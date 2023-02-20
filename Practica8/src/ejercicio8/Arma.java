@@ -31,9 +31,19 @@ public class Arma {
 	    public void setDisparos(int disparos) {
 	        this.disparos = disparos;
 	    }
+
+		@Override
+		public String toString() {
+			StringBuilder builder = new StringBuilder();
+			builder.append("Arma [nombre=");
+			builder.append(nombre);
+			builder.append(", puntos=");
+			builder.append(puntos);
+			builder.append(", disparos=");
+			builder.append(disparos);
+			builder.append("]");
+			return builder.toString();
+		}
 	    
-	    @Override
-	    public String toString() {
-	        return nombre + " (daño: " + puntos + ", balas: " + disparos + ")";
-	    }
+
 	}

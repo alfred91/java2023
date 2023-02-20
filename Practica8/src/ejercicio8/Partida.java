@@ -6,9 +6,12 @@ public class  Partida {
     private Jugador jugador;
     private ArrayList<Enemigo> enemigos;
     
-    public Partida(Jugador jugador) {
-        this.jugador = jugador;
-        enemigos = new ArrayList<Enemigo>();
-        iniciarPartida();
+    public Partida(Jugador j) {
+        this.jugador = j;
+        enemigos = new ArrayList<>();
     }
+    public void function turnoJugador() {
+    	
+    }
+    
 }

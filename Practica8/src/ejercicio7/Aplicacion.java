@@ -1,14 +1,13 @@
 package ejercicio7;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
  
-public class Aplicacion2 {
+public class Aplicacion {
  
     public static void main(String[] args) {
  
-        Scanner sn = new Scanner(System.in);
-        sn.useDelimiter("\n");
+        Scanner sc = new Scanner(System.in);
+        sc.useDelimiter("\n");
         boolean salir = false;
         int opcion; //Guardaremos la opcion del usuario
  
@@ -30,19 +29,17 @@ public class Aplicacion2 {
             System.out.println("8. Salir");
             try {
                 System.out.println("Escribe una de las opciones");
-                opcion = sn.nextInt();
+                opcion = sc.nextInt();
  
                 switch (opcion) {
                     case 1:
- 
-                        //Pido valores
+
                         System.out.println("Escribe un nombre");
-                        nombre = sn.next();
+                        nombre = sc.nextLine();
  
                         System.out.println("Escribe un telefono");
-                        telefono = sn.nextInt();
- 
-                        //Creo el contacto
+                        telefono = sc.nextInt();
+
                         c = new Contacto(nombre, telefono);
  
                         agendaTelefonica.aniadirContacto(c);
@@ -54,21 +51,18 @@ public class Aplicacion2 {
  
                         break;
                     case 3:
- 
-                        //pido el nombre
+
                         System.out.println("Escribe un nombre");
-                        nombre = sn.next();
+                        nombre = sc.nextLine();
  
                         agendaTelefonica.buscarPorNombre(nombre);
  
                         break;
                     case 4:
- 
-                        //pido el nombre
+
                         System.out.println("Escribe un nombre");
-                        nombre = sn.next();
- 
-                        //Creo el contacto auxiliar
+                        nombre = sc.next();
+
                         c = new Contacto(nombre, 0);
  
                         if (agendaTelefonica.existeContacto(c)) {
@@ -79,10 +73,9 @@ public class Aplicacion2 {
  
                         break;
                     case 5:
- 
-                        //pido el nombre
+
                         System.out.println("Escribe un nombre");
-                        nombre = sn.next();
+                        nombre = sc.nextLine();
  
                         //Creo el contacto auxiliar
                         c = new Contacto(nombre, 0);
@@ -101,7 +94,7 @@ public class Aplicacion2 {
                         if (agendaTelefonica.agendaLlena()) {
                             System.out.println("La agenda esta llena");
                         } else {
-                            System.out.println("Aun puedes meter contactoss");
+                            System.out.println("Aun puedes meter contactos");
                         }
  
                         break;
@@ -114,11 +107,8 @@ public class Aplicacion2 {
  
             } catch (InputMismatchException e) {
                 System.out.println("Debes insertar un número");
-                sn.next();
+                sc.nextLine();
             }
- 
         }
- 
     }
- 
 }

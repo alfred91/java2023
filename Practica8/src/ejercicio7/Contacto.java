@@ -1,5 +1,7 @@
 package ejercicio7;
 
+import java.util.Objects;
+
 public class Contacto {
     
     private String nombre;
@@ -31,17 +33,25 @@ public class Contacto {
         this.telefono = telefono;
     }
  
-    public boolean equals(Contacto c){
-         
-        if(this.nombre.trim().equalsIgnoreCase(c.getNombre().trim())){
-            return true;
-        }
-         
-        return false;
-         
-    }
-     
+
     @Override
+	public int hashCode() {
+		return Objects.hash(nombre, telefono);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Contacto other = (Contacto) obj;
+		return Objects.equals(nombre, other.nombre);
+	}
+
+	@Override
     public String toString() {
         return "nombre=" + nombre + ", telefono=" + telefono;
     }
