@@ -1,9 +1,9 @@
 package ejercicio1;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Persona {
-	
     private String nombre;
     private int edad;
     private String dni;
@@ -11,27 +11,24 @@ public class Persona {
     private double peso;
     private double altura;
 
-    // Constructor por defecto
     public Persona() {
-        this.nombre = "Jose";
-        this.edad = 30;
-        this.dni = "123456789";
+        this.nombre = "";
+        this.edad = 0;
+        this.dni = "";
         this.sexo = 'H';
-        this.peso = 100;
-        this.altura = 200;
+        this.peso = 0.0;
+        this.altura = 0.0;
     }
 
-    // Constructor con nombre, edad, dni, sexo y resto por defecto
     public Persona(String nombre, int edad, String dni, char sexo) {
         this.nombre = nombre;
         this.edad = edad;
         this.dni = dni;
         this.sexo = sexo;
-        this.peso = 0;
-        this.altura = 0;
+        this.peso = 0.0;
+        this.altura = 0.0;
     }
 
-    // Constructor con todos los miembros como parámetros
     public Persona(String nombre, int edad, String dni, char sexo, double peso, double altura) {
         this.nombre = nombre;
         this.edad = edad;
@@ -41,7 +38,6 @@ public class Persona {
         this.altura = altura;
     }
 
-    // Constructor copia
     public Persona(Persona persona) {
         this.nombre = persona.nombre;
         this.edad = persona.edad;
@@ -51,7 +47,39 @@ public class Persona {
         this.altura = persona.altura;
     }
 
-    // Métodos para obtener y establecer los valores de los miembros
+    public int calcularIMC() {
+        double imc = this.peso / (this.altura * this.altura);
+        if (imc < 20) {
+            return 1;
+        } else if (imc >= 20 && imc <= 25) {
+            return 0;
+        } else {
+            return -1;
+        }
+    }
+
+    public boolean esMayordeEdad() {
+        return this.edad >= 18;
+    }
+
+    public String toString() {
+        return "Nombre: " + this.nombre + "\n" +
+                "Edad: " + this.edad + "\n" +
+                "DNI: " + this.dni + "\n" +
+                "Sexo: " + this.sexo + "\n" +
+                "Peso: " + this.peso + "\n" +
+                "Altura: " + this.altura;
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Edad: " + edad);
+        System.out.println("DNI: " + dni);
+        System.out.println("Sexo: " + sexo);
+        System.out.println("Peso: " + peso);
+        System.out.println("Altura: " + altura);
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -60,7 +88,26 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public int getEdad() {
+    @Override
+	public int hashCode() {
+		return Objects.hash(altura, edad, nombre, peso, sexo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		return Double.doubleToLongBits(altura) == Double.doubleToLongBits(other.altura) && edad == other.edad
+				&& Objects.equals(nombre, other.nombre)
+				&& Double.doubleToLongBits(peso) == Double.doubleToLongBits(other.peso) && sexo == other.sexo;
+	}
+
+	public int getEdad() {
         return edad;
     }
 
@@ -70,11 +117,6 @@ public class Persona {
 
     public String getDni() {
         return dni;
-    }
-
-    // El DNI no se puede cambiar
-    public void setDni(String dni) {
-        this.dni = dni;
     }
 
     public char getSexo() {
@@ -101,56 +143,7 @@ public class Persona {
         this.altura = altura;
     }
 
-    // Método para calcular el índice de masa corporal (IMC)
-    public int calcularIMC() {
-        double imc = peso / (altura * altura);
-        if (imc < 20) {
-            return 1; // Peso ideal
-        } else if (imc >= 20 && imc <= 25) {
-            return 0; // Por debajo del peso ideal
-        } else {
-            return -1; // Sobrepeso
-        }
+    public boolean equals(Persona persona) {
+        return this.dni.equals(persona.dni);
     }
-
-    // Método para comprobar si la persona es mayor de edad
-    public boolean esMayorDeEdad() {
-        return edad >= 18;
-    }
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Persona [nombre=");
-		builder.append(nombre);
-		builder.append(", edad=");
-		builder.append(edad);
-		builder.append(", dni=");
-		builder.append(dni);
-		builder.append(", sexo=");
-		builder.append(sexo);
-		builder.append(", peso=");
-		builder.append(peso);
-		builder.append(", altura=");
-		builder.append(altura);
-		builder.append("]");
-		return builder.toString();
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(dni);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Persona other = (Persona) obj;
-		return Objects.equals(dni, other.dni);
-	}
 }
