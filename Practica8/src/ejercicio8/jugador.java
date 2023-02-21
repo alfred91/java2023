@@ -1,12 +1,12 @@
 package ejercicio8;
 
-public class Jugador {
+public class jugador {
     private String nick;
     private String clase;
     private int salud;
     private Arma arma;
     
-    public Jugador(String nick, String clase, int salud) {
+    public jugador(String nick, String clase, int salud) {
         this.nick = nick;
         this.clase = clase;
         this.salud = salud;
