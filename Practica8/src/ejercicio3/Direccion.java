@@ -206,4 +206,5 @@ public double distanciaKM(Direccion otra) {
 			 return distancia;
 	
 }
+
 }
