@@ -17,7 +17,7 @@ public class TestPersona {
 	        String dni = sc.nextLine();
 	        
 	        System.out.print("Introduce el sexo H o M: ");
-	        char sexo = sc.nextLine().charAt(0);
+	        String sexo = sc.nextLine();
 
 	        System.out.print("Introduce el peso: ");
 	        int peso = sc.nextInt();
@@ -37,7 +37,7 @@ public class TestPersona {
 	        System.out.print("Nueva edad: ");
 	        edad = sc.nextInt();
 	        System.out.print("Nuevo sexo (M o F): ");
-	        sexo = sc.next().charAt(0);
+	        sexo = sc.next();
 	        System.out.print("Nuevo peso: ");
 	        peso = sc.nextInt();
 	        System.out.print("Nueva altura en metros: ");
