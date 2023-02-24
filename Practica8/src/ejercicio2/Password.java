@@ -19,8 +19,8 @@ public class Password {
         this.longitud = pass.longitud;
         this.contrasena = pass.contrasena;
     }
-
-    public boolean esFuerte() {
+    
+    public boolean Strong() {
         int numMayus = 0, numMinus = 0, numNumeros = 0, numSimbolos = 0;
 
         for (int i = 0; i < contrasena.length(); i++) {
@@ -38,14 +38,24 @@ public class Password {
 
         return (contrasena.length() >= 8 && numMayus > 0 && numMinus > 2 && numNumeros > 2 && numSimbolos > 0);
     }
+    
+    public String esFuerte() {
+	   
+	   if (Strong())
+		 
+		   return "Es una contraseña fuerte";
+	   
+	   		else return "No es fuerte";
+	   	}
 
     public String generarPassword() {
         String mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String minus = "abcdefghijklmnopqrstuvwxyz";
         String numeros = "0123456789";
-        String simbolos = "!@#$%^&*()_+-={}[]|\\:;\"'<>,.?/";
+        String simbolos = "ª!·$%&/()=?¿_-";
 
         String caracteres = mayus + minus + numeros + simbolos;
+        
 
         Random rnd = new Random();
         StringBuilder sb = new StringBuilder();

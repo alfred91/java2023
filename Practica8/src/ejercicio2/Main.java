@@ -13,12 +13,12 @@ public class Main {
         Password pass2 = new Password(a);
 
         System.out.println("Contraseña 1: " + pass1.generarPassword());
-        System.out.println("Es fuerte? " + pass1.esFuerte());
+        System.out.println(pass1.esFuerte());
 
         System.out.println();
 
  
         System.out.println("Contraseña 2 "+pass2.generarPassword());
-        System.out.println("¿Es una contraseña fuerte? " + pass2.esFuerte());
+        System.out.println( pass2.esFuerte());
     }
 }
