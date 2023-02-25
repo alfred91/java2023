@@ -17,7 +17,7 @@ public class TestPersona {
 	        String dni = sc.nextLine();
 	        
 	        System.out.print("Introduce el sexo H o M: ");
-	        String sexo = sc.nextLine();
+	        char sexo = sc.next().charAt(0);;
 
 	        System.out.print("Introduce el peso: ");
 	        int peso = sc.nextInt();
@@ -26,7 +26,7 @@ public class TestPersona {
 	        double altura = sc.nextDouble();
 	        
 	        
-	        Persona persona = new Persona(nombre, edad, dni, sexo, peso, altura);
+	       Persona persona = new Persona(nombre, edad, dni, sexo, peso, altura);
 	       System.out.println("Mayor de edad? "+persona.esMayordeEdad());
 	       System.out.println("IMC "+persona.calcularIMC());
 
@@ -37,7 +37,7 @@ public class TestPersona {
 	        System.out.print("Nueva edad: ");
 	        edad = sc.nextInt();
 	        System.out.print("Nuevo sexo (M o F): ");
-	        sexo = sc.next();
+	        sexo = sc.next().charAt(0);;
 	        System.out.print("Nuevo peso: ");
 	        peso = sc.nextInt();
 	        System.out.print("Nueva altura en metros: ");
