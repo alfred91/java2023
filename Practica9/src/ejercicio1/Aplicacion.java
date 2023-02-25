@@ -1,19 +1,28 @@
 package ejercicio1;
 
+import ejercicio2.Banco;
+import ejercicio2.CuentaAhorro;
+import ejercicio2.CuentaCorriente;
+import ejercicio2.CuentaJoven;
+
 public class Aplicacion {
-	
-	 public static void main(String[] args) {
-		 
-	        //Creamos los objetos
-	        Comercial c1 = new Comercial(300, "DDR", 37, 1000);
-	        Repartidor r1 = new Repartidor("zona 3", "Fer", 26, 900);
-	 
-	        //Llamamos a plus
-	        c1.plus();
-	        r1.plus();
-	 
-	        //Mostramos la informacion
-	        System.out.println(c1);
-	        System.out.println(r1);
-	    } 
+
+	public static void main(String[] args) {
+		
+		//CuentaBancaria cb1 = new CuentaBancaria(10000, true, false, 100);
+		CuentaAhorro ca1 = new CuentaAhorro(3000, 50, 0.02);
+		CuentaCorriente cc1 = new CuentaCorriente(5000, 80);
+		CuentaJoven cj1 = new CuentaJoven(1000, 40);
+
+		Banco b1 = new Banco("La Caixa");
+		//mibbba.addCuenta(cb1);
+		b1.addCuenta(ca1);
+		b1.addCuenta(cc1);
+		b1.addCuenta(cj1);
+
+		System.out.println(b1);
+
+		b1.mostrarPrestamosPreconcedidos();
+	}
+
 }
