@@ -2,9 +2,9 @@ package ejercicio8;
 
 public class Arma {
 	
-	    private String nombre;
-	    private int puntos;
-	    private int disparos;
+	    public String nombre;
+	    public int puntos;
+	    public int disparos;
 	    
 	    public Arma(String nombre, int puntos, int disparos) {
 	        this.nombre = nombre;
