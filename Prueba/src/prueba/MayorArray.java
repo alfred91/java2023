@@ -4,24 +4,21 @@ public class MayorArray {
 
 	public static void main(String[] args) {
 		
-		int x;int y;
+		int x=0;int y = 0;
 		int[][] matriz = {{29,23,13},{41,57,69},{17,28,39}};
 		int numeroMayor = matriz[0][0];
 		int numeroMenor = matriz[0][0];
 		String mayorPosicion = "0,0";
 		String menorPosicion = "0,0";
 
-		for (int x=0;x<matriz.length;x++) {
-		  for (int y=0;y<matriz[x].length;y++) {
-
-		    // Acción
-
+		for (x=0;x<matriz.length;x++) {
+		  for (y=0;y<matriz[x].length;y++) {
 		  }                
 		}
-		matriz[x][y]
+		System.out.println(matriz[x][y]);
 
-		for (int x=0;x<matriz.length;x++) {
-		  for (int y=0;y<matriz[x].length;y++) {
+		for ( x=0;x<matriz.length;x++) {
+		  for ( y=0;y<matriz[x].length;y++) {
 
 		    if (matriz[x][y] > numeroMayor) {
 		      numeroMayor = matriz[x][y];

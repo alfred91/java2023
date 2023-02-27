@@ -14,13 +14,13 @@ public class EjemploIf {
 		double iva=1.25;
 		int cantidad;
 		double total;
-		
+		System.out.println("Precio: "+precio);
 		System.out.println("Escribe la cantidad");
 		cantidad=sc.nextInt();
 		if (cantidad>=5) {
 			total=precio*cantidad;
 		}else {
-			total=(total*cantidad*iva);
+			total=(cantidad*precio*iva);
 		}
 		System.out.println(+total);
 	}
