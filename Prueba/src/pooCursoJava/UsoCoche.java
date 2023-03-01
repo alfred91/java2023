@@ -24,7 +24,7 @@ public class UsoCoche {
 	
 	System.out.println(micoche.dime_peso_coche()+" Kg"); //ESTE ES GETTER SETTER, SE CONFIGURA EN COCHE
 	
-	System.out.println("El precio final del coche es : " +micoche.dime_precio()+" €");
+	System.out.println("El precio final del coche es : " +micoche.precio_coche()+" €");
 	
 	}
 }

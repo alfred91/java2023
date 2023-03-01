@@ -75,7 +75,7 @@ public class Coche {
 	}
 	
 	public void configura_climatizador(String climatizador) {
-		if(climatizador=="Si") {
+		if(climatizador=="si") {
 			
 			this.climatizador=true;
 				} else {
@@ -112,7 +112,7 @@ public class Coche {
 	
 	
 	
-	public int dime_precio() {
+	public int precio_coche() {
 		int precio_final=20000;
 		
 		if (asientos_cuero=true) {
@@ -124,6 +124,4 @@ public class Coche {
 		return precio_final;
 	}
 	
-}
-
-
+} 

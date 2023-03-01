@@ -7,7 +7,8 @@ public class Uso_Empleado {
 
 	public static void main(String[] args) {
 
-		/*Empleado empleado1=new Empleado("Paco Gómez",8500,1990,12,17);
+		/*
+		Empleado empleado1=new Empleado("Paco Gómez",8500,1990,12,17);
 		
 		Empleado empleado2=new Empleado("Ana López",8000,1995,06,02);
 		
@@ -72,17 +73,17 @@ class Empleado{
 		return nombre;	
 		}
 		
-		public double dameSueldo() {
+		public double dameSueldo() { //GETTER
 			
 			return sueldo;
 		}
 		
-		public Date dameFechaContrato() {
+		public Date dameFechaContrato() { //GETTER
 			
 			return altaContrato;
 		}
 		
-		public void subeSueldo(double porcentaje) {
+		public void subeSueldo(double porcentaje) { //SETTER
 			
 			double aumento=sueldo*porcentaje/100;
 			sueldo+=aumento;

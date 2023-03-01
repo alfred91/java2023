@@ -14,23 +14,25 @@ public class Ejercicios21 {
 		// numero = numero + 10;
 		// }
 	//IMPARES
-	
-	for (numero=1;numero<=1000; numero +=2) {
+	System.out.println("N impares: ");
+	System.out.println();
+	for (int numero=1;numero<=1000; numero +=2) {
 		System.out.println(numero);
 	}
 	//MUESTRA LOS NUMEROS ENTRE -1 Y 1
-	
-	for(double numero=1;numero<1;numero+= 0.01) {
+	System.out.println("N entre -1 y 1: ");
+	System.out.println();
+	for(double numero=-1;numero<=1;numero+= 0.01) {
 		System.out.println(numero);
 	}
 	// GENERA UN NUM ALEATORIO ENTRE 1 Y 100 MUESTRA TODOS LOS NUMEROS ENTRE UNO Y 100 MENOS ESE ALEATORIO
 	
-	int numero =(int) ((Mat.random()*100)+1);
+	int numero =(int) ((Math.random()*100)+1);
 	System.out.println(numero);
-	for(int i=1; i<=100, i++) {
+	for(int i=1; i<=100; i++) {
 		if (i==numero) {
 			continue;
 		}
 	}
 	}
-	}
+}
