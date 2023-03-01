@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author Apache
- *
- */
-module Ahorcado {
-}
