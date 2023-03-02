@@ -1,7 +1,7 @@
 package ejercicio1;
 
 public class MozoAlmacen extends Operario {
-    private int peligrosidad;
+    private static int peligrosidad;
 
     public MozoAlmacen(String nombre, int edad, double salario, boolean haceHorasExtra, int peligrosidad) {
         super(nombre, edad, salario, haceHorasExtra);
@@ -17,16 +17,18 @@ public class MozoAlmacen extends Operario {
     }
 
     @Override
-    public boolean plus() {
+    public double plus() {
+    	
         double plus = 0;
+        
         if (super.haceHorasExtra) {
             plus += super.PLUS * 2;
         }
         if (peligrosidad == 3 || (peligrosidad == 2 && super.edad > 30) || (peligrosidad == 1 && super.edad < 30)) {
             super.salario += super.PLUS + plus;
-            return true;
-        }
-        return false;
+         }
+		return plus;
+       
     }
 
     @Override
