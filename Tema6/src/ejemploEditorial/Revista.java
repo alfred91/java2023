@@ -53,8 +53,17 @@ public class Revista extends Publicacion {
 
 	@Override
 	public ArrayList<Autor> getAutores() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		// Recorrer todos los articulos sacar el autor de cada uno y meterlo en un arraylist a devolver
+		
+		
+		ArrayList<Autor>autores= new ArrayList<>();
+		
+		for (Articulo ar: this.articulos) {
+			autores.add(ar.getAutor());
+		}
+		
+		return autores;
 	}
 
 	/**

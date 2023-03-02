@@ -23,6 +23,8 @@ public class Test {
 		bbc.addPublicacion(l1);
 		bbc.addPublicacion(l2);
 
+		Articulo ar1= new Articulo("art 1", "Ensayo", a1);
+		
 	}
 
 }
