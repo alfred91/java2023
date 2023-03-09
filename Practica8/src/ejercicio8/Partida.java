@@ -23,7 +23,7 @@ public class Partida {
 	/**
 	 * El jugador dispara al primer enemigo con lo tenga
 	 * Si no quedan enemigos devuelve true (ganado)
-	 * Sino, golpeas al primer enemigo que queda vivo, si lo matas, lo borras del ArrayList
+	 * Si no, golpeas al primer enemigo que queda vivo, si lo matas, lo borras del ArrayList
 	 */
 	public boolean turnoJugador() {
 		
@@ -85,9 +85,9 @@ public class Partida {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Partida [jugador=");
+		builder.append("Partida [jugador="+jugador.nick+" Vida: ");
 		builder.append(jugador.getSalud());
-		builder.append(" nº enemigos ");
+		builder.append(". Num enemigos: ");
 		builder.append(this.enemigos.size());
 		builder.append("]");
 		return builder.toString();

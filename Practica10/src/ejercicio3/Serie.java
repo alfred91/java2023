@@ -1,6 +1,6 @@
 package ejercicio3;
 
-public class Serie {
+public class Serie implements Engregable{
 
     // Atributos
     private String titulo;
