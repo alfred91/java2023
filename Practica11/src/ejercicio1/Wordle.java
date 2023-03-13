@@ -11,7 +11,7 @@ public class Wordle {
             "kazoo", "parch", "parar", "besar", "cabra", "manos", "botón", "basar", "canso",
             "silla", "canto", "silla", "sable", "susto", "caper", "pardo", "bajar", "bello",
             "perro", "cuota", "parte", "lunar", "miedo", "cable", "panel", "mofar", "pulir",
-            "altar", "piano", "mitra", "basal", "corso"
+            "altar", "piano", "morsa", "basal", "corso"
     ));
     private static final char[] alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     private String palabraAcertar;
