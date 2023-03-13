@@ -4,11 +4,34 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class Compra implements Enviable {
-    protected List<LineaCompra> listaLineaCompra;
+    /**
+	 * @param cliente
+	 */
+	Compra(String cliente) {
+		super();
+		this.cliente = cliente;
+	}
+
+	protected List<LineaCompra> listaLineaCompra;
     protected Date fecha;
     protected double precioTotal;
+    protected String cliente;
 
-    public Compra(Date fecha) {
+    /**
+	 * @return the cliente
+	 */
+	public String getCliente() {
+		return cliente;
+	}
+
+	/**
+	 * @param cliente the cliente to set
+	 */
+	public void setCliente(String cliente) {
+		this.cliente = cliente;
+	}
+
+	public Compra(Date fecha) {
         this.fecha = fecha;
         this.listaLineaCompra = new ArrayList<>();
         this.precioTotal=0;
@@ -54,38 +77,40 @@ public class Compra implements Enviable {
     }
 
     public String crearEmail() {
-        StringBuilder eb = new StringBuilder();
-        eb.append("Detalle de la compra realizada en nuestra tienda:").append("\n\n");
-        eb.append("Fecha de compra: ").append(fecha.toString()).append("\n\n");
-        eb.append("Lista de productos:\n");
-        for (LineaCompra lc : listaLineaCompra) {
-            eb.append("- ").append(lc.getCantidad()).append("x ").append(lc.getProducto().getNombre())
-                    .append(" a ").append((lc.getProducto().getPrecio())).append(" = €")
-                    .append((lc.subtotal())).append("\n");
-        }
-        eb.append("\n TOTAL : ").append((precioTotal));
-        return eb.toString();
-    }
-
-    private void actualizarPrecioTotal() {
-        precioTotal = 0.0;
-        for (LineaCompra lc : listaLineaCompra) {
-            precioTotal += lc.subtotal();
-        }
-    }
-
-    @Override
-    public String toString() {
+    	
         StringBuilder sb = new StringBuilder();
-        sb.append("Compra realizada: ").append("\n\n");
-        sb.append("Fecha de la compra: ").append(fecha.toString()).append("\n\n");
+        sb.append("Detalle de la compra realizada en nuestra tienda:").append("\n\n");
+        sb.append("Fecha de compra: ").append(fecha.toString()).append("\n\n");
         sb.append("Lista de productos:\n");
         for (LineaCompra lc : listaLineaCompra) {
             sb.append("- ").append(lc.getCantidad()).append("x ").append(lc.getProducto().getNombre())
                     .append(" a ").append((lc.getProducto().getPrecio())).append(" = €")
                     .append((lc.subtotal())).append("\n");
         }
-        sb.append("\nTotal a pagar: ").append((precioTotal));
+        sb.append("\n TOTAL : ").append((precioTotal));
         return sb.toString();
     }
+
+    private void actualizarPrecioTotal() {
+        precioTotal=this.precioTotal;
+        for (LineaCompra lc : listaLineaCompra) {
+            precioTotal += lc.subtotal();
+        }
+    }
+
+    @Override
+	public String toString() {
+    	
+		StringBuilder builder = new StringBuilder();
+		builder.append("Compra [listaLineaCompra=");
+		builder.append(listaLineaCompra);
+		builder.append(", fecha=");
+		builder.append(fecha);
+		builder.append(", precioTotal=");
+		builder.append(precioTotal);
+		builder.append(", cliente=");
+		builder.append(cliente);
+		builder.append("]");
+		return builder.toString();
+	}
 }
