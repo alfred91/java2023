@@ -3,11 +3,11 @@ package ejercicio7;
 import java.util.ArrayList;
 
 public class Multimedia implements Reproducible {
-    private String nombre;
-    private int duracion;
-    private int ano;
-    private ArrayList<Autor> autores;
-    private int reproducciones;
+    public String nombre;
+    public int duracion;
+    public int ano;
+    public ArrayList<Autor> autores;
+    public int reproducciones;
     public enum Genero {
         ROCK, POP, DISCO, SOUL, JAZZ, ELECTRONICA, METAL, CLASICA, LATINO, RAP}
 
