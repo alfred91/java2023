@@ -2,10 +2,10 @@ package ejercicio3;
 
 public interface Entregable {
 	
-	void entregar();
+	public void entregar();
 	
-	void devolver();
+	public void devolver();
 	
-	boolean EsPrestado();
+	public boolean esPrestado();
 	
 }
