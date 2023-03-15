@@ -1,10 +1,9 @@
 package ExamenAlfredo;
-import java.util.EnumSet;
 
 import ExamenAlfredo.Ropa.Talla;
 
 public class Ropa extends Producto {
-    public enum Talla {
+    enum Talla {
         XS, S, M, L, XL, XXL
     }
 
@@ -42,7 +41,7 @@ public class Ropa extends Producto {
     @Override
     public double descuento() {
         double descuento;
-        if (EnumSet.of(Talla.XS, Talla.XXL).contains(talla)) {
+        if (talla == Talla.XS || talla == Talla.XXL) {
             descuento = precio*0.05;
         } else {
             descuento = precio*0.03;
