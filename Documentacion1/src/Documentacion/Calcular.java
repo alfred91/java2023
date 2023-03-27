@@ -1,11 +1,20 @@
 package Documentacion;
 public class Calcular {
-
-		public boolean esPar(int a) { //Es par
+/**
+ * Funcion que determina si es numero par o no
+ * @param a
+ * @return
+ */
+		public boolean esPar(int a) { 
 			return a % 2 == 0;
 		}
-
-		public int suma(int a, int b){ //Sumar
+/**
+ * Funcion para sumar a y b
+ * @param a
+ * @param b
+ * @return
+ */
+		public int suma(int a, int b){ 
 			return a+ b;
 		}
 	}

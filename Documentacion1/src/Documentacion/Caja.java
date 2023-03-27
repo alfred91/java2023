@@ -1,18 +1,42 @@
 package Documentacion;
+/**
+ * <h2>Clase Caja</<h2>
+ * Se utiliza para comprobar las monedas de una caja y vaciarla
+ * Los atirbutos son:
+ * <ul>
+ * <li>Numero de Cajas</li>
+ * <li>Capacidad Maxima</li>
+ * <li>Cantidad actual</li>
+ * </ul>
+ * @author Apache
+ *
+ */
+/**
+ * Constructor con 3 parametros
+ * @author Apache
+ *
+ */
 public class Caja {
 	private static int numCajas;
 	private int capacidadMaxima;
 	private int cantidadActual;
-	
+
 
 	public Caja(){
 	this(500, 0);
 }
-
+/**
+ * Capacidad maxima
+ * @param capacidadMax
+ */
 public Caja(int capacidadMax){ 
 	this(capacidadMax,capacidadMax);
 }
-
+/**
+ * Aumentar el numero de cajas
+ * @param capacidadMax
+ * @param cantidadActual
+ */
 public Caja(int capacidadMax, int cantidadActual){ 
 	this.capacidadMaxima = capacidadMax;
 	this.cantidadActual = cantidadActual;
@@ -21,35 +45,50 @@ public Caja(int capacidadMax, int cantidadActual){
 	}
 	numCajas++;
 }
-
-public int getCapacidadMaxima() { //Capacidad maxima
+/**
+ * Capacidad maxima
+ * @return
+ */
+public int getCapacidadMaxima() {
 	return capacidadMaxima;
 }
-
-public int getCantidadActual() { //Cantiad actual
+/**
+ * Cantdiad actual
+ * @return Capacidad Maxima
+ */
+public int getCantidadActual() {
 	return cantidadActual;
 }
-
-public void llenarCaja(){ //Llenar caja 
+/**
+ * Llenar caja 
+ */
+public void llenarCaja(){
 	this.cantidadActual = this.capacidadMaxima;
 }
-
+/**
+ * vaciar caja
+ * @param cantidadMonedas
+ */
 public void sacarMonedas(int cantidadMonedas){
 	if(cantidadMonedas > this.cantidadActual){
-		// Si hay mas monedas se vacia la caja
+		
 		vaciarCaja();
 	}
-	else{ // Si no, se establece la cantidad 
+	else{  
 		this.cantidadActual = this.cantidadActual - cantidadMonedas;
 	}
-
 }
-
-public void vaciarCaja(){ // Vaciar caja
+/**
+ * Vaciar caja
+ */
+public void vaciarCaja(){
 	this.cantidadActual = 0;
 }
-
-public void agregarMonedas(int cantidad){ //Agregar monedas
+/**
+ * Agregar monedas
+ * @param cantidad
+ */
+public void agregarMonedas(int cantidad){
 	if (this.cantidadActual + cantidad > this.capacidadMaxima){
 		llenarCaja();
 	}
@@ -57,8 +96,11 @@ public void agregarMonedas(int cantidad){ //Agregar monedas
 		this.cantidadActual = this.cantidadActual + cantidad;
 	}
 }
-
-public static int getNumeroCajas() { // Devuelve el numero de cajas
+/**
+ *  Devuelve el numero de cajas
+ * @return numCajas
+ */
+public static int getNumeroCajas() { //
 	return numCajas;
 }
 }
