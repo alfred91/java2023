@@ -18,7 +18,7 @@ public class PersonajeTS extends Personaje {
     }
     
     @Override
-    public List<TipoArmadura> listarArmaduraCreacion() {
+    public void listarArmaduraCreacion() {
         List<TipoArmadura> armaduras = new ArrayList<TipoArmadura>(componentesArmadura);
         return armaduras;
     }

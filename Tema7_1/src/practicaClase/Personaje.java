@@ -1,6 +1,7 @@
 package practicaClase;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -19,12 +20,8 @@ public class Personaje {
 	 * @param nombre
 	 * @param salud
 	 * @param mana
-	 * @param componentesArmadura
-	 * @param armaDer
-	 * @param armaIzq
 	 */
-	Personaje(String nombre, double salud, double mana, HashSet<TipoArmadura> componentesArmadura, Arma armaDer,
-			Arma armaIzq) {
+	Personaje(String nombre, double salud, double mana) {
 		super();
 		this.nombre = nombre;
 		this.salud = salud;
@@ -143,7 +140,7 @@ public class Personaje {
 		componentesArmadura.add(tipoArmadura);
 	}
 	
-	public void listarArmaduraDanioFisico() {
+	public boolean listarArmaduraDanioFisico() {
 		System.out.println("Armas con Daño Fisico ");
 			for(TipoArmadura tipoArmadura:componentesArmadura) {
 				if(tipoArmadura.getDefensaFisica()>0){
