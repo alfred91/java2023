@@ -4,6 +4,12 @@ import java.util.Objects;
 
 public class TipoArmadura {
 	
+	public enum Zona {CABEZA, BRAZOIZQ, BRAZODER, TORSO, PIERNAIZQ, PIERNADER};
+	
+	public String nombre;
+	public Zona zona;
+	public double defensaFisica;
+	public double defensaMagica;
 	/**
 	 * @param nombre
 	 * @param zona
@@ -17,12 +23,7 @@ public class TipoArmadura {
 		this.defensaFisica = defensaFisica;
 		this.defensaMagica = defensaMagica;
 	}
-	public enum Zona {CABEZA, BRAZOIZQ, BRAZODER, TORSO, PIERNAIZQ, PIERNADER};
-	
-	public String nombre;
-	public Zona zona;
-	public double defensaFisica;
-	public double defensaMagica;
+
 	/**
 	 * @return the nombre
 	 */

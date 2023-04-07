@@ -2,6 +2,7 @@ package practicaClase;
 
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import practicaClase.TipoArmadura.Zona;
 
@@ -185,5 +186,11 @@ public class Personaje {
 	
 	public void listarArmaduraCreacion() {
 		System.out.println("Lista de Armaduras en orden ");
+			
+				Set<String> lista=new HashSet<String>();
+				lista.addAll(lista);
+				for(TipoArmadura tipoArmadura:componentesArmadura) {
+					System.out.println(lista);
+				}
 	}
 }
