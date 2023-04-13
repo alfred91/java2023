@@ -12,7 +12,7 @@ public class Vehiculo {
 		protected int CV;
 		protected boolean reparado;
 		
-		public Vehiculo(String matricula, String marca, String modelo, String color, double precio, int cV,
+		public Vehiculo(String matricula, String marca, String modelo, String color, double precio, int CV,
 				boolean reparado) {
 			super();
 			this.matricula = matricula;
@@ -20,7 +20,7 @@ public class Vehiculo {
 			this.modelo = modelo;
 			this.color = color;
 			this.precio = precio;
-			CV = cV;
+			this.CV = CV;
 			this.reparado = reparado;
 		}
 
@@ -31,7 +31,7 @@ public class Vehiculo {
 			this.modelo = otro.modelo;
 			this.color = otro.color;
 			this.precio = otro.precio;
-			CV = otro.CV;
+			this.CV = otro.CV;
 			this.reparado = otro.reparado;
 		}
 		

@@ -2,8 +2,18 @@ package Ejercicio4;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Taller {
+
+	/**
+	 * @param vehiculos
+	 */
+	Taller(ArrayList<Vehiculo> vehiculos) {
+		super();
+		this.vehiculos = vehiculos;
+	}
 
 	protected ArrayList<Vehiculo> vehiculos;
 	   public Taller() {
@@ -12,9 +22,21 @@ public class Taller {
 
 	    public void ingresarVehiculo(Vehiculo vehiculo) {
 	        vehiculos.add(vehiculo);
+	        ordenarVehiculosPorMatricula();
 	    }
 
-	    public void vehiculoReparado(Vehiculo vehiculo) {
+	    private void ordenarVehiculosPorMatricula() {
+	    	
+	    	Collections.sort(vehiculos, new Comparator<Vehiculo>() {
+	            @Override
+	            public int compare(Vehiculo v1, Vehiculo v2) {
+	                return v1.getMatricula().compareTo(v2.getMatricula());
+	            }
+	        });
+			
+		}
+
+		public void vehiculoReparado(Vehiculo vehiculo) {
 	        for (Vehiculo v : vehiculos) {
 	            if (v.getMatricula().equals(vehiculo.getMatricula())) {
 	                v.setReparado(false);
@@ -36,22 +58,8 @@ public class Taller {
 	        return null;
 	    }
 
-	    public void listarVehiculos() {
-	        for (Vehiculo v : vehiculos) {
-	            System.out.println(v);
-	        }
-	    }
-
-	   
-	    public void listarVehiculosReparados() {
-	        for (Vehiculo v : vehiculos) {
-	            if (v.isReparado()) {
-	                System.out.println(v);
-	            }
-	        }
-	    }
-
-	    public void ordenarVehiculosPorPrecio() {
-	        Collections.sort(vehiculos, new ComparadorVehiculoPorPrecio());
-	    }
-	}
+		public ArrayList<Vehiculo> getVehiculos() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+	  }

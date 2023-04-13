@@ -7,10 +7,10 @@ public class VehiculoFosil extends Vehiculo {
 	protected enum TipoFosil{ GASOLINA, DIESEL}
 	protected TipoFosil tipoFosil;
 	
-	public VehiculoFosil(String matricula, String marca, String modelo, String color, double precio, int cV,
+	public VehiculoFosil(String matricula, String marca, String modelo, String color, double precio, int CV,
 			boolean reparado, int capacidadDeposito, TipoFosil tipoFosil) {
 		
-		super(matricula, marca, modelo, color, precio, cV, reparado);
+		super(matricula, marca, modelo, color, precio, CV, reparado);
 		this.capacidadDeposito = capacidadDeposito;
 		this.tipoFosil = tipoFosil;
 	}

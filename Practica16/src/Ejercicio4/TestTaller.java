@@ -1,11 +1,13 @@
 package Ejercicio4;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TestTaller {
+	
     public static void main(String[] args) {
         Taller taller = new Taller();
 
-        Scanner scanner = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
         int opcion = 0;
         do {
             System.out.println("\n=== TALLER ===");
@@ -16,49 +18,49 @@ public class TestTaller {
             System.out.println("0. Salir");
             System.out.println("Ingrese una opcion:");
 
-            opcion = scanner.nextInt();
+            opcion = sc.nextInt();
 
             switch (opcion) {
                 case 1: // ingresar coche
-                    System.out.println("Ingrese la matricula:");
-                    String matricula = scanner.next();
-                    System.out.println("Ingrese la marca:");
-                    String marca = scanner.next();
-                    System.out.println("Ingrese el modelo:");
-                    String modelo = scanner.next();
-                    System.out.println("Ingrese el color:");
-                    String color = scanner.next();
-                    System.out.println("Ingrese el precio:");
-                    double precio = scanner.nextDouble();
-                    System.out.println("Ingrese los caballos de fuerza:");
-                    double caballos = scanner.nextDouble();
-                    System.out.println("Ingrese el estado (en reparacion o reparado):");
-                    String estado = scanner.next();
-                    System.out.println("Ingrese el tipo de vehiculo (1. Fosil, 2. Electrico, 3. Hibrido):");
-                    int tipoVehiculo = scanner.nextInt();
+                    System.out.println("matricula:");
+                    String matricula = sc.next();
+                    System.out.println("marca:");
+                    String marca = sc.next();
+                    System.out.println("modelo:");
+                    String modelo = sc.next();
+                    System.out.println("color:");
+                    String color = sc.next();
+                    System.out.println("precio:");
+                    double precio = sc.nextDouble();
+                    System.out.println("CV:");
+                    int CV = sc.nextInt();
+                    System.out.println("Estado (en reparacion true o reparado false):");
+                    boolean estado = sc.next() != null;
+                    System.out.println("Tipo de vehiculo (1. Fosil, 2. Electrico, 3. Hibrido):");
+                    int tipoVehiculo = sc.nextInt();
                     switch (tipoVehiculo) {
                     case 1: // vehiculo fosil
                         System.out.println("Ingrese la capacidad del deposito:");
-                        double capacidadDeposito = scanner.nextDouble();
+                        int capacidadDeposito = sc.nextInt();
                         System.out.println("Ingrese el tipo de fosil (Gasolina o Diesel):");
-                        String tipoFosil = scanner.next();
-                        VehiculoFosil vehiculoFosil = new VehiculoFosil(matricula, marca, modelo, color, precio, caballos, estado, capacidadDeposito, tipoFosil);
+                        String tipoFosil = sc.next();
+                        VehiculoFosil vehiculoFosil = new VehiculoFosil(matricula, marca, modelo, color, precio, CV, estado, CV, null);
                         taller.ingresarVehiculo(vehiculoFosil);
                         break;
                     case 2: // vehiculo electrico
                         System.out.println("Ingrese la capacidad de la bateria:");
-                        double kw = scanner.nextDouble();
-                        VehiculoElectrico vehiculoElectrico = new VehiculoElectrico(matricula, marca, modelo, color, precio, caballos, estado, kw);
+                        int kw = sc.nextInt();
+                        VehiculoElectrico vehiculoElectrico = new VehiculoElectrico(matricula, marca, modelo, color, precio, CV, estado, kw);
                         taller.ingresarVehiculo(vehiculoElectrico);
                         break;
                     case 3: // vehiculo hibrido
                         System.out.println("Ingrese la capacidad de la bateria:");
-                        kw = scanner.nextDouble();
+                        kw = sc.nextInt();
                         System.out.println("Ingrese el tipo de fosil (Gasolina o Diesel):");
-                        tipoFosil = scanner.next();
+                        tipoFosil = sc.next();
                         System.out.println("Ingrese la capacidad del deposito:");
-                        double capacidadDepositoH = scanner.nextDouble();
-                        VehiculoHibrido vehiculoHibrido = new VehiculoHibrido(matricula, marca, modelo, color, precio, caballos, estado, kw, tipoFosil, capacidadDepositoH);
+                        double capacidadDepositoH = sc.nextDouble();
+                        VehiculoHibrido vehiculoHibrido = new VehiculoHibrido(matricula, marca, modelo, color, precio, CV, estado, null, kw, CV);
                         taller.ingresarVehiculo(vehiculoHibrido);
                         break;
                 }
@@ -66,20 +68,17 @@ public class TestTaller {
                 
                 case 2: // coche reparado
                     System.out.println("Ingrese la matricula del vehiculo reparado:");
-                    String matriculaReparado = scanner.next();
+                    String matriculaReparado = sc.next();
                     Vehiculo vehiculoReparado = taller.buscarVehiculo(matriculaReparado);
                     if (vehiculoReparado == null) {
                         System.out.println("El vehiculo no esta registrado en el taller");
-                    } else if (vehiculoReparado.getEstado().equals("reparado")) {
+                    } else if (vehiculoReparado.isReparado()==true) {
                         System.out.println("El vehiculo ya ha sido reparado");
-                    } else {
-                        vehiculoReparado.setEstado("reparado");
-                        System.out.println("El vehiculo ha sido reparado con exito");
                     }
                     break;
                 case 3: // buscar por matricula
                     System.out.println("Ingrese la matricula del vehiculo:");
-                    String matriculaBuscada = scanner.next();
+                    String matriculaBuscada = sc.next();
                     Vehiculo vehiculoEncontrado = taller.buscarVehiculo(matriculaBuscada);
                     if (vehiculoEncontrado != null) {
                         System.out.println("Vehiculo encontrado:");
@@ -98,11 +97,13 @@ public class TestTaller {
                     break;
 
                 case 5: // salir del programa
-                    System.out.println("Gracias por utilizar el programa.");
-                    continuar = false;
-                    break;
+                    System.out.println("Tastalue!");
+                  break;
 
                 default:
                     System.out.println("Opción no válida.");
                     break;
-                }
+            }}
+            
+        while (opcion!=0);
+       }}             

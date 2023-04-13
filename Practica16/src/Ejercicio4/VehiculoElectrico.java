@@ -4,14 +4,12 @@ public class VehiculoElectrico extends Vehiculo {
 	
 	protected int kw;
 	
-	
-	public VehiculoElectrico(String matricula, String marca, String modelo, String color, double precio, int cV,
-			boolean reparado, int kw) {
-		super(matricula, marca, modelo, color, precio, cV, reparado);
+	public VehiculoElectrico(String matricula, String marca, String modelo, String color, double precio, int CV,
+			boolean estado, int kw) {
+		super(matricula, marca, modelo, color, precio, CV, estado);
 
 	}
-
-
+	
 	/**
 	 * @return the kw
 	 */
