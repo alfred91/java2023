@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.TreeSet;
 
 interface Prestable {
+
     void prestar();
     void devolver();
     boolean prestado();
@@ -12,7 +13,6 @@ interface Prestable {
 interface Comparable<T> {
     int compareTo(T obj);
 }
-
 class Autor implements Comparable<Autor> {
     private String nombre;
     private String apellido;

@@ -1,6 +1,7 @@
 package Ejercicio1;
 
 public class Proceso {
+	
     private int pid;
     private String nombre;
     private int cpu;
