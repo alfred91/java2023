@@ -140,7 +140,7 @@ public class Personaje {
 		componentesArmadura.add(tipoArmadura);
 	}
 	
-	public boolean listarArmaduraDanioFisico() {
+	public void listarArmaduraDanioFisico() {
 		System.out.println("Armas con Daño Fisico ");
 			for(TipoArmadura tipoArmadura:componentesArmadura) {
 				if(tipoArmadura.getDefensaFisica()>0){
