@@ -34,7 +34,7 @@ class Libro extends Publicacion implements Prestable {
             return "Libro{" +
                     "isbn='" + getIsbn() + '\'' +
                     ", titulo='" + getTitulo() + '\'' +
-                    ", anio=" + getAno() +
+                    ", año=" + getAno() +
                     ", paginas=" + getPaginas() +
                     ", prestado=" + prestado +
                     '}';
