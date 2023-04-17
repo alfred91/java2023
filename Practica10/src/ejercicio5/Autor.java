@@ -2,14 +2,14 @@ package ejercicio5;
 
 import java.util.Objects;
 
-public class Autor extends Libro{
+public class Autor{
 	
 public String nombre,apellidos,ciudad,direccion,email;
 public int edad;
 
 
-public Autor(String nombre, String apellidos, String ciudad, String direccion, String email, int edad) {
-	super(email, email, edad, edad);
+public Autor(String nombre, String apellidos, int edad, String ciudad, String direccion, String email) {
+
 	this.nombre = nombre;
 	this.apellidos = apellidos;
 	this.ciudad = ciudad;

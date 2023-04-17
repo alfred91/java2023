@@ -4,7 +4,7 @@ class Libro extends Publicacion implements Prestable {
     private boolean prestado;
 
     public Libro(String isbn, String titulo, int anio, int paginas) {
-        super();
+        super(isbn, titulo, anio, paginas);
         this.prestado = false;
     }
 
@@ -32,10 +32,11 @@ class Libro extends Publicacion implements Prestable {
 
         public String toString() {
             return "Libro{" +
-                    "prestado=" + prestado +
-                    ", isbn='" + isbn + '\'' +
-                    ", titulo='" + titulo + '\'' +
-                    ", anio=" + ano +
-                    ", paginas=" + paginas +
+                    "isbn='" + getIsbn() + '\'' +
+                    ", titulo='" + getTitulo() + '\'' +
+                    ", anio=" + getAno() +
+                    ", paginas=" + getPaginas() +
+                    ", prestado=" + prestado +
                     '}';
-        }}
+        }
+}
