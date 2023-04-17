@@ -6,4 +6,5 @@
  *
  */
 module Practica16 {
+	requires java.base;
 }
