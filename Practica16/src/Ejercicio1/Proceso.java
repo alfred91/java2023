@@ -1,12 +1,11 @@
 package Ejercicio1;
 
 public class Proceso {
-	
-    private int pid;
-    private String nombre;
-    private int cpu;
-    private int ram;
-    private int prioridad;
+    protected int pid;
+    protected String nombre;
+    protected int cpu;
+    protected int ram;
+    protected int prioridad;
 
     public Proceso(int pid, String nombre, int cpu, int ram, int prioridad) {
         this.pid = pid;
@@ -16,29 +15,75 @@ public class Proceso {
         this.prioridad = prioridad;
     }
 
-    public int getPid() {
-        return pid;
-    }
+	/**
+	 * @return the pid
+	 */
+	public int getPid() {
+		return pid;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	/**
+	 * @param pid the pid to set
+	 */
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
 
-    public int getCpu() {
-        return cpu;
-    }
+	/**
+	 * @return the nombre
+	 */
+	public String getNombre() {
+		return nombre;
+	}
 
-    public int getRam() {
-        return ram;
-    }
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public int getPrioridad() {
-        return prioridad;
-    }
+	/**
+	 * @return the cpu
+	 */
+	public int getCpu() {
+		return cpu;
+	}
 
-    @Override
-    public String toString() {
-        return "Proceso [pid=" + pid + ", nombre=" + nombre + ", cpu=" + cpu + ", ram=" + ram + ", prioridad="
-                + prioridad + "]";
-    }
+	/**
+	 * @param cpu the cpu to set
+	 */
+	public void setCpu(int cpu) {
+		this.cpu = cpu;
+	}
+
+	/**
+	 * @return the ram
+	 */
+	public int getRam() {
+		return ram;
+	}
+
+	/**
+	 * @param ram the ram to set
+	 */
+	public void setRam(int ram) {
+		this.ram = ram;
+	}
+
+	/**
+	 * @return the prioridad
+	 */
+	public int getPrioridad() {
+		return prioridad;
+	}
+
+	/**
+	 * @param prioridad the prioridad to set
+	 */
+	public void setPrioridad(int prioridad) {
+		this.prioridad = prioridad;
+	}
+
+
 }

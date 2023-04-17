@@ -1,30 +1,30 @@
 package Ejercicio1;
+
 import java.util.ArrayList;
 
 public class ColaList<E> {
-    private ArrayList<E> lista;
+
+    private ArrayList<E> elementos;
 
     public ColaList() {
-        lista = new ArrayList<E>();
+        elementos = new ArrayList<E>();
     }
 
     public boolean meter(E e) {
-        return lista.add(e);
+        return elementos.add(e);
     }
 
     public E poll() {
-        if (lista.isEmpty()) {
+        if (elementos.isEmpty()) {
             return null;
-        } else {
-            return lista.remove(0);
         }
+        return elementos.remove(0);
     }
 
     public E peek() {
-        if (lista.isEmpty()) {
+        if (elementos.isEmpty()) {
             return null;
-        } else {
-            return lista.get(0);
         }
+        return elementos.get(0);
     }
 }

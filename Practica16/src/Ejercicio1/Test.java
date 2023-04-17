@@ -1,16 +1,29 @@
 package Ejercicio1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Test {
 	
     public static void main(String[] args) {
-        ColaList<Proceso> cola = new ColaList<Proceso>();
-        cola.meter(new Proceso(1, "Brave", 10, 100, 1));
-        cola.meter(new Proceso(2, "Malwarebytes", 20, 200, 2));
-        cola.meter(new Proceso(3, "Office", 35, 300, 3));
-        System.out.println(cola.peek()); // Imprime: Proceso [pid=1, nombre=Proceso 1, cpu=10, ram=100, prioridad=1]
-        System.out.println(cola.poll()); // Imprime: Proceso [pid=1, nombre=Proceso 1, cpu=10, ram=100, prioridad=1]
-        System.out.println(cola.poll()); // Imprime: Proceso [pid=2, nombre=Proceso 2, cpu=20, ram=200, prioridad=2]
-        System.out.println(cola.poll()); // Imprime: Proceso [pid=3, nombre=Proceso 3, cpu=30, ram=300, prioridad=3]
-        System.out.println(cola.poll()); // Imprime: null
+    	
+        List<Proceso> procesos = new ArrayList<>();
+        procesos.add(new Proceso(1, "Proceso1", 50, 100, 1));
+        procesos.add(new Proceso(2, "Proceso2", 30, 200, 2));
+        procesos.add(new Proceso(3, "Proceso3", 20, 150, 3));
+
+        ColaList<Proceso> cola = new ColaList<>();
+        for (Proceso proceso : procesos) {
+            cola.meter(proceso);
+        }
+
+        Proceso proceso1 = cola.poll();
+        System.out.println("Proceso eliminado de la cola: " + proceso1.getNombre());
+
+        Proceso proceso2 = cola.peek();
+        System.out.println("Primer proceso en la cola: " + proceso2.getNombre());
+        
+        Proceso proceso3 = cola.peek();
+        System.out.println("Tercer proceso en la cola: " + proceso3.getNombre());
     }
 }

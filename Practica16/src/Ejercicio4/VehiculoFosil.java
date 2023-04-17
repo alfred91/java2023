@@ -1,53 +1,49 @@
 package Ejercicio4;
 
-
 public class VehiculoFosil extends Vehiculo {
 	
-	protected int capacidadDeposito;
-	protected enum TipoFosil{ GASOLINA, DIESEL}
-	protected TipoFosil tipoFosil;
+	private TipoFosil tipoF;
+	private Integer capacidadDeposito;
 	
-	public VehiculoFosil(String matricula, String marca, String modelo, String color, double precio, int CV,
-			boolean reparado, int capacidadDeposito, TipoFosil tipoFosil) {
-		
-		super(matricula, marca, modelo, color, precio, CV, reparado);
+	public VehiculoFosil(String matricula, String marca, String modelo, String color, Double precio, Integer cv,
+			boolean reparado, TipoFosil tipoF, Integer capacidadDeposito) {
+		super(matricula, marca, modelo, color, precio, cv, reparado);
+		this.tipoF = tipoF;
 		this.capacidadDeposito = capacidadDeposito;
-		this.tipoFosil = tipoFosil;
 	}
-	
+
 	public VehiculoFosil(VehiculoFosil otro) {
-		
 		super(otro);
+		this.tipoF = otro.tipoF;
 		this.capacidadDeposito = otro.capacidadDeposito;
-		this.tipoFosil = otro.tipoFosil;
+	}
+
+	/**
+	 * @return the tipoF
+	 */
+	public TipoFosil getTipoF() {
+		return tipoF;
+	}
+
+	/**
+	 * @param tipoF the tipoF to set
+	 */
+	public void setTipoF(TipoFosil tipoF) {
+		this.tipoF = tipoF;
 	}
 
 	/**
 	 * @return the capacidadDeposito
 	 */
-	public int getCapacidadDeposito() {
+	public Integer getCapacidadDeposito() {
 		return capacidadDeposito;
 	}
 
 	/**
 	 * @param capacidadDeposito the capacidadDeposito to set
 	 */
-	public void setCapacidadDeposito(int capacidadDeposito) {
+	public void setCapacidadDeposito(Integer capacidadDeposito) {
 		this.capacidadDeposito = capacidadDeposito;
-	}
-
-	/**
-	 * @return the tipoFosil
-	 */
-	public TipoFosil getTipoFosil() {
-		return tipoFosil;
-	}
-
-	/**
-	 * @param tipoFosil the tipoFosil to set
-	 */
-	public void setTipoFosil(TipoFosil tipoFosil) {
-		this.tipoFosil = tipoFosil;
 	}
 
 	@Override
@@ -63,16 +59,24 @@ public class VehiculoFosil extends Vehiculo {
 		builder.append(color);
 		builder.append(", precio=");
 		builder.append(precio);
-		builder.append(", CV=");
-		builder.append(CV);
+		builder.append(", cv=");
+		builder.append(cv);
 		builder.append(", reparado=");
 		builder.append(reparado);
-		builder.append(", tipoFosil=");
-		builder.append(tipoFosil);
+		builder.append(", tipoF=");
+		builder.append(tipoF);
 		builder.append(", capacidadDeposito=");
 		builder.append(capacidadDeposito);
 		builder.append("]");
 		return builder.toString();
-		
 	}
+
+	@Override
+	public int compareTo(Vehiculo o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
+	
 }
