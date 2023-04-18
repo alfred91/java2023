@@ -1,21 +1,12 @@
 package Ejercicio2;
 
 class Libro extends Publicacion implements Prestable {
-	
-	protected boolean prestado;
-    /**
-	 * @param isbn
-	 * @param ano
-	 * @param paginas
-	 * @param titulo
-	 * @param prestado
-	 */
-	
-	Libro(int isbn, int ano, int paginas, String titulo, boolean prestado) {
-		super(isbn, ano, paginas, titulo);
-		this.prestado = true;
-	}
-  
+    private boolean prestado;
+
+    public Libro(String isbn, String titulo, int anio, int paginas) {
+        super(isbn, titulo, anio, paginas);
+        this.prestado = false;
+    }
 
     public boolean estaPrestado() {
         return prestado;
@@ -41,10 +32,11 @@ class Libro extends Publicacion implements Prestable {
 
         public String toString() {
             return "Libro{" +
-                    "prestado=" + prestado +
-                    ", isbn='" + isbn + '\'' +
-                    ", titulo='" + titulo + '\'' +
-                    ", anio=" + ano +
-                    ", paginas=" + paginas +
+                    "isbn='" + getIsbn() + '\'' +
+                    ", titulo='" + getTitulo() + '\'' +
+                    ", año=" + getAno() +
+                    ", paginas=" + getPaginas() +
+                    ", prestado=" + prestado +
                     '}';
-        }}
+        }
+}

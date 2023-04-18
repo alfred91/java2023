@@ -1,10 +1,9 @@
 package Ejercicio2;
 
-public interface Prestable {
+interface Prestable {
 	
-public void presta();
-public void devuelve();
-public boolean estaPrestado();
-int compareTo(Object o);
+	public void presta();
+	public void devuelve();
+	public boolean estaPrestado();
 
 }

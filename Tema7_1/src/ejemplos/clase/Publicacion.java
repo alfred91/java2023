@@ -123,8 +123,5 @@ public abstract class Publicacion {
 			return false;
 		Publicacion other = (Publicacion) obj;
 		return Objects.equals(titulo, other.titulo);
-	}
-	
-	
-	
+	}	
 }

@@ -1,27 +1,31 @@
 package Ejercicio4;
 
 public class VehiculoElectrico extends Vehiculo {
-	
-	protected int kw;
-	
-	public VehiculoElectrico(String matricula, String marca, String modelo, String color, double precio, int CV,
-			boolean estado, int kw) {
-		super(matricula, marca, modelo, color, precio, CV, estado);
 
-	}
+	protected Integer kw;
 	
+	public VehiculoElectrico(String matricula, String marca, String modelo, String color, Double precio, Integer cv,
+			boolean reparado, Integer kw) {
+		super(matricula, marca, modelo, color, precio, cv, reparado);
+		this.kw = kw;
+	}
+
+	public VehiculoElectrico(VehiculoElectrico otro) {
+		super(otro);
+		this.kw = otro.kw;
+	}
+
 	/**
 	 * @return the kw
 	 */
-	public int getKw() {
+	public Integer getKw() {
 		return kw;
 	}
-
 
 	/**
 	 * @param kw the kw to set
 	 */
-	public void setKw(int kw) {
+	public void setKw(Integer kw) {
 		this.kw = kw;
 	}
 
@@ -38,8 +42,8 @@ public class VehiculoElectrico extends Vehiculo {
 		builder.append(color);
 		builder.append(", precio=");
 		builder.append(precio);
-		builder.append(", CV=");
-		builder.append(CV);
+		builder.append(", cv=");
+		builder.append(cv);
 		builder.append(", reparado=");
 		builder.append(reparado);
 		builder.append(", kw=");
@@ -47,5 +51,13 @@ public class VehiculoElectrico extends Vehiculo {
 		builder.append("]");
 		return builder.toString();
 	}
+
+	@Override
+	public int compareTo(Vehiculo o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
+
 }

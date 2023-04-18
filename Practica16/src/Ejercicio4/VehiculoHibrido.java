@@ -1,67 +1,48 @@
 package Ejercicio4;
 
-public class VehiculoHibrido extends Vehiculo {
+public class VehiculoHibrido extends VehiculoElectrico {
 	
-	protected enum TipoFosil{ GASOLINA, DIESEL}
-	protected TipoFosil tipoFosil;
-	protected int kw;
-	protected int capacidadDeposito;
+	private TipoFosil tipoF;
+	private Integer capacidadDeposito;
 	
-	
-	public VehiculoHibrido(String matricula, String marca, String modelo, String color, double precio, int cV,
-			boolean reparado, TipoFosil tipoFosil, int kw, int capacidadDeposito) {
-		super(matricula, marca, modelo, color, precio, cV, reparado);
-		this.tipoFosil = tipoFosil;
-		this.kw = kw;
+	public VehiculoHibrido(String matricula, String marca, String modelo, String color, Double precio, Integer cv,
+			boolean reparado, Integer kw, TipoFosil gasolina, Integer capacidadDeposito) {
+		super(matricula, marca, modelo, color, precio, cv, reparado, kw);
+		this.tipoF = gasolina;
 		this.capacidadDeposito = capacidadDeposito;
 	}
 	
 	public VehiculoHibrido(VehiculoHibrido otro) {
 		super(otro);
-		this.tipoFosil = otro.tipoFosil;
-		this.kw = otro.kw;
+		this.tipoF = otro.tipoF;
 		this.capacidadDeposito = otro.capacidadDeposito;
 	}
 
 	/**
-	 * @return the tipoFosil
+	 * @return the tipoF
 	 */
-	public TipoFosil getTipoFosil() {
-		return tipoFosil;
+	public TipoFosil getTipoF() {
+		return tipoF;
 	}
 
 	/**
-	 * @param tipoFosil the tipoFosil to set
+	 * @param tipoF the tipoF to set
 	 */
-	public void setTipoFosil(TipoFosil tipoFosil) {
-		this.tipoFosil = tipoFosil;
-	}
-
-	/**
-	 * @return the kw
-	 */
-	public int getKw() {
-		return kw;
-	}
-
-	/**
-	 * @param kw the kw to set
-	 */
-	public void setKw(int kw) {
-		this.kw = kw;
+	public void setTipoF(TipoFosil tipoF) {
+		this.tipoF = tipoF;
 	}
 
 	/**
 	 * @return the capacidadDeposito
 	 */
-	public int getCapacidadDeposito() {
+	public Integer getCapacidadDeposito() {
 		return capacidadDeposito;
 	}
 
 	/**
 	 * @param capacidadDeposito the capacidadDeposito to set
 	 */
-	public void setCapacidadDeposito(int capacidadDeposito) {
+	public void setCapacidadDeposito(Integer capacidadDeposito) {
 		this.capacidadDeposito = capacidadDeposito;
 	}
 
@@ -78,18 +59,23 @@ public class VehiculoHibrido extends Vehiculo {
 		builder.append(color);
 		builder.append(", precio=");
 		builder.append(precio);
-		builder.append(", CV=");
-		builder.append(CV);
+		builder.append(", cv=");
+		builder.append(cv);
 		builder.append(", reparado=");
 		builder.append(reparado);
-		builder.append(", capacidadDeposito=");
-		builder.append(capacidadDeposito);
-		builder.append(", tipoFosil=");
-		builder.append(tipoFosil);
 		builder.append(", kw=");
 		builder.append(kw);
+		builder.append(", tipoF=");
+		builder.append(tipoF);
+		builder.append(", capacidadDeposito=");
+		builder.append(capacidadDeposito);
 		builder.append("]");
 		return builder.toString();
 	}
+
 	
+
+
+
+
 }

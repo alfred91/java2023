@@ -1,31 +1,33 @@
 package Ejercicio2;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
-public class Publicacion implements Prestable, Comparable <Publicacion> {
+public abstract class Publicacion {
 
-	protected int isbn;
+	protected String isbn;
+	protected String titulo;
 	protected int ano;
 	protected int paginas;
-	protected String titulo;
+	protected ArrayList<Autor> autores;
 	
-	public Publicacion(int isbn, int ano, int paginas, String titulo) {
-		super();
-		this.isbn = isbn;
-		this.ano = ano;
-		this.paginas = paginas;
-		this.titulo = titulo;
+	 public Publicacion(String isbn, String titulo, int anio, int paginas) {
+	        this.isbn = isbn;
+	        this.titulo = titulo;
+	        this.ano = anio;
+	        this.paginas = paginas;
+	        this.autores = new ArrayList<Autor>();
 	}
 	/**
 	 * @return the isbn
 	 */
-	public int getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
 	/**
 	 * @param isbn the isbn to set
 	 */
-	public void setIsbn(int isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 	/**
@@ -64,17 +66,32 @@ public class Publicacion implements Prestable, Comparable <Publicacion> {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+	
+	 public void addAutor(String nombre, String apellidos) {
+	        autores.add(new Autor(nombre, apellidos));
+	    }
+
+	    public void deleteAutor(String nombre, String apellidos) {
+	        Autor autor = new Autor(nombre, apellidos);
+	        autores.removeIf(a -> a.equals(autor));
+	    }
+
+	    public ArrayList<Autor> getAutores() {
+	        return autores;
+	    }
+	    
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Publicacion [isbn=");
 		builder.append(isbn);
+		builder.append(", titulo=");
+		builder.append(titulo);
 		builder.append(", ano=");
 		builder.append(ano);
 		builder.append(", paginas=");
 		builder.append(paginas);
-		builder.append(", titulo=");
-		builder.append(titulo);
+		builder.append(autores);
 		builder.append("]");
 		return builder.toString();
 	}
@@ -92,31 +109,6 @@ public class Publicacion implements Prestable, Comparable <Publicacion> {
 			return false;
 		Publicacion other = (Publicacion) obj;
 		return Objects.equals(titulo, other.titulo);
-	}
-	@Override
-	public void presta() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void devuelve() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public boolean estaPrestado() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public int compareTo(Publicacion o) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 	
 }
