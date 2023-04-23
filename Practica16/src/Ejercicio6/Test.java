@@ -12,7 +12,7 @@ public class Test {
 	    
 	    visitados.addPais("Francia");
 	    visitados.addCiudad("Francia", "París");
-	    visitados.addCiudad("Francia", "Niza");
+	    visitados.addCiudad("Francia", "Perpignan");
 	    
 	    visitados.addPais("Italia");
 	    visitados.addCiudad("Italia", "Roma");

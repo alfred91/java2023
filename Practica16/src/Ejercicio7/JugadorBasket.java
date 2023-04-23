@@ -28,9 +28,8 @@ public class JugadorBasket {
 
     @Override
     public String toString() {
-        return "JugadorBasket{" +
+        return "Jugador [" +
                 "nombre='" + nombre + '\'' +
-                ", posicion='" + posicion + '\'' +
-                '}';
+                ", posicion='" + posicion+" ]";
     }
 }

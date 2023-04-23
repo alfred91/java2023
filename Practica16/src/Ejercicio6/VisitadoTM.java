@@ -3,6 +3,7 @@ package Ejercicio6;
 import java.util.*;
 
 public class VisitadoTM {
+	
     private TreeMap<String, List<String>> visitados;
 
     public VisitadoTM() {
@@ -42,5 +43,4 @@ public class VisitadoTM {
     public Set<String> primerosSet(String pais) {
         return visitados.headMap(pais).keySet();
     }
-
 }
