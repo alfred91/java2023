@@ -4,7 +4,7 @@ import java.util.*;
 
 public class EquipoBasket {
 	
-    private Map<Integer, JugadorBasket> jugadores;
+    private HashMap<Integer, JugadorBasket> jugadores;
 
     public EquipoBasket() {
         jugadores = new HashMap<>();

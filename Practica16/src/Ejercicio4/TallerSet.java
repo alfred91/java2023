@@ -1,8 +1,6 @@
 package Ejercicio4;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.TreeSet;
+import java.util.*;
 
 public class TallerSet {
 
@@ -19,10 +17,10 @@ public class TallerSet {
 	}
 	
 	public void vehiculoReparado(Vehiculo coche) {
-		//Buscar el coche en el ArrayList
+
 		for(Vehiculo v: this.coches) {
 			if (v.equals(coche)) {
-				//Ponerlo a reparado
+
 				v.setReparado(true);
 				break;
 			}
@@ -39,12 +37,10 @@ public class TallerSet {
 	
 	public Vehiculo buscarVehiculo(String matricula) {
 		
-		//2. Hacer una búsqueda binaria
 		ArrayList<Vehiculo> cochesA = new ArrayList(this.coches);
 		int posicion = Collections.binarySearch(cochesA, new VehiculoElectrico(matricula, "", "", "", 0.0, 0,	false, 0));
 		return cochesA.get(posicion);
 	}
-
 
 	@Override
 	public String toString() {
@@ -56,7 +52,4 @@ public class TallerSet {
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
-	
 }

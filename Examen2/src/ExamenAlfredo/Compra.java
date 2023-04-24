@@ -4,11 +4,32 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class Compra implements Enviable {
-	
+    /**
+	 * @param cliente
+	 */
+	Compra(String cliente) {
+		super();
+		this.cliente = cliente;
+	}
+
 	protected List<LineaCompra> listaLineaCompra;
     protected Date fecha;
     protected double precioTotal;
+    protected String cliente;
 
+    /**
+	 * @return the cliente
+	 */
+	public String getCliente() {
+		return cliente;
+	}
+
+	/**
+	 * @param cliente the cliente to set
+	 */
+	public void setCliente(String cliente) {
+		this.cliente = cliente;
+	}
 
 	public Compra(Date fecha) {
         this.fecha = fecha;
@@ -87,6 +108,8 @@ public class Compra implements Enviable {
 		builder.append(fecha);
 		builder.append(", precioTotal=");
 		builder.append(precioTotal);
+		builder.append(", cliente=");
+		builder.append(cliente);
 		builder.append("]");
 		return builder.toString();
 	}

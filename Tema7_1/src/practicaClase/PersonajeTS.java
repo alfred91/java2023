@@ -20,6 +20,6 @@ public class PersonajeTS extends Personaje {
     @Override
     public void listarArmaduraCreacion() {
         List<TipoArmadura> armaduras = new ArrayList<TipoArmadura>(componentesArmadura);
-        return armaduras;
+        return;
     }
 }

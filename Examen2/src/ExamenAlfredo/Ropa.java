@@ -3,7 +3,6 @@ package ExamenAlfredo;
 import ExamenAlfredo.Ropa.Talla;
 
 public class Ropa extends Producto {
-	
     enum Talla {
         XS, S, M, L, XL, XXL
     }
@@ -41,7 +40,6 @@ public class Ropa extends Producto {
 	
     @Override
     public double descuento() {
-    	
         double descuento;
         if (talla == Talla.XS || talla == Talla.XXL) {
             descuento = precio*0.05;

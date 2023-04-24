@@ -4,7 +4,7 @@ import java.util.*;
 
 public class CentroEducativo {
 	
-    private TreeSet<Expediente> expedientes;
+    private static TreeSet<Expediente> expedientes;
     private String nombreCentro;
     private String direccion;
     private String localidad;
@@ -65,7 +65,7 @@ public class CentroEducativo {
         expedientes.add(expediente);
     }
 
-    public Expediente buscarExpediente(String dni) {
+    public static Expediente buscarExpediente(String dni) {
         for (Expediente expediente : expedientes) {
             if (expediente.getEstudiante().getDni().equals(dni)) {
                 return expediente;

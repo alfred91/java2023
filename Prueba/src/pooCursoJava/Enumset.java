@@ -9,6 +9,8 @@ public class Enumset {
 
 	public class EjemploEnumSetContains {
 	    public static void main(String[] args) {
+	    	System.out.println("Hola mundo");
+	    	
 	        // Crea un EnumSet con algunos colores
 	        EnumSet<Colores> coloresSet = EnumSet.of(Colores.ROJO, Colores.VERDE, Colores.AZUL);
 

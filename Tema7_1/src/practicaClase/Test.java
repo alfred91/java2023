@@ -31,7 +31,7 @@ public static void main(String[] args) {
 	    System.out.println(phs.listarArmaduraDanioFisico());
 	    System.out.println(phs.listarArmaduraDanioMagico());
 	    System.out.println(phs.listarArmaduraZona());
-	    System.out.println(phs.listarArmaduraNombre());
+	    System.out.println(phs.listarArmaduraCreacion());
 	    System.out.println(phs.listarArmaduraCreacion());
 	    System.out.println(phs);
     
@@ -49,7 +49,7 @@ public static void main(String[] args) {
 	    System.out.println(pts.listarArmaduraDanioFisico());
 	    System.out.println(pts.listarArmaduraDanioMagico());
 	    System.out.println(pts.listarArmaduraZona());
-	    System.out.println(pts.listarArmaduraNombre());
+	    System.out.println(pts.listarArmaduraCreacion());
 	    System.out.println(pts.listarArmaduraCreacion());
 	    System.out.println(pts);
     
@@ -68,7 +68,7 @@ public static void main(String[] args) {
 	    System.out.println(pal.listarArmaduraDanioFisico());
 	    System.out.println(pal.listarArmaduraDanioMagico());
 	    System.out.println(pal.listarArmaduraZona());
-	    System.out.println(pal.listarArmaduraNombre());
+	    System.out.println(pal.listarArmaduraCreacion());
 	    System.out.println(pal.listarArmaduraCreacion());
 	    System.out.println(pal);
     }
