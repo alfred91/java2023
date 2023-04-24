@@ -1,6 +1,7 @@
 package Ejercicio2;
 
 class Libro extends Publicacion implements Prestable {
+	
     private boolean prestado;
 
     public Libro(String isbn, String titulo, int anio, int paginas) {

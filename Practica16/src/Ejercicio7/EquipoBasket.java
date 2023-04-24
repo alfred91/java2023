@@ -3,8 +3,75 @@ package Ejercicio7;
 import java.util.*;
 
 public class EquipoBasket {
+	/**
+	 * @param nombreEquipo
+	 * @param jugadores
+	 */
+	EquipoBasket(String nombreEquipo) {
+		super();
+		this.nombreEquipo = nombreEquipo;
+
+	}
+
+	private String nombreEquipo;
 	
-    private HashMap<Integer, JugadorBasket> jugadores;
+    @Override
+	public int hashCode() {
+		return Objects.hash(jugadores, nombreEquipo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		EquipoBasket other = (EquipoBasket) obj;
+		return Objects.equals(jugadores, other.jugadores) && Objects.equals(nombreEquipo, other.nombreEquipo);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("EquipoBasket [nombreEquipo=");
+		builder.append(nombreEquipo);
+		builder.append(", jugadores=");
+		builder.append(jugadores);
+		builder.append("]");
+		return builder.toString();
+	}
+
+	/**
+	 * @return the nombreEquipo
+	 */
+	public String getNombreEquipo() {
+		return nombreEquipo;
+	}
+
+	/**
+	 * @param nombreEquipo the nombreEquipo to set
+	 */
+	public void setNombreEquipo(String nombreEquipo) {
+		this.nombreEquipo = nombreEquipo;
+	}
+
+	/**
+	 * @return the jugadores
+	 */
+	public HashMap<Integer, JugadorBasket> getJugadores() {
+		return jugadores;
+	}
+
+	/**
+	 * @param jugadores the jugadores to set
+	 */
+	public void setJugadores(HashMap<Integer, JugadorBasket> jugadores) {
+		this.jugadores = jugadores;
+	}
+
+	protected HashMap<Integer, JugadorBasket> jugadores;
 
     public EquipoBasket() {
         jugadores = new HashMap<>();

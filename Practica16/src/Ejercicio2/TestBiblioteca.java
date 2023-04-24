@@ -1,95 +1,36 @@
 package Ejercicio2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-class Publicacion<Autor> {
-    protected String isbn;
-    protected String titulo;
-    protected int anio;
-    protected int paginas;
-    protected ArrayList<Autor> autores;
-
-    public Publicacion(String isbn, String titulo, int anio, int paginas) {
-        this.isbn = isbn;
-        this.titulo = titulo;
-        this.anio = anio;
-        this.paginas = paginas;
-        this.autores = new ArrayList<Autor>();
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public int getAnio() {
-        return anio;
-    }
-
-    public void setAnio(int anio) {
-        this.anio = anio;
-    }
-
-    public int getPaginas() {
-        return paginas;
-    }
-
-    public void setPaginas(int paginas) {
-        this.paginas = paginas;
-    }
-
-    public void addAutor(String nombre, String apellidos) {
-        Autor autor = new Autor(nombre, apellidos);
-        autores.add(autor);
-    }
-
-    public void deleteAutor(String nombre, String apellidos) {
-        Autor autor = new Autor(nombre, apellidos);
-        autores.remove(autor);
-    }
-
-    public ArrayList<Autor> getAutores() {
-        return autores;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null) {
-            return false;
+public class TestBiblioteca {
+	
+    public static void main(String[] args) {
+    	
+        ArrayList<Autor> autores = new ArrayList<Autor>();
+        
+        Autor autor1 = new Autor("Juan", "Pérez", 30, "Calle Mayor 1", "juan.perez@gmail.com", "Madrid");
+        Autor autor2 = new Autor("María", "García", 35, "Plaza Catalunya 1", "maria.garcia@gmail.com", "Barcelona");
+        Autor autor3 = new Autor("Pedro", "López", 40, "Avenida del Puerto 1", "pedro.lopez@gmail.com", "Valencia");
+        Autor autor4 = new Autor("Ana", "Martínez", 25, "Calle San Pablo 1", "ana.martinez@gmail.com", "Sevilla");
+        Autor autor5 = new Autor("Carlos", "Sánchez", 28, "Gran Vía 1", "carlos.sanchez@gmail.com", "Bilbao");
+        
+        autores.add(autor1);
+        autores.add(autor2);
+        autores.add(autor3);
+        autores.add(autor4);
+        autores.add(autor5);
+        
+        System.out.println("Lista de autores:");
+        for (Autor autor : autores) {
+            System.out.println(autor.toString());
         }
-        if (!(o instanceof Publicacion)) {
-            return false;
-        }
-        Publicacion other = (Publicacion) o;
-        return this.getTitulo().equals(other.getTitulo());
-    }
+        ArrayList<Publicacion> listaPublicaciones = new ArrayList<>();
+     // Agregar objetos a la lista
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Publicacion [isbn=");
-		builder.append(isbn);
-		builder.append(", titulo=");
-		builder.append(titulo);
-		builder.append(", anio=");
-		builder.append(anio);
-		builder.append(", paginas=");
-		builder.append(paginas);
-		builder.append(", autores=");
-		builder.append(autores);
-		builder.append("]");
-		return builder.toString();
-	}
+     Collections.sort(listaPublicaciones);
+
+     // La lista de publicaciones ahora está ordenada alfabéticamente por título
+
+    }
 }
-

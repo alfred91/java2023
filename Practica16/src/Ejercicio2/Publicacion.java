@@ -2,22 +2,24 @@ package Ejercicio2;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.TreeSet;
 
-public abstract class Publicacion {
+public  class Publicacion implements Comparable{
 
 	protected String isbn;
 	protected String titulo;
 	protected int ano;
 	protected int paginas;
-	protected ArrayList<Autor> autores;
+	protected TreeSet<Autor> autores;
 	
 	 public Publicacion(String isbn, String titulo, int anio, int paginas) {
 	        this.isbn = isbn;
 	        this.titulo = titulo;
 	        this.ano = anio;
 	        this.paginas = paginas;
-	        this.autores = new ArrayList<Autor>();
+	        TreeSet<Autor> treeSet = this.autores = autores;
 	}
+	 
 	/**
 	 * @return the isbn
 	 */
@@ -68,16 +70,16 @@ public abstract class Publicacion {
 	}
 	
 	 public void addAutor(String nombre, String apellidos) {
-	        autores.add(new Autor(nombre, apellidos));
+	        autores.add(new Autor(nombre, apellidos, ano, apellidos, apellidos, apellidos));
 	    }
 
 	    public void deleteAutor(String nombre, String apellidos) {
-	        Autor autor = new Autor(nombre, apellidos);
-	        autores.removeIf(a -> a.equals(autor));
+	             autores.removeIf(a -> a.equals(autores));
 	    }
 
-	    public ArrayList<Autor> getAutores() {
-	        return autores;
+	    public TreeSet<Autor> getAutores() {
+			return autores;
+	        
 	    }
 	    
 	@Override
@@ -110,5 +112,9 @@ public abstract class Publicacion {
 		Publicacion other = (Publicacion) obj;
 		return Objects.equals(titulo, other.titulo);
 	}
-	
+	 @Override
+	    public int compareTo(Publicacion otraPublicacion) {
+	        return this.titulo.compareTo(otraPublicacion.titulo);
+	    	
+	 }
 }

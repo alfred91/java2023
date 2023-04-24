@@ -1,10 +1,12 @@
 package Ejercicio2;
 
-public class Revista extends Publicacion {
+public class Revista extends Publicacion implements Prestable {
+	
 private int numero;
 
-public Revista(int isbn, int ano, int paginas, String titulo, int numero) {
-	super(isbn, ano, paginas, titulo);
+public Revista(String isbn, int ano, int paginas, String titulo, int numero) {
+	
+	super(isbn, titulo, ano, paginas);
 	this.numero = numero;
 }
 
@@ -20,6 +22,24 @@ public int getNumero() {
  */
 public void setNumero(int numero) {
 	this.numero = numero;
+}
+
+@Override
+public void presta() {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public void devuelve() {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public boolean estaPrestado() {
+	// TODO Auto-generated method stub
+	return false;
 }
 
 }

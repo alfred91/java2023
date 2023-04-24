@@ -4,9 +4,12 @@ import java.util.Objects;
 
 public class Autor{
 	
-public String nombre,apellidos,ciudad,direccion,email;
-public int edad;
-
+	 String nombre;
+	 String apellidos;
+	 String ciudad;
+	 String direccion;
+	 String email;
+	 int edad;
 
 public Autor(String nombre, String apellidos, int edad, String ciudad, String direccion, String email) {
 
@@ -18,6 +21,15 @@ public Autor(String nombre, String apellidos, int edad, String ciudad, String di
 	this.edad = edad;
 }
 
+public Autor(Autor otro) {
+
+	this.nombre = otro.nombre;
+	this.apellidos = otro.apellidos;
+	this.ciudad = otro.ciudad;
+	this.direccion = otro.direccion;
+	this.email = otro.email;
+	this.edad = otro.edad;
+}
 
 /**
  * @return the nombre
@@ -151,5 +163,10 @@ public boolean equals(Object obj) {
 		return false;
 	Autor other = (Autor) obj;
 	return Objects.equals(apellidos, other.apellidos) && Objects.equals(nombre, other.nombre);
+	}
+
+public int compareTo(Autor otro) {
+	// TODO Auto-generated method stub
+	return 0;
 }
 }
