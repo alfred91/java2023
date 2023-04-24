@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 class LigaACBHashMap {
+	
     private HashMap<String, ArrayList<JugadorBasket>> equipos;
 
     public void LigaACB() {

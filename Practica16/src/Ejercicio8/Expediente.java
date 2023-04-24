@@ -3,6 +3,7 @@ package Ejercicio8;
 import java.util.HashSet;
 
 public class Expediente {
+	
     private Estudiante estudiante;
     private HashSet<NotasCurso> notas;
     private boolean activo;
