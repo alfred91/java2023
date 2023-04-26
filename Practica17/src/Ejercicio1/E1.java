@@ -22,5 +22,14 @@ public class E1 {
                 .collect(Collectors.toList());
 
         System.out.println("Mas de tres " +listaMasDeTres);
+        
+        List<String> listaSaltaDos = lista.stream()
+                .filter(s -> s.length() > 3)
+                .map(String::toLowerCase)
+                .collect(Collectors.toList());
+
+        System.out.println("Mas de tres " +listaSaltaDos);
+        
+        
     }
 }
