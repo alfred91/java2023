@@ -26,11 +26,11 @@ public class TestBiblioteca {
             System.out.println(autor.toString());
         }
         ArrayList<Publicacion> listaPublicaciones = new ArrayList<>();
-     // Agregar objetos a la lista
+
 
      Collections.sort(listaPublicaciones);
 
-     // La lista de publicaciones ahora está ordenada alfabéticamente por título
+
 
     }
 }
