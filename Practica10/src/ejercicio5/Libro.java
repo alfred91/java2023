@@ -4,7 +4,7 @@ class Libro extends Publicacion implements Prestable {
     private boolean prestado;
 
     public Libro(String isbn, String titulo, int anio, int paginas) {
-        super(isbn, titulo, anio, paginas);
+        super(isbn, paginas, anio, titulo);
         this.prestado = false;
     }
 

@@ -8,7 +8,7 @@ public String nombre,apellidos,ciudad,direccion,email;
 public int edad;
 
 
-public Autor(String nombre, String apellidos, int edad, String ciudad, String direccion, String email) {
+public Autor(String nombre, String apellidos) {
 
 	this.nombre = nombre;
 	this.apellidos = apellidos;

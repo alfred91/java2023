@@ -1,9 +1,8 @@
 package ejercicio5;
 
-import java.util.ArrayList;
-import java.util.Objects;
+import java.util.*;
 
-public abstract class Publicacion {
+public class Publicacion {
 
 	protected String isbn;
 	protected String titulo;
@@ -11,7 +10,7 @@ public abstract class Publicacion {
 	protected int paginas;
 	protected ArrayList<Autor> autores;
 	
-	 public Publicacion(String isbn, String titulo, int anio, int paginas) {
+	 public Publicacion(String isbn, int paginas, int anio, String titulo) {
 	        this.isbn = isbn;
 	        this.titulo = titulo;
 	        this.ano = anio;
@@ -76,10 +75,20 @@ public abstract class Publicacion {
 	        autores.removeIf(a -> a.equals(autor));
 	    }
 
-	    public ArrayList<Autor> getAutores() {
-	        return autores;
-	    }
+
 	    
+	/**
+		 * @return the autores
+		 */
+		public ArrayList<Autor> getAutores() {
+			return autores;
+		}
+	/**
+		 * @param autores the autores to set
+		 */
+		public void setAutores(ArrayList<Autor> autores) {
+			this.autores = autores;
+		}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

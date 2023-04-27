@@ -1,10 +1,13 @@
 package ejercicio5;
 
 public class Revista extends Publicacion {
+	
 private int numero;
 
-public Revista(int isbn, int ano, int paginas, String titulo, int numero) {
-	super(isbn, ano, paginas, titulo);
+public Revista(String isbn, int ano, int paginas, String titulo, int numero) {
+	
+	super(isbn, numero, paginas, titulo);
+	
 	this.numero = numero;
 }
 
@@ -20,6 +23,25 @@ public int getNumero() {
  */
 public void setNumero(int numero) {
 	this.numero = numero;
+}
+
+@Override
+public String toString() {
+	StringBuilder builder = new StringBuilder();
+	builder.append("Revista [isbn=");
+	builder.append(isbn);
+	builder.append(", titulo=");
+	builder.append(titulo);
+	builder.append(", ano=");
+	builder.append(ano);
+	builder.append(", paginas=");
+	builder.append(paginas);
+	builder.append(", autores=");
+	builder.append(autores);
+	builder.append(", numero=");
+	builder.append(numero);
+	builder.append("]");
+	return builder.toString();
 }
 
 }
