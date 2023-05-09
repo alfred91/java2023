@@ -1,23 +1,22 @@
 package Ejercicio2;
 
-import java.util.ArrayList;
 import java.util.Objects;
 import java.util.TreeSet;
 
-public  class Publicacion implements Comparable{
+public  class Publicacion implements Comparable<Publicacion>{
 
 	protected String isbn;
 	protected String titulo;
-	protected int ano;
+	protected int anio;
 	protected int paginas;
 	protected TreeSet<Autor> autores;
 	
 	 public Publicacion(String isbn, String titulo, int anio, int paginas) {
 	        this.isbn = isbn;
 	        this.titulo = titulo;
-	        this.ano = anio;
+	        this.anio = anio;
 	        this.paginas = paginas;
-	        TreeSet<Autor> treeSet = this.autores = autores;
+	        this.autores=new TreeSet<>();
 	}
 	 
 	/**
@@ -35,14 +34,14 @@ public  class Publicacion implements Comparable{
 	/**
 	 * @return the ano
 	 */
-	public int getAno() {
-		return ano;
+	public int getAnio() {
+		return anio;
 	}
 	/**
 	 * @param ano the ano to set
 	 */
-	public void setAno(int ano) {
-		this.ano = ano;
+	public void setAnio(int ano) {
+		this.anio = anio;
 	}
 	/**
 	 * @return the paginas
@@ -70,7 +69,7 @@ public  class Publicacion implements Comparable{
 	}
 	
 	 public void addAutor(String nombre, String apellidos) {
-	        autores.add(new Autor(nombre, apellidos, ano, apellidos, apellidos, apellidos));
+	        autores.add(new Autor(nombre, apellidos, anio, apellidos, apellidos, apellidos));
 	    }
 
 	    public void deleteAutor(String nombre, String apellidos) {
@@ -89,8 +88,8 @@ public  class Publicacion implements Comparable{
 		builder.append(isbn);
 		builder.append(", titulo=");
 		builder.append(titulo);
-		builder.append(", ano=");
-		builder.append(ano);
+		builder.append(", año=");
+		builder.append(anio);
 		builder.append(", paginas=");
 		builder.append(paginas);
 		builder.append(autores);
@@ -112,9 +111,5 @@ public  class Publicacion implements Comparable{
 		Publicacion other = (Publicacion) obj;
 		return Objects.equals(titulo, other.titulo);
 	}
-	 @Override
-	    public int compareTo(Publicacion otraPublicacion) {
-	        return this.titulo.compareTo(otraPublicacion.titulo);
-	    	
-	 }
+	 
 }

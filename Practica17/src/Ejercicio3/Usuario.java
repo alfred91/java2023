@@ -9,7 +9,7 @@ public class Usuario {
 	private String nombre;
 	private String email;
 	private String nick;
-	HashMap<, > personal = new HashMap<String,Puntuacion>();
+	HashMap<k,0v> personal = new HashMap<String,Puntuacion>();
 
 	
 }

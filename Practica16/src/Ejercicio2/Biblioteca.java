@@ -4,8 +4,8 @@ package Ejercicio2;
 
 	public class Biblioteca {
 
-	    private ArrayList<Publicacion> publicaciones;
-	    private ArrayList<Usuario> usuarios;
+	    protected ArrayList<Publicacion> publicaciones;
+	    protected ArrayList<Usuario> usuarios;
 
 	    public Biblioteca() {
 	        this.publicaciones = new ArrayList<Publicacion>();
@@ -97,4 +97,3 @@ package Ejercicio2;
 	    }
 
 	}
-

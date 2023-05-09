@@ -2,7 +2,7 @@ package Ejercicio2;
 
 import java.util.Objects;
 
-public class Autor{
+public class Autor implements Comparable<Publicacion>{
 	
 	 String nombre;
 	 String apellidos;
@@ -166,7 +166,10 @@ public boolean equals(Object obj) {
 	}
 
 public int compareTo(Autor otro) {
-	// TODO Auto-generated method stub
+	return 0;
+}
+
+public int compareTo(Publicacion otraPublicacion) {
 	return 0;
 }
 }
