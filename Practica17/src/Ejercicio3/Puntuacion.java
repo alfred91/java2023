@@ -1,74 +1,74 @@
 package Ejercicio3;
 
-public class Puntuacion {
+public class Puntuacion implements Comparable<Puntuacion> {
 
-	private int puntos;
-	private int PJ;
-	private int PG;
-	private int PP;
+	protected int puntos;
+	protected int PJ;
+	protected int PG;
+	protected int PP;
+
 	/**
-	 * 
+	 * @param pJ
+	 * @param pG
+	 * @param pP
 	 */
 	Puntuacion() {
-		super();
+		this.puntos = 0;
+		PJ = 0;
+		PG = 0;
+		PP = 0;
 	}
-	/**
-	 * @return the puntos
-	 */
+	
+
 	public int getPuntos() {
 		return puntos;
 	}
-	/**
-	 * @param puntos the puntos to set
-	 */
+
 	public void setPuntos(int puntos) {
 		this.puntos = puntos;
 	}
-	/**
-	 * @return the pJ
-	 */
+
 	public int getPJ() {
 		return PJ;
 	}
-	/**
-	 * @param pJ the pJ to set
-	 */
-	public void setPJ(int pJ) {
-		PJ = pJ;
+
+	public void setPJ(int PJ) {
+		this.PJ = PJ;
 	}
-	/**
-	 * @return the pG
-	 */
+
 	public int getPG() {
 		return PG;
 	}
-	/**
-	 * @param pG the pG to set
-	 */
-	public void setPG(int pG) {
-		PG = pG;
+
+	public void setPG(int PG) {
+		this.PG = PG;
 	}
-	/**
-	 * @return the pP
-	 */
+
 	public int getPP() {
 		return PP;
 	}
-	/**
-	 * @param pP the pP to set
-	 */
-	public void setPP(int pP) {
-		PP = pP;
+
+	public void setPP(int PP) {
+		this.PP = PP;
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Puntuacion [puntos= 2500");
-		builder.append(", PJ= 10");
-		builder.append(", PG= 8");
-		builder.append(", PP= 2");
+		builder.append("Puntuacion [puntos=");
+		builder.append(puntos);
+		builder.append(", Partidas Jugadas=");
+		builder.append(PJ);
+		builder.append(", Partidas Ganadas=");
+		builder.append(PG);
+		builder.append(", Partidas Perdidas=");
+		builder.append(PP);
 		builder.append("]");
 		return builder.toString();
 	}
+
+    public int compareTo(Puntuacion otro) {
+        return otro.getPuntos() - puntos;
+    }
 	
 }

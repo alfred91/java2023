@@ -2,9 +2,9 @@ package Ejercicio3;
 
 public class Juego {
 
-	private int id;
-	private String nombre;
-	private String Plataforma;
+	protected int id;
+	protected String nombre;
+	protected String Plataforma;
 	/**
 	 * @return the id
 	 */
@@ -46,7 +46,7 @@ public class Juego {
 	 * @param plataforma
 	 */
 	Juego(String nombre, String plataforma) {
-		super();
+		this.id=0;
 		this.nombre = nombre;
 		Plataforma = plataforma;
 	}

@@ -22,6 +22,7 @@ public class TestPelicula {
         directores.add(new Director(4, "Martin Scorsese"));
         directores.add(new Director(5, "Quentin Tarantino"));
 
+        
                 
         List<Pelicula> peliculas = new ArrayList<>();
         peliculas.add(new Pelicula(1, "Pulp Fiction", 1994));
@@ -36,7 +37,8 @@ public class TestPelicula {
         peliculas.add(new Pelicula(10, "Casino", 1995));
         peliculas.add(new Pelicula(11, "Goodfellas", 1990));
         peliculas.add(new Pelicula(12, "El lobo de Wall Street", 2013));
-                
+             
+        
      
         Director director1 = directores.get(0);
         director1.addPelicula(peliculas.get(3));
@@ -61,21 +63,14 @@ public class TestPelicula {
         Director director5 = directores.get(4);
         director5.addPelicula(peliculas.get(0));
         director5.addPelicula(peliculas.get(1));
-        
-        peliculas.add( Genero(peliculas.get(0), generos.get(1))); 
-	       
-        
-	        
-	       
 
 	        
+        
 	        List<Pelicula> pelisOrdenadasPorAño = peliculas.stream()
 	                .sorted(Comparator.comparing(Pelicula::getAnio))
 	                .collect(Collectors.toList());
 	        System.out.println("Películas ordenadas por año: ");
 	        pelisOrdenadasPorAño.forEach(System.out::println);
-		
-	
 
 	}
 
