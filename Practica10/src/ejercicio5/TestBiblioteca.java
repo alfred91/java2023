@@ -64,6 +64,6 @@ public class TestBiblioteca {
                 default:
                     System.out.println("Opción inválida. Intente nuevamente.");
             }
-        } while(opcion != 4);
+        } while(opcion != 4);		sc.close();
     }
 }
