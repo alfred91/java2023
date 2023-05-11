@@ -9,6 +9,27 @@ import java.util.stream.Collectors;
 
 public class TestPelicula {
 
+	
+	Pelicula pulpFiction = new Pelicula(1, "Pulp Fiction", 1994);
+	Pelicula reservoirDogs = new Pelicula(2, "Reservoir Dogs", 1992);
+	Pelicula gladiator = new Pelicula(3, "Gladiator", 2000);
+	Pelicula bladeRunner = new Pelicula(4, "Blade Runner", 1982);
+	Pelicula alien = new Pelicula(5, "Alien", 1979);
+	Pelicula apocalypseNow = new Pelicula(6, "Apocalypse Now", 1979);
+	Pelicula elPadrino = new Pelicula(7, "El Padrino", 1972);
+	Pelicula tenet = new Pelicula(8, "Tenet", 2020);
+	Pelicula origen = new Pelicula(9, "Origen", 2010);
+	Pelicula casino = new Pelicula(10, "Casino", 1995);
+	Pelicula goodfellas = new Pelicula(11, "Goodfellas", 1990);
+	Pelicula elLoboDeWallStreet = new Pelicula(12, "El Lobo de Wall Street", 2013);
+
+	Director ridleyScott = new Director(1, "Ridley Scott");
+	Director francisFordCoppola = new Director(2, "Francis Ford Coppola");
+	Director christopherNolan = new Director(3, "Christopher Nolan");
+	Director martinScorsese = new Director(4, "Martin Scorsese");
+	Director quentinTarantino = new Director(5, "Quentin Tarantino");
+
+
     private List<Pelicula> peliculas;
 
     public TestPelicula(List<Pelicula> peliculas) {

@@ -87,11 +87,11 @@ public class Pelicula {
 		return directores;
 	}
 	
-	public void addGenero(Genero g) {
+	public void addGenero(Genero genero) {
 	    if (this.generos == null) {
 	        this.generos = new ArrayList<>();
 	    }
-	    this.generos.add(g);
+	    this.generos.add(genero);
 	}
 	
 	public void deleteGenero (Genero g) {
