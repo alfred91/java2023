@@ -1,6 +1,5 @@
 package Ejercicio2;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 class Genero {
@@ -11,8 +10,12 @@ class Genero {
 	 * @param id
 	 * @param nombre
 	 */
+    
+    public Genero(String nombre) {
+        this.nombre = nombre;
+    }    
+    
 	Genero(int id, String nombre) {
-		super();
 		this.id = id;
 		this.nombre = nombre;
 	}
@@ -43,11 +46,8 @@ class Genero {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Genero [id=");
-		builder.append(id);
 		builder.append(", nombre=");
 		builder.append(nombre);
-		builder.append("]");
 		return builder.toString();
 	}
 	@Override

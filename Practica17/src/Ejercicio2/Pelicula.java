@@ -20,7 +20,7 @@ public class Pelicula {
 	 * @param directores
 	 */
 	Pelicula(int id, String titulo, int anio) {
-		super();
+
 		this.id = id;
 		this.titulo = titulo;
 		this.anio = anio;
@@ -28,6 +28,9 @@ public class Pelicula {
 		this.directores = new ArrayList<>();
 	}
 
+	public Pelicula (String titulo, int anio) {
+		
+	}
 	/**
 	 * @return the id
 	 */
@@ -85,7 +88,10 @@ public class Pelicula {
 	}
 	
 	public void addGenero(Genero g) {
-		generos.add(g);
+	    if (this.generos == null) {
+	        this.generos = new ArrayList<>();
+	    }
+	    this.generos.add(g);
 	}
 	
 	public void deleteGenero (Genero g) {
@@ -93,8 +99,12 @@ public class Pelicula {
 	}
 	
 	public void addDirector(Director d) {
-		directores.add(d);
+		if(this.directores == null) {
+			this.directores=new ArrayList<>();
+		}
+		this.directores.add(d);
 	}
+	
 	
 	public void deleteDirector(Director d) {
 		directores.remove(d);

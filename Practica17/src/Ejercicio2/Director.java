@@ -17,12 +17,14 @@ public class Director {
 	 */
 
 	Director(int id, String nombre) {
-		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.peliculas = new ArrayList<>();
 	}
-
+	public Director (String nombre) {
+	    this.nombre = nombre;
+	}
+	
 	/**
 	 * @return the id
 	 */
