@@ -1,19 +1,14 @@
 package Ejercicio2;
 
-import java.util.stream.*;
 import java.util.*;
-
-import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class TestPelicula {
-
+    public static void main(String[] args) {
 	
 	Pelicula pulpFiction = new Pelicula(1, "Pulp Fiction", 1994);
 	Pelicula reservoirDogs = new Pelicula(2, "Reservoir Dogs", 1992);
 	Pelicula gladiator = new Pelicula(3, "Gladiator", 2000);
-	Pelicula bladeRunner = new Pelicula(4, "Blade Runner", 1982);
+	Pelicula dragonfly = new Pelicula(4, "DragonFly", 1982);
 	Pelicula alien = new Pelicula(5, "Alien", 1979);
 	Pelicula apocalypseNow = new Pelicula(6, "Apocalypse Now", 1979);
 	Pelicula elPadrino = new Pelicula(7, "El Padrino", 1972);
@@ -28,68 +23,71 @@ public class TestPelicula {
 	Director christopherNolan = new Director(3, "Christopher Nolan");
 	Director martinScorsese = new Director(4, "Martin Scorsese");
 	Director quentinTarantino = new Director(5, "Quentin Tarantino");
+	
+	Genero drama = new Genero("Drama");
+	Genero comedia = new Genero("Comedia");
+	Genero accion = new Genero("Accion");
+	Genero terror =new Genero("Terror");
+	Genero scifi = new Genero("Ciencia Ficcion");
+	Genero animacion = new Genero("Animacion");
+	
+	
+	alien.addGenero(terror);
+	apocalypseNow.addGenero(accion);
+	dragonfly.addGenero(drama);
+	casino.addGenero(accion);
+	elLoboDeWallStreet.addGenero(drama);
+	elPadrino.addGenero(drama);
+	gladiator.addGenero(accion);
+	goodfellas.addGenero(comedia);
+	origen.addGenero(scifi);
+	pulpFiction.addGenero(drama);
+	reservoirDogs.addGenero(drama);
+	tenet.addGenero(animacion);
+	
+	gladiator.addDirector(ridleyScott);
 
+    
 
-    private List<Pelicula> peliculas;
-
-    public TestPelicula(List<Pelicula> peliculas) {
-        this.peliculas = peliculas;
+    
+    List<Pelicula> peliculas = new ArrayList<>();
+    peliculas.add(pulpFiction);
+    peliculas.add(reservoirDogs);
+    peliculas.add(gladiator);
+    peliculas.add(dragonfly);
+    peliculas.add(alien);
+    peliculas.add(apocalypseNow);
+    peliculas.add(elPadrino);
+    peliculas.add(tenet);
+    peliculas.add(origen);
+    peliculas.add(casino);
+    peliculas.add(goodfellas);
+    peliculas.add(elLoboDeWallStreet);
+    
+    for (Pelicula pelicula : peliculas) {
+        System.out.println("Pelicula: " + pelicula.getTitulo());
+        System.out.println("Anio: " + pelicula.getAnio());
+        System.out.println("Director: " + pelicula.getDirectores());
+        System.out.print("Genero: ");
+        for (Genero genero : pelicula.getGeneros()) {
+            System.out.print(genero.getNombre() + " ");
+        }
+        System.out.println("\n");
+    }
+    
+    for (Pelicula pelicula : peliculas) {
+        System.out.println("Pelicula: " + pelicula.getTitulo());
+        System.out.println("Anio: " + pelicula.getAnio());
+        System.out.print("Director/es: ");
+        for (Director director : pelicula.getDirectores()) {
+            System.out.print(director.getNombre() + " ");
+        }
+        System.out.print("\nGenero: ");
+        for (Genero genero : pelicula.getGeneros()) {
+            System.out.print(genero.getNombre() + " ");
+        }
+        System.out.println("\n");
     }
 
-    public void pelisOrdenadasPorAño() {
-        peliculas.stream()
-                .sorted(Comparator.comparing(Pelicula::getAnio))
-                .forEach(System.out::println);
-    }
-
-    public void tituloMasLargo() {
-        peliculas.stream()
-                .max(Comparator.comparing(p -> p.getTitulo().length()))
-                .ifPresent(System.out::println);
-    }
-
-    public void directoresMayúsculas() {
-        peliculas.stream()
-                .flatMap(p -> p.getDirectores().stream())
-                .distinct()
-                .sorted(Comparator.comparing(Director::getNombre))
-                .map(Director::getNombre)
-                .map(String::toUpperCase)
-                .forEach(System.out::println);
-    }
-
-    public void numPelis() {
-        Map<Director, Long> pelisPorDirector = peliculas.stream()
-                .flatMap(p -> p.getDirectores().stream())
-                .collect(Collectors.groupingBy(d -> d, Collectors.counting()));
-
-        pelisPorDirector.entrySet().stream()
-                .sorted(Comparator.comparing(e -> e.getKey().getNombre()))
-                .forEach(e -> System.out.println(e.getKey().getNombre() + ": " + e.getValue()));
-    }
-
-    public void dramaYMafia() {
-        Predicate<Genero> esDrama = g -> g.getNombre().equals("Drama");
-        Predicate<Genero> esMafia = g -> g.getNombre().equals("Mafia");
-
-        peliculas.stream()
-                .filter(p -> p.getGeneros().stream().anyMatch(esDrama.and(esMafia)))
-                .forEach(System.out::println);
-    }
-
-    public void filmografías() {
-        peliculas.stream()
-                .flatMap(p -> p.getDirectores().stream()
-                        .map(d -> new AbstractMap.SimpleEntry<>(d, p)))
-                .collect(Collectors.groupingBy(
-                        e -> e.getKey(),
-                        TreeMap::new,
-                        Collectors.mapping(Map.Entry::getValue, Collectors.toList())))
-                .forEach((d, ps) -> {
-                    System.out.println(d.getNombre());
-                    ps.stream()
-                            .sorted(Comparator.comparing(Pelicula::getAnio))
-                            .forEach(System.out::println);
-                });
     }
 }

@@ -89,7 +89,7 @@ public class Pelicula {
 	
 	public void addGenero(Genero genero) {
 	    if (this.generos == null) {
-	        this.generos = new ArrayList<>();
+	        this.generos = new ArrayList<Genero>();
 	    }
 	    this.generos.add(genero);
 	}
