@@ -46,7 +46,6 @@ class Genero {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(", nombre=");
 		builder.append(nombre);
 		return builder.toString();
 	}

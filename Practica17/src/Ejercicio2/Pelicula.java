@@ -22,8 +22,7 @@ public class Pelicula {
 		this.id = id;
 		this.titulo = titulo;
 		this.anio = anio;
-		this.generos = new ArrayList<>();
-		this.directores = new ArrayList<>();
+
 	}
 
 	public Pelicula (String titulo, int anio) {
@@ -86,6 +85,7 @@ public class Pelicula {
 	public ArrayList<Director> getDirectores() {
 		return directores;
 	}
+
 	
 	public void addGenero(Genero genero) {
 	    if (this.generos == null) {
@@ -113,17 +113,15 @@ public class Pelicula {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Pelicula [id=");
-		builder.append(id);
-		builder.append(", titulo=");
+
 		builder.append(titulo);
-		builder.append(", anio=");
+		builder.append(", ");
 		builder.append(anio);
-		builder.append(", generos=");
+		builder.append(" ");
 		builder.append(generos);
-		builder.append(", directores=");
+		builder.append(" ");
 		builder.append(directores);
-		builder.append("]");
+
 		return builder.toString();
 	}
 

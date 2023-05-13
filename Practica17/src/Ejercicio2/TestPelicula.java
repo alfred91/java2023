@@ -36,6 +36,7 @@ public class TestPelicula {
 	//GENEROS
 	
 	Genero drama = new Genero("Drama");
+	Genero mafia= new Genero("Mafia");
 	Genero comedia = new Genero("Comedia");
 	Genero accion = new Genero("Accion");
 	Genero terror =new Genero("Terror");
@@ -50,6 +51,7 @@ public class TestPelicula {
 	casino.addGenero(accion);
 	elLoboDeWallStreet.addGenero(drama);
 	elPadrino.addGenero(drama);
+	elPadrino.addGenero(mafia);
 	gladiator.addGenero(accion);
 	goodfellas.addGenero(comedia);
 	origen.addGenero(scifi);
@@ -88,17 +90,7 @@ public class TestPelicula {
 	    peliculas.add(casino);
 	    peliculas.add(goodfellas);
 	    peliculas.add(elLoboDeWallStreet);
-	    
-	    
-	  List<Genero> generos = new ArrayList<>();
-		  generos.add(drama);
-		  generos.add(scifi);
-		  generos.add(terror);
-		  generos.add(comedia);
-		  generos.add(animacion);
-		  
-	  
-    
+
     //MOSTRAR LAS PELICULAS 
     
     for (Pelicula pelicula : peliculas) {
@@ -120,86 +112,95 @@ public class TestPelicula {
     
     // EJECUCION DE LOS STREAMS 
     
-   System.out.println("Pelis ordenadas por anio:");  
+   System.out.println("PELIS ORDENADAS POR ANIO :");  
    pelisOrdenadasPorAnio(peliculas);
    		System.out.println();
 
-   	System.out.println("Pelis de ciencia ficcion del 2000");
+   	System.out.println("PELIS DE CIENCIA-FICCION POSTERIORES AL 2000");
     scifi2000(peliculas);
     	System.out.println();
 
-    System.out.println("Titulo mas largo:");
+    System.out.println("TITULO MAS LARGO :");
     tituloMasLargo(peliculas);
     	System.out.println();
 
-    	System.out.println();
+    	System.out.println("DIRECTORES EN MAYUSCULAS: ");
         directoresMayusculas(peliculas);
         	System.out.println();
         	
-       System.out.println(); 	
+       System.out.println("MOSTRAR DIRECTOR Y NUMERO DE PELIS"); 	
         numPelis(peliculas);
         	System.out.println();
         
-        	System.out.println();
+        	System.out.println("MOSTRAR TODAS LAS PELICULAS DE DRAMA Y MAFIA");
         dramaYMafia(peliculas);
         	System.out.println();
         	
-        	System.out.println();
+        	System.out.println("MOSTRAR LAS PELICULAS DE CADA DIRECTOR ORDENADAS POR ANIO");
         filmografias(peliculas);
     		System.out.println();
     }
-    // Método para mostrar todas las películas ordenadas por año
+    
+    // MOSTRAR PELIS ORDENADAS POR AÑO 
     public static void pelisOrdenadasPorAnio(List<Pelicula> peliculas) {
         peliculas.stream()
                 .sorted(Comparator.comparing(Pelicula::getAnio))
                 .forEach(System.out::println);
+        
     }
         
         
-     // Método para mostrar las películas de ciencia ficción posteriores al año 2000
-        public static void scifi2000(List<Pelicula> peliculas) {
-            peliculas.stream()
-                    .filter(p -> p.getGeneros().contains("Ciencia") && p.getAnio() >= 2000)
-                    .forEach(System.out::println);
-        }
+     // MOSTRAR PELIS DE CIENCIA FICCION POSTERIORES AL AÑO 2000
+    public static void scifi2000(List<Pelicula> peliculas) {
+        peliculas.stream()
+                .filter(p -> p.getGeneros().stream().anyMatch(g -> g.getNombre().equals("Ciencia Ficcion"))
+                			&& p.getAnio() >= 2000)
+                .forEach(System.out::println);
+    }
 
-        // Método para mostrar la película cuyo título es más largo
+
+        // MOSTRAR LA PELICULA CON EL TITULO MAS LARGO
         public static void tituloMasLargo(List<Pelicula> peliculas) {
             peliculas.stream()
                     .max(Comparator.comparing(p -> p.getTitulo().length()))
                     .ifPresent(System.out::println);
         }
         
-     // Método para mostrar los nombres de los directores ordenados y en mayúsculas
+     // MOSTRAR NOMBRES DE LOS DIRECTORES ORDENADOS Y EN MAYUSCULAS
+        
         public static void directoresMayusculas(List<Pelicula> peliculas) {
-            peliculas.stream()
-                    .map(Pelicula::getDirector)
+            List<String> directoresMayusculas = peliculas.stream()
+                    .map(Pelicula::getDirectores)
+                    .flatMap(List::stream)
+                    .map(Director::getNombre)
                     .distinct()
                     .sorted()
                     .map(String::toUpperCase)
-                    .forEach(System.out::println);
+                    .collect(Collectors.toList());
+
+            directoresMayusculas.forEach(System.out::println);
         }
         
-        // Método para mostrar el director y al lado el número de películas de cada director
+        // MOSTRAR DIRECTOR Y NUMERO DE PELIS
         public static void numPelis(List<Pelicula> peliculas) {
             peliculas.stream()
-                    .collect(Collectors.groupingBy(Pelicula::getDirector, Collectors.counting()))
+                    .collect(Collectors.groupingBy(Pelicula::getDirectores, Collectors.counting()))
                     .forEach((k, v) -> System.out.println(k + ": " + v));
         }
         
-        // Método para mostrar todas las películas de drama y mafia
+        // MOSTRAR TODAS LAS PELICULAS DE DRAMA Y MAFIA
         public static void dramaYMafia(List<Pelicula> peliculas) {
-            Predicate<Pelicula> drama = p -> p.getGeneros().contains("Drama");
-            Predicate<Pelicula> mafia = p -> p.getGeneros().contains("Mafia");
+            Predicate<Pelicula> drama = p -> p.getGeneros().contains("drama");
+            Predicate<Pelicula> mafia = p -> p.getGeneros().contains("mafia");
             peliculas.stream()
                     .filter(drama.and(mafia))
                     .forEach(System.out::println);
         }
 
-        // Método para mostrar las películas de cada director ordenadas por año
+        // MOSTRAR LAS PELICULAS DE CADA DIRECTOR ORDENADAS POR ANIO 
         public static void filmografias(List<Pelicula> peliculas) {
             peliculas.stream()
-                    .collect(Collectors.groupingBy(Pelicula::getDirector))
+                    .collect(Collectors.groupingBy(Pelicula::getDirectores))
                     .forEach((director, pelis) -> {
                         System.out.println(director);
                         pelis.stream()

@@ -72,13 +72,11 @@ public class Director {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Director [id=");
-		builder.append(id);
-		builder.append(", nombre=");
+
+	
 		builder.append(nombre);
-		builder.append(", peliculas=");
-		builder.append(peliculas);
-		builder.append("]");
+
+
 		return builder.toString();
 	}
 
