@@ -21,6 +21,7 @@ public class Director {
 		this.nombre = nombre;
 		this.peliculas = new ArrayList<>();
 	}
+	
 	public Director (String nombre) {
 	    this.nombre = nombre;
 	}

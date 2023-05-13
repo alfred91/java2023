@@ -1,8 +1,6 @@
 package Ejercicio2;
 
-import java.util.stream.*;
-import java.util.ArrayList;
-import java.util.Objects;
+import java.util.*;
 
 public class Pelicula {
 	
@@ -30,6 +28,8 @@ public class Pelicula {
 
 	public Pelicula (String titulo, int anio) {
 		
+		this.titulo=titulo;
+		this.anio=anio;
 	}
 	/**
 	 * @return the id
@@ -143,7 +143,5 @@ public class Pelicula {
 		Pelicula other = (Pelicula) obj;
 		return id == other.id;
 	}
-		
-	
-	
+
 }
