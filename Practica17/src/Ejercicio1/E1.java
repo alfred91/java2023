@@ -25,7 +25,7 @@ public class E1 {
                 .map(String::toLowerCase)
                 .collect(Collectors.toList());
 
-        System.out.println("Mas de tres " +listaMasDeTres);
+        System.out.println("MAS DE TRES " +listaMasDeTres);
         
 //Haz lo mismo que el anterior, a partir de ese resultado añade que salte los dos primeros strings,
  // y devuelve sólo tres strings del resultado
@@ -37,7 +37,7 @@ public class E1 {
                 .limit(3)
                 .collect(Collectors.toList());
 
-        System.out.println("Salta dos devuelve 3 " +listaSaltaDos);
+        System.out.println("SALTA 2, DEVUELVE 3: " +listaSaltaDos);
         
 //Toma la lista y directamente imprímela ordenada.
         
@@ -51,14 +51,14 @@ public class E1 {
         long masDeCuatro = lista.stream()
         		.filter(s -> s.length()>4)
         		.count();
-        System.out.println("Strings de 4+ caracteres: " +masDeCuatro);
+        System.out.println("STRINGS DE 4+ CARACTERES : " +masDeCuatro);
         
 //- Usando una reducción devuelve una cadena uniendo todas las cadenas separadas por un “-“.
         
         String cadenaGuion = lista.stream()
         		.reduce((s1, s2) -> s1 + "-" + s2)
         		.orElse("");
-				System.out.println("Cadena: "+cadenaGuion);
+				System.out.println("CADENA: "+cadenaGuion);
 				
 
 //Devuelve la primera cadena que cumpla que contiene (contains) la “O”. (Usar filter con un Predicate).
@@ -67,7 +67,7 @@ public class E1 {
         		.filter(s-> s.contains("O"))
         		.findFirst()
         		.orElse("");
-        System.out.println("Primer String que contiene la 'O' "+stringConO);
+        System.out.println("PRIMER STRING QUE CONTIENE LA 'O': "+stringConO);
         
     }
 }
