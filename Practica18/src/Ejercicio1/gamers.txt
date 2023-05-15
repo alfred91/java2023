@@ -1,0 +1,3 @@
+Nick;email;juego;nivel
+Bnei;jjavier@gmail.com;AoEII;Malillo
+Lucas88;lucas@outlook.com;Fifa21;Máquina
