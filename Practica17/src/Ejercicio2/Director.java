@@ -17,12 +17,15 @@ public class Director {
 	 */
 
 	Director(int id, String nombre) {
-		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.peliculas = new ArrayList<>();
 	}
-
+	
+	public Director (String nombre) {
+	    this.nombre = nombre;
+	}
+	
 	/**
 	 * @return the id
 	 */
@@ -69,13 +72,11 @@ public class Director {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Director [id=");
-		builder.append(id);
-		builder.append(", nombre=");
+
+	
 		builder.append(nombre);
-		builder.append(", peliculas=");
-		builder.append(peliculas);
-		builder.append("]");
+
+
 		return builder.toString();
 	}
 

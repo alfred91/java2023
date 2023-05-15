@@ -3,7 +3,7 @@ package Ejercicio3;
 import java.util.HashMap;
 
 public class Usuario {
-    private static int lastId = 0;
+    private static int nextId = 1;
     private int id;
     private String nombre;
     private String email;
@@ -11,7 +11,7 @@ public class Usuario {
     private HashMap<Integer, Puntuacion> puntuaciones;
 
     public Usuario(String nombre, String email, String nick) {
-        this.id = ++lastId;
+        this.id =nextId++;
         this.nombre = nombre;
         this.email = email;
         this.nick = nick;
@@ -68,10 +68,13 @@ public class Usuario {
         }
     }
 
-    public Puntuacion getPuntuacion(int idJuego) {
-        return puntuaciones.get(idJuego);
+    public int getPuntuacion(int idJuego) {
+        if (puntuaciones.containsKey(idJuego)) {
+            return puntuaciones.get(idJuego).getPuntos();
+        } else {
+            return 0;
+        }
     }
-
 
     @Override
     public String toString() {

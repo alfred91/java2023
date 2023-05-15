@@ -6,6 +6,15 @@ public class Juego {
 	protected String nombre;
 	protected String Plataforma;
 	/**
+	 * @param nombre
+	 * @param plataforma
+	 */
+	Juego(String nombre, String plataforma) {
+		this.nombre = nombre;
+		Plataforma = plataforma;
+	}
+	
+	/**
 	 * @return the id
 	 */
 	public int getId() {
@@ -41,15 +50,7 @@ public class Juego {
 	public void setPlataforma(String plataforma) {
 		Plataforma = plataforma;
 	}
-	/**
-	 * @param nombre
-	 * @param plataforma
-	 */
-	Juego(String nombre, String plataforma) {
-		this.id=0;
-		this.nombre = nombre;
-		Plataforma = plataforma;
-	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

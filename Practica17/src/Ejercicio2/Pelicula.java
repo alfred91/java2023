@@ -1,8 +1,6 @@
 package Ejercicio2;
 
-import java.util.stream.*;
-import java.util.ArrayList;
-import java.util.Objects;
+import java.util.*;
 
 public class Pelicula {
 	
@@ -20,14 +18,18 @@ public class Pelicula {
 	 * @param directores
 	 */
 	Pelicula(int id, String titulo, int anio) {
-		super();
+
 		this.id = id;
 		this.titulo = titulo;
 		this.anio = anio;
-		this.generos = new ArrayList<>();
-		this.directores = new ArrayList<>();
+
 	}
 
+	public Pelicula (String titulo, int anio) {
+		
+		this.titulo=titulo;
+		this.anio=anio;
+	}
 	/**
 	 * @return the id
 	 */
@@ -83,9 +85,13 @@ public class Pelicula {
 	public ArrayList<Director> getDirectores() {
 		return directores;
 	}
+
 	
-	public void addGenero(Genero g) {
-		generos.add(g);
+	public void addGenero(Genero genero) {
+	    if (this.generos == null) {
+	        this.generos = new ArrayList<Genero>();
+	    }
+	    this.generos.add(genero);
 	}
 	
 	public void deleteGenero (Genero g) {
@@ -93,8 +99,12 @@ public class Pelicula {
 	}
 	
 	public void addDirector(Director d) {
-		directores.add(d);
+		if(this.directores == null) {
+			this.directores=new ArrayList<>();
+		}
+		this.directores.add(d);
 	}
+	
 	
 	public void deleteDirector(Director d) {
 		directores.remove(d);
@@ -103,17 +113,15 @@ public class Pelicula {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Pelicula [id=");
-		builder.append(id);
-		builder.append(", titulo=");
+
 		builder.append(titulo);
-		builder.append(", anio=");
+		builder.append(", ");
 		builder.append(anio);
-		builder.append(", generos=");
+		builder.append(" ");
 		builder.append(generos);
-		builder.append(", directores=");
+		builder.append(" ");
 		builder.append(directores);
-		builder.append("]");
+
 		return builder.toString();
 	}
 
@@ -133,7 +141,5 @@ public class Pelicula {
 		Pelicula other = (Pelicula) obj;
 		return id == other.id;
 	}
-		
-	
-	
+
 }

@@ -72,30 +72,45 @@ public class Stim {
                 return puntuacion;
             }
         }
-        System.out.println("No se encontró el usuario con id " + idUsuario);
+        System.out.println("No se ha encontrado la id de usuario: " + idUsuario);
 		return null;
     }
 
     public void pintarRankingJuegos() {
-        System.out.println("Ranking de juegos:");
-        for (Juego juego : juegos) {
-            System.out.println(juego.getNombre() + " - " + juego.getPlataforma());
-            ArrayList<Usuario> usuariosQueJuegan = new ArrayList<>();
-            for (Usuario jugador : jugadores) {
-                if (jugador.getPuntuaciones().containsKey(juego.getId())) {
-                    usuariosQueJuegan.add(jugador);
+        for (Juego juego : this.juegos) {
+            System.out.printf("Ranking de %s - %s\n", juego.getNombre(), juego.getPlataforma());
+            System.out.println("Nick \t\t Puntos");
+
+            TreeSet<Usuario> usuariosOrdenados = new TreeSet<>((u1, u2) -> {
+                Puntuacion p1 = u1.getPuntuaciones().get(juego.getId());
+                Puntuacion p2 = u2.getPuntuaciones().get(juego.getId());
+
+                if (p1 == null && p2 == null) {
+                    return 0;
+                } else if (p1 == null) {
+                    return -1;
+                } else if (p2 == null) {
+                    return 1;
+                }
+
+                return p2.getPuntos() - p1.getPuntos();
+            });
+
+            for (Usuario jugador : this.jugadores) {
+                Puntuacion puntuacion = jugador.getPuntuaciones().get(juego.getId());
+                if (puntuacion != null) {
+                    usuariosOrdenados.add(jugador);
                 }
             }
-            usuariosQueJuegan.sort(Comparator.comparingInt
-            		(u -> -u.getPuntuacion(juego.getId()).getPuntos()));
-            System.out.println("Nick\t\tPuntos");
-            for (Usuario jugador : usuariosQueJuegan) {
-                Puntuacion puntuacion = jugador.getPuntuacion(juego.getId());
-                System.out.printf("%-15s %d\n", jugador.getNick(), puntuacion.getPuntos());
+
+            for (Usuario usuario : usuariosOrdenados) {
+                Puntuacion puntuacion = usuario.getPuntuaciones().get(juego.getId());
+                System.out.printf("%s \t\t %d\n", usuario.getNick(), puntuacion.getPuntos());
             }
+
             System.out.println();
+            }
         }
-    }
 
 	public static Juego buscarJuego(int idJuego) {
 		// TODO Auto-generated method stub
