@@ -4,8 +4,6 @@ import java.util.*;
 public class PruebaMapas {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//Hashmap<CLAVE, VALOR>
 		
 		HashMap<String, Empleado> personal = new HashMap<String,Empleado>();
 		

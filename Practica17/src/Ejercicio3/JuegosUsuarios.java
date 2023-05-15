@@ -39,7 +39,7 @@ public class JuegosUsuarios {
 	    int idUsuario = 1;
 	    Puntuacion puntuacion;
 		try {
-			puntuacion = Stim.buscarPuntuacion(idUsuario, idJuego);
+			puntuacion = Stim.buscarPuntuacion(idJuego, idUsuario);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

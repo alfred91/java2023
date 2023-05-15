@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Autor{
 	
-public String nombre,apellidos,ciudad,direccion,email;
-public int edad;
+ String nombre,apellidos,ciudad,direccion,email;
+ int edad;
 
 
 public Autor(String nombre, String apellidos) {
@@ -17,7 +17,6 @@ public Autor(String nombre, String apellidos) {
 	this.email = email;
 	this.edad = edad;
 }
-
 
 /**
  * @return the nombre
