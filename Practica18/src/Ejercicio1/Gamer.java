@@ -5,7 +5,7 @@ public class Gamer {
 	private String nick;
 	private String email;
 	private String juego;
-	private Nivel nivel;
+	protected Nivel nivel;
 	enum Nivel {DIOS,MAQUINA,BUENO,NORMAL,REGULAR,MALILLO,PAQUETE}
 
 	Gamer(String nick, String email, String juego, Nivel nivel) {

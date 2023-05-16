@@ -68,23 +68,27 @@ public class Discord {
     }
 
     public void listGamers() {
-        for (Gamer gamer : gamers) {
-            gamer.toString();
-            System.out.println("-----------------------------");
+        if (gamers.isEmpty()) {
+            System.out.println("No hay jugadores registrados.");
+        } else {
+            for (Gamer gamer : gamers) {
+                System.out.println(gamer);
+            }
         }
     }
 
     public void saveGamers() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("gamers.txt"))) {
+        try {
+            PrintWriter writer = new PrintWriter(new FileWriter("gamers.txt"));
+
             for (Gamer gamer : gamers) {
-                String line = gamer.getNick() + ", " + gamer.getEmail() + ", " + gamer.getJuego() + ", " + gamer.getNivel();
-                writer.write(line);
-                writer.newLine();
+                writer.println(gamer.getNick() + ";" + gamer.getEmail() + ";" + gamer.getJuego() + ";" + gamer.getNivel());
             }
+
+            writer.close();
+            System.out.println("Jugadores guardados correctamente.");
         } catch (IOException e) {
-            System.out.println("Error al escribir en el archivo gamers.txt: " + e.getMessage());
+            System.out.println("Error al guardar los jugadores: " + e.getMessage());
         }
-    }
-
-
 }
+    }
