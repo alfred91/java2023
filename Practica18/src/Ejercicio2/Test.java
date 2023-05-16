@@ -6,8 +6,11 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Test {
+	
     public static void main(String[] args) {
+    	
         try {
+        	
             String directoryPath = "ruta_del_directorio";
             long directorySize = FileUtils.calculateDirectorySize(directoryPath);
             System.out.println("El tamaño total del directorio es: " + directorySize + " bytes");
