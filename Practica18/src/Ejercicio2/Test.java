@@ -11,23 +11,23 @@ public class Test {
     	
         try {
         	
-            String directoryPath = "ruta_del_directorio";
+            String directoryPath = "C:\\Users\\usario1daw\\test";
             long directorySize = FileUtils.calculateDirectorySize(directoryPath);
-            System.out.println("El tamaño total del directorio es: " + directorySize + " bytes");
+            System.out.println("El tamanio total del directorio es : " + directorySize + " bytes");
 
-            String searchDirectoryPath = "ruta_del_directorio";
-            String fileNameToSearch = "nombre_del_archivo";
-            System.out.println("Archivos encontrados:");
+            String searchDirectoryPath = "C:\\Users\\usario1daw\\test";
+            String fileNameToSearch = "Hola.txt Hola2.txt";
+            System.out.println("Archivos Encontrados : "+fileNameToSearch+" ");
             FileUtils.searchFileInSubdirectories(searchDirectoryPath, fileNameToSearch);
 
-            String deleteDirectoryPath = "ruta_del_directorio";
-            String fileNameToDelete = "nombre_del_archivo";
+            String deleteDirectoryPath = "C:\\Users\\usario1daw\\test";
+            String fileNameToDelete = "Borrar.txt";
             FileUtils.deleteFileInDirectory(deleteDirectoryPath, fileNameToDelete);
-            System.out.println("Archivos eliminados con éxito");
+            System.out.println("Archivos eliminados con Exito");
 
-            String regularFilesDirectoryPath = "ruta_del_directorio";
+            String regularFilesDirectoryPath = "C:\\Users\\usario1daw\\test";
             List<Path> regularFiles = FileUtils.getRegularFilesInDirectory(regularFilesDirectoryPath);
-            System.out.println("Archivos regulares encontrados:");
+            System.out.println("Archivos regulares encontrados : ");
             for (Path file : regularFiles) {
                 System.out.println(file);
             }
