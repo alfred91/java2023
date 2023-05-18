@@ -1,6 +1,5 @@
 package Streams;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -9,24 +8,34 @@ public class AccesoFichero {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		
+		LeerFichero accediendo=new LeerFichero();
+		
+		accediendo.lee();		
+		
 	}
 
-	class LeerFichero{
+	static class LeerFichero{
 		
 		
 		public void lee(){
 
 			try {
 				
-				FileReader entrada= new FileReader("ejemplo.txt");
+				FileReader entrada = new FileReader
+					("C:\\Users\\Apache\\eclipse-workspace\\Programacion_generica\\src\\Streams\\ejemplo.txt");
 				
-				int c= entrada.read();
+				int c = 0;
 				
-				while(c!=-1) {
-					c=entrada.read();
+					while(c!=-1) {
 					
-					System.out.println(c);
-				}
+						c=entrada.read();
+					
+						char letra=(char)c;
+					
+						System.out.print(letra);
+										
+					} entrada.close();
 				
 			} catch (IOException e) {
 				
