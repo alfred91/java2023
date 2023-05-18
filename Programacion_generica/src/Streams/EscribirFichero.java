@@ -18,12 +18,12 @@ public class EscribirFichero {
 		
 		public void escribir() {
 			
-			String frase="Esto es una prueba de escritura";
+			String frase=" Esto es una prueba de escritura 2";
 			
 			try {
 				
-				FileWriter escritura = new FileWriter					
-						("C:\\Users\\Apache\\eclipse-workspace\\Programacion_generica\\src\\Streams\\ejemploEscritura.txt");
+				FileWriter escritura = new FileWriter	//EL TRUE AGREGA LA LINEA AL FICHERO. SI LO QUITAS SOBREESCRIBES EL FICHERO
+						("C:\\Users\\Apache\\eclipse-workspace\\Programacion_generica\\src\\Streams\\ejemploEscritura.txt",true);
 					
 					for(int i=0;i<frase.length();i++) {
 						escritura.write(frase.charAt(i));

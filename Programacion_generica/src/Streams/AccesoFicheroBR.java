@@ -1,14 +1,14 @@
 package Streams;
 
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class AccesoFichero {
+public class AccesoFicheroBR {
+
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-		
 		LeerFichero accediendo=new LeerFichero();
 		
 		accediendo.lee();		
@@ -23,26 +23,27 @@ public class AccesoFichero {
 			try {
 				
 				FileReader entrada = new FileReader
-					("C:\\Users\\Apache\\eclipse-workspace\\Programacion_generica\\src\\Streams\\ejemplo.txt");
+			("C:\\Users\\Apache\\eclipse-workspace\\Programacion_generica\\src\\Streams\\ejemploBR.txt");
 				
-					
-				int c = 0;
+				BufferedReader mibuffer= new BufferedReader(entrada);
 				
-					while(c!=-1) {
+				String linea ="";
+				
+					while(linea!=null) {
 					
-						c=entrada.read();
-					
-						char letra=(char)c;
-					
-						System.out.print(letra);
+						linea=mibuffer.readLine();
+										
+						if (linea!=null)//QUITAR LA PALABRA NULL DEL FINAL
+						System.out.println(linea);
 										
 					} entrada.close();
 				
 			} catch (IOException e) {
 				
-				// ESTO IMPRIME EL ESTADO DE LA PILA e.printStackTrace();
+				// ESTO IMPRIME EL ESTADO DE LA PILA: e.printStackTrace();
 				
 				System.out.println("No se ha encontrado el archivo");
+		
 			}
 		}
 		

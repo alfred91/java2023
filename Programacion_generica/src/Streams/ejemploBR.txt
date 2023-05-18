@@ -1,0 +1,88 @@
+TEMA 0. QUÉ ES UN PROGRAMA. PSEUDOCÓDIGO
+Introducción a la programaciónArchivo
+Práctica 1. Ejercicios en pseudocódigoTarea
+Prueba escritaTarea
+Soluciones a los ejerciciosArchivo
+Ejercicios repaso tipo examenArchivo
+TEMA 1. INTRODUCCIÓN AL LENGUAJE JAVA
+Elementos de un programa JavaArchivo
+Práctica 2. Ejercicios introducción a JavaTarea
+Anexo 1. Instalación EclipseArchivo
+Anexo 2. Entorno de EclipseArchivo
+Oracle JDK 17 (Windows)URL
+Eclipse InstallerURL
+Eclipse packagesURL
+Repositorio con todos los ejercicios que hace el profesor en claseURL
+Javi API Doc 17URL
+Traducir eclipse a españolURL
+Instrucciones git casaArchivo
+TEMA 2. ESTRUCTURAS BÁSICAS DE CONTROL
+Estructuras básicas de controlArchivo
+Práctica 3. Ejercicios estructuras de control en JavaTarea
+TEMA 3 - ESTRUCTURAS DE ALMACENAMIENTO
+Estructuras de almacenamientoArchivo
+Práctica 4. Arrays y matricesTarea
+Práctica 5. Strings y algoritmos de ordenaciónTarea
+PRUEBA ESCRITA 1ª EVALUACIÓNTarea
+CUESTINARIO. EVALUACIÓN DE LA ENSEÑANZA 1ª EVEncuesta
+VACACIONES NAVIDAD
+
+Curso Java (hasta el vídeo 28)URL
+Curso Java con ejercicios tipo clase (hasta el vídeo 88)URL
+Ejercicios que hagáis en NavidadTarea
+PRUEBA ESCRITA RECUPERACIÓN 1ª EVALUACIÓN (2 febrero)Tarea
+TEMA 4 - PROGRAMACIÓN ORIENTADA A OBJETOS. OBJETOS
+Programación orientada a objetos. OBJETOSArchivo
+Diapositivas repaso (Openwebinars)Carpeta
+Práctica 6 - POO. ObjetosTarea
+Práctica 7 - AhorcadoTarea
+Apuntes Curso Java 8 de OpenWebinarsArchivo
+TEMA 5 - PROGRAMACIÓN ORIENTADA A OBJETOS. CLASES
+Programación orientada a objetos. Clases.Archivo
+Práctica 8 - POO. ClasesTarea
+Práctica 9 - HerenciaTarea
+TEMA 6 - POO. UTILIZACIÓN AVANZADA DE CLASES
+Programación orientada a objetos. POO avanzada.Archivo
+Programación orientada a objetos. Clases útiles (Enum, Fechas, Strings)Archivo
+Práctica 10 - Programación orientada a objetos. POO Avanzada.Tarea
+Práctica 11 - Ejercicios tipo exámen (exámen 2022)Tarea
+Práctica CLASE (sube nota) - Explicación librerías y ejercicio propuesto de repaso con libreríasTarea
+Prueba escrita 2ª EvaluaciónTarea
+Debugging en JavaURL
+Examen 2021Archivo
+EVALUACIÓN DE LA PRÁCTICA DOCENTE 2ª EVEncuesta
+TEMA 6 ANEXO -> MAVEN
+DescargaURL
+InstalaciónURL
+Repositorio MavenURL
+Crear un proyecto en EclipseURL
+Tutorial Maven en EclipseURL
+Maven Cheat SheetArchivo
+Práctica 14 - Crear aplicación JavaFX con MavenTarea
+TEMA 7 - POO. LECTURA ESCRITURA DE INFORMACIÓN
+Lectura escritura de información IArchivo
+Diferencias entre ArrayList y LinkedListURL
+Práctica clase Sets y ArrayListTarea
+Práctica 16. POO. Lectura escritura información ITarea
+Lectura escritura de información II. STREAMSArchivo
+Práctica de clase - StreamsArchivo
+Práctica 17. POO. Lectura escritura de información II. StreamsTarea
+Lectura y escritura de información III. Files y Java NIO.2Archivo
+Práctica 18. POO. Lectura y escritura de información III. FilesTarea
+TEMA 8 - ACCESO A BASES DE DATOS Y PERSISTENCIA
+Bases de datos relacionalesArchivo
+Práctica 17 - Proyecto de Bases de datos relacionalesTarea
+Driver JDBC MysqlArchivo
+Ejemplo Hibernate
+
+Base de datos de prueba para HibernateArchivo
+Clase de configuración para el ejemploArchivo
+Application.propertiesArchivo
+Modelos y repositoriosArchivo
+Clase principalArchivo
+Código completo del ejemploArchivo
+TEMA 9 - INTERFACES GRÁFICAS DE USUARIO
+Activar Window Builder (Java Swing) en EclipseURL
+Interfaces gráficas de usuarioArchivo
+RECUPERACIÓN JUNIO
+Si alguien que esté aprobado quiere subir nota, puede presentar los trabajos de recuperación 1 y/o 2, se los corregiré y los tendré en cuenta para la nota en la evaluación final de junio.
