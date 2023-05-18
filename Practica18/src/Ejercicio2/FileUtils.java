@@ -8,7 +8,7 @@ import java.util.List;
 
 public class FileUtils {
 
-		//Este método calcula el tamaño total de un directorio y todos sus archivos de forma recursiva.
+		//Calcular el tamaño total de un directorio y todos sus archivos de forma recursiva.
 	
     public static long calculateDirectorySize(String directoryPath) throws IOException {
         Path directory = Paths.get(directoryPath);
@@ -17,7 +17,7 @@ public class FileUtils {
         return visitor.getTotalSize();
     }
 
-    // Este busca un archivo por su nombre en todas las subcarpetas de un directorio. 
+    // Buscar un archivo por su nombre en todas las subcarpetas de un directorio.
     
     public static void searchFileInSubdirectories(String directoryPath, String fileName) throws IOException {
         Path directory = Paths.get(directoryPath);
@@ -32,7 +32,7 @@ public class FileUtils {
         });
     }
 
-    // Este elimina un archivo por su nombre en un directorio y subdirectorios.
+    // Eliminar un archivo por su nombre en un directorio y subdirectorios.
     
     public static void deleteFileInDirectory(String directoryPath, String fileName) throws IOException {
         Path directory = Paths.get(directoryPath);
