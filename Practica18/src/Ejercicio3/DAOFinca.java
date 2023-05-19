@@ -1,6 +1,9 @@
 package Ejercicio3;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -31,11 +34,10 @@ public class DAOFinca {
 
 	public void cargarDatos() {
 		
-		String csvFile="C:\\Users\\Apache\\eclipse-workspace\\Practica18\\src\\Ejercicio3\\fincas.csv";
-		String line="";
+		Path csvFile = Paths.get("C:\\Users\\Apache\\eclipse-workspace\\Practica18\\src\\Ejercicio3\\fincas.csv");		String line="";
 		String csvSplitBy=",";
 		
-		try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+		try (BufferedReader br = Files.newBufferedReader(csvFile)) {
 		    br.readLine();
 		    
 		    while ((line = br.readLine()) != null) {

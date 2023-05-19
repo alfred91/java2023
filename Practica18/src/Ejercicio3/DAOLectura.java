@@ -67,7 +67,8 @@ public void setLecturas(HashSet<Lectura> lecturas) {
 	
 	
     public void grabarDatos() {
-        Path csvFile = Paths.get("C:\\Users\\Apache\\eclipse-workspace\\Practica18\\src\\Ejercicio3\\lecturas.csv");
+    	
+        Path csvFile = Paths.get("C:\\Users\\Apache\\eclipse-workspace\\Practica18\\src\\Ejercicio3\\lecturas1.csv");
 
         try (BufferedWriter bw = Files.newBufferedWriter(csvFile)) {
             bw.write("idFinca \n");
