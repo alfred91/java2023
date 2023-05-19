@@ -1,8 +1,6 @@
 package Ejercicio3;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -53,6 +51,7 @@ public class TestFincas {
         
         
      //  ELIMINAR 5 LECTURAS
+        
         try {
             DAOLectura daoLectura = new DAOLectura(); // Crear una instancia de DAOLectura
             
