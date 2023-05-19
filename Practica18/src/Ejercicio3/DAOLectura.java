@@ -16,7 +16,7 @@ private Set<Lectura>lecturas;
 	/**
  * @return the lecturas
  */
-public Set<Lectura> getLecturas() {
+public HashSet<Lectura> getLecturas() {
 	
 	return new HashSet<>(lecturas); // DEVUELVE UNA COPIA DE LA COLECCION
 }
@@ -25,7 +25,7 @@ public Set<Lectura> getLecturas() {
 /**
  * @param lecturas the lecturas to set
  */
-public void setLecturas(Set<Lectura> lecturas) {
+public void setLecturas(HashSet<Lectura> lecturas) {
 	this.lecturas = lecturas;
 }
 
