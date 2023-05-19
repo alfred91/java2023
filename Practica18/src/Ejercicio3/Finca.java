@@ -15,6 +15,7 @@ public class Finca {
 	    
 		public Finca(int id, String nombre, double longitud, double latitud, double superficie, String localidad,
 				String provincia) {
+			
 			super();
 			this.id = id;
 			this.nombre = nombre;
@@ -24,7 +25,6 @@ public class Finca {
 			this.localidad = localidad;
 			this.provincia = provincia;
 		}
-
 
 		/**
 		 * @return the id
