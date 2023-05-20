@@ -32,7 +32,7 @@ public class TestGamer {
                     String email = scanner.nextLine();
                     System.out.print("Introduce el juego: ");
                     String juego = scanner.nextLine();
-                    System.out.print("Introduce el nivel del jugador (DIOS, MÁQUINA, BUENO, NORMAL, REGULAR, MALILLO, PAQUETE): ");
+                    System.out.print("Introduce el nivel del jugador (DIOS, MAQUINA, BUENO, NORMAL, REGULAR, MALILLO, PAQUETE): ");
                     String nivelStr = scanner.nextLine();
                     Nivel nivel = Nivel.valueOf(nivelStr);
                     Gamer gamer = new Gamer(nick, email, juego, nivel);

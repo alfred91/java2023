@@ -1,0 +1,3 @@
+Juan;j@j.com;COD;DIOS
+Fina;a@b.om;CounterStrike;BUENO
+Jose;m@m.com;Zelda;REGULAR

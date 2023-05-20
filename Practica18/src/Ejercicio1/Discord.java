@@ -2,16 +2,16 @@ package Ejercicio1;
 
 import java.io.*;
 import java.util.*;
-
-import Ejercicio1.Gamer.Nivel;
-
+import java.util.stream.Collectors;
 
 import Ejercicio1.Gamer.Nivel;
 
 public class Discord {
+	
     private List<Gamer> gamers;
 
     public Discord() {
+    	
         gamers = new ArrayList<>();
         loadGamers();
     }
@@ -31,7 +31,7 @@ public class Discord {
                     .filter(data -> data.length == 4)
                     .map(data -> new Gamer(data[0].trim(), data[1].trim(), data[2].trim(),
                             Nivel.valueOf(data[3].trim())))
-                    .toList();
+                    .collect(Collectors.toList());
         } catch (IOException e) {
             System.out.println("Error al leer el archivo gamers.txt: " + e.getMessage());
         }
