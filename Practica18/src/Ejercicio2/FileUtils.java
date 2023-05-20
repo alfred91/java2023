@@ -11,7 +11,7 @@ public class FileUtils {
 		//Este método calcula el tamaño total de un directorio y todos sus archivos de forma recursiva.
 	
     public static long calculateDirectorySize(String directoryPath) throws IOException {
-        Path directory = Paths.get(directoryPath);
+        Path directory = Paths.get("/");
         SizeCalculatorVisitor visitor = new SizeCalculatorVisitor();
         Files.walkFileTree(directory, visitor);
         return visitor.getTotalSize();

@@ -3,6 +3,7 @@ package Ejercicio1;
 import java.util.Scanner;
 import Ejercicio1.Gamer.Nivel;
 
+
 public class TestGamer {
     public static void main(String[] args) {
         Discord discord = new Discord();
@@ -24,7 +25,7 @@ public class TestGamer {
 
             switch (opcion) {
                 case 1:
-                    scanner.nextLine(); // Consumir el salto de línea pendiente
+                    scanner.nextLine(); 
                     System.out.print("Introduce el nick: ");
                     String nick = scanner.nextLine();
                     System.out.print("Introduce el email: ");
@@ -38,7 +39,7 @@ public class TestGamer {
                     discord.addGamer(gamer);
                     break;
                 case 2:
-                    scanner.nextLine(); // Consumir el salto de línea pendiente
+                    scanner.nextLine();
                     System.out.print("Introduce el nick del Jugador a eliminar: ");
                     String nickEliminar = scanner.nextLine();
                     Gamer gamerEliminar = discord.findGamer(nickEliminar);
