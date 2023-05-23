@@ -20,6 +20,10 @@ public class Lectura {
 		this.finca = finca;
 	}
 
+    public Lectura(Finca finca) {
+        this.finca = finca;
+    }
+
 	/**
 	 * @return the id
 	 */

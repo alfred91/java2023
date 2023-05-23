@@ -2,47 +2,36 @@ package Ejercicio1;
 
 import java.io.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import Ejercicio1.Gamer.Nivel;
 
-
 public class Discord {
+	
     private List<Gamer> gamers;
 
-    /**
-	 * @return the gamers
-	 */
-	public List<Gamer> getGamers() {
-		return gamers;
-	}
-
-	/**
-	 * @param gamers the gamers to set
-	 */
-	public void setGamers(List<Gamer> gamers) {
-		this.gamers = gamers;
-	}
-
-	public Discord() {
+    public Discord() {
+    	
         gamers = new ArrayList<>();
         loadGamers();
     }
 
+    public List<Gamer> getGamers() {
+        return gamers;
+    }
+
+    public void setGamers(List<Gamer> gamers) {
+        this.gamers = gamers;
+    }
+
     public void loadGamers() {
         try (BufferedReader reader = new BufferedReader(new FileReader("gamers.txt"))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",");
-                if (data.length == 4) {
-                    String nick = data[0].trim();
-                    String email = data[1].trim();
-                    String juego = data[2].trim();
-                    Nivel nivel = Nivel.valueOf(data[3].trim());
-
-                    Gamer gamer = new Gamer(nick, email, juego, nivel);
-                    addGamer(gamer);
-                }
-            }
+            gamers = reader.lines()
+                    .map(line -> line.split(";"))
+                    .filter(data -> data.length == 4)
+                    .map(data -> new Gamer(data[0].trim(), data[1].trim(), data[2].trim(),
+                            Nivel.valueOf(data[3].trim())))
+                    .collect(Collectors.toList());
         } catch (IOException e) {
             System.out.println("Error al leer el archivo gamers.txt: " + e.getMessage());
         }
@@ -59,36 +48,26 @@ public class Discord {
     }
 
     public Gamer findGamer(String nick) {
-        for (Gamer gamer : gamers) {
-            if (gamer.getNick().equalsIgnoreCase(nick)) {
-                return gamer;
-            }
-        }
-        return null;
+        return gamers.stream()
+                .filter(gamer -> gamer.getNick().equalsIgnoreCase(nick))
+                .findFirst()
+                .orElse(null);
     }
 
     public void listGamers() {
         if (gamers.isEmpty()) {
             System.out.println("No hay jugadores registrados.");
         } else {
-            for (Gamer gamer : gamers) {
-                System.out.println(gamer);
-            }
+            gamers.forEach(System.out::println);
         }
     }
 
     public void saveGamers() {
-        try {
-            PrintWriter writer = new PrintWriter(new FileWriter("gamers.txt"));
-
-            for (Gamer gamer : gamers) {
-                writer.println(gamer.getNick() + ";" + gamer.getEmail() + ";" + gamer.getJuego() + ";" + gamer.getNivel());
-            }
-
-            writer.close();
+        try (PrintWriter writer = new PrintWriter(new FileWriter("gamers.txt"))) {
+            gamers.forEach(gamer -> writer.println(gamer.getNick() + ";" + gamer.getEmail() + ";" + gamer.getJuego() + ";" + gamer.getNivel()));
             System.out.println("Jugadores guardados correctamente.");
         } catch (IOException e) {
             System.out.println("Error al guardar los jugadores: " + e.getMessage());
         }
-}
     }
+}
