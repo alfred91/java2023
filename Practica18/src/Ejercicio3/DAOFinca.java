@@ -85,18 +85,16 @@ public class DAOFinca {
 	}
 	
 	
-	Finca findByname(String nombre) {
+	List<Finca> findByname(String nombre) {
 		
-		for (Finca finca : fincas) {
-			if (finca.getNombre().equalsIgnoreCase(nombre)) {
-				return finca;
-			}
-		} return null;
+		return fincas.stream()
+				.sorted(Comparator.comparing(Finca::getNombre))
+				.collect(Collectors.toList());
 		
 		
 	}  
 	
-	public List<Finca> getFincasPorSuperficie() {
+	 List<Finca> getFincasPorSuperficie() {
        
 		return fincas.stream()
 				.sorted(Comparator.comparingDouble(Finca::getSuperficie))
@@ -104,7 +102,7 @@ public class DAOFinca {
     }
 	
 	
-	public List<Finca> getMasGrandes(){
+	 List<Finca> getMasGrandes(){
 		return fincas.stream()
 				.sorted(Comparator.comparingDouble(Finca::getSuperficie).reversed())
 				.limit(3)
@@ -112,12 +110,12 @@ public class DAOFinca {
 		}
 	
 	
-	public Map<String, List<Finca>> getFincasPorCiudad() {
+	 Map<String, List<Finca>> getFincasPorCiudad() {
 		return fincas.stream()
 				.collect(Collectors.groupingBy(Finca::getLocalidad));
 	}
 	
-	public List <String> getFincasMedio(){
+	 List <String> getFincasMedio(){
 		return fincas.stream()
 				.filter(finca -> finca.getSuperficie() >= 50 && finca.getSuperficie() <= 150)
 				.map(Finca::getNombre)
