@@ -11,10 +11,10 @@ public class EstacionMeteorologica implements Comparable<EstacionMeteorologica> 
 
 	private long id;
 	private String nombre;
-	public enum Comunidad{ANDALUCIA,EXTREMADURA,MADRID,MURCIA,COMUNIDAD_VALENCIANA,
-		CATALUNA,PAIS_VASCO,NAVARRA,ASTURIAS,GALICIA,CASTILLA_LA_MANCHA,
-		CASTILLA_LEON,ARAGON,LA_RIOJA,CANTABRIA,CEUTA,MELILLA,BALEARES,CANARIAS}
-	private Comunidad comunidad;
+	public enum Comunidad{ANDALUCIA,EXTREMADURA,MADRID,MURCIA,COMUNIDADVALENCIANA,
+		CATALUNA,PAISVASCO,NAVARRA,ASTURIAS,GALICIA,CASTILLALAMANCHA,
+		CASTILLALEON,ARAGON,LARIOJA,CANTABRIA,CEUTA,MELILLA,BALEARES,CANARIAS}
+	public Comunidad comunidad;
 	private double latitud;
 	private double longitud;
 	private TreeSet<RegistroDatosDia> registros;
@@ -23,7 +23,7 @@ public class EstacionMeteorologica implements Comparable<EstacionMeteorologica> 
 	public EstacionMeteorologica() {
 		super();
 	}
-	
+
 	public EstacionMeteorologica(int id, String nombre, Comunidad comunidad, double latitud, double longitud,
 			TreeSet<RegistroDatosDia> registros) {
 		super();

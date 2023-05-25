@@ -13,7 +13,7 @@ import com.daw.service.ServicioGeneralMeteorologico;
 public class AppMeteo {
     private ServicioGeneralMeteorologico servicio;
     private Scanner scanner;
-
+    
     public AppMeteo() {
         servicio = new ServicioGeneralMeteorologico();
         scanner = new Scanner(System.in);
@@ -176,7 +176,8 @@ public class AppMeteo {
     private void obtenerTemperaturasPorComunidad() {
         System.out.println("Opción 'Obtener temperaturas por comunidad' seleccionada.");
         System.out.print("Ingrese el nombre de la comunidad: ");
-        Comunidad comunidad = Comunidad.valueOf(scanner.nextLine());
+        String comunidadNombre = scanner.nextLine();
+        Comunidad comunidad = Comunidad.valueOf(comunidadNombre.toUpperCase());
 
         List<RegistroDatosDia> registros = servicio.getTempPorComunidad(comunidad);
         if (!registros.isEmpty()) {
@@ -242,7 +243,8 @@ public class AppMeteo {
     private void obtenerNumeroRegistrosPorComunidad() {
         System.out.println("Opción 'Obtener número de registros por comunidad' seleccionada.");
         System.out.print("Ingrese el nombre de la comunidad: ");
-        String comunidad = scanner.nextLine();
+        Comunidad comunidad = Comunidad.valueOf(scanner.nextLine());
+
 
         Map<Comunidad, Long> numeroRegistros = servicio.getNumRegistros();
         System.out.println("Número de registros para la comunidad: " + numeroRegistros);
