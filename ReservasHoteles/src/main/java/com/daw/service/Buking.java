@@ -107,7 +107,7 @@ public class Buking {
      * @return
      */
     
-    public List<Hotel> getHotelesPequeños() {
+    public List<Hotel> getHotelesPequenios() {
         List<Hotel> smallHotels = new ArrayList<>();
         for (Hotel hotel : hoteles) {
             if (hotel.getNumHabitaciones() < 20) {

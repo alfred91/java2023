@@ -1,7 +1,7 @@
 package com.daw.io;
 
 import java.io.*;
-import java.util.*;
+import java.time.LocalDate;
 import java.util.stream.Collectors;
 import com.daw.modelos.Hotel;
 import com.daw.modelos.HotelPlaya;
@@ -27,16 +27,16 @@ public class ReservasFile {
                                 String ciudad = fields[2].trim();
                                 String provincia = fields[3].trim();
                                 int habitaciones = Integer.parseInt(fields[4].trim());
-                                int playa = Integer.parseInt(fields[5].trim());
-                                int piscina = Integer.parseInt(fields[6].trim());
-                                int restaurante = Integer.parseInt(fields[7].trim());
+                                int calificacion = Integer.parseInt(fields[5].trim());
+                                int playa = Integer.parseInt(fields[6].trim());                               
+                                int calefaccion = Integer.parseInt(fields[7].trim());
+                                int aireacondicionado = Integer.parseInt(fields[8].trim());
 
                                 Hotel hotel;
                                 if (playa == 1) {
                                     hotel = new HotelPlaya();
                                 } else {
-                                    hotel = new HotelRural(nombre, direccion, ciudad, provincia, habitaciones,
-                                            restaurante, restaurante, false);
+                                    hotel = new HotelRural(false);
                                 }
 
                                 return hotel;
@@ -49,20 +49,22 @@ public class ReservasFile {
         }
 
         try (BufferedReader br = new BufferedReader(new FileReader(RESERVAS))) {
-        	buking.getReservas().stream()
+        	buking.setReservas(
+        			br.lines()
             	                .map(line -> {
                                 String[] fields = line.split(",");
                                 String fechaEntrada = fields[0].trim();
                                 String fechaSalida = fields[1].trim();
                                 int habitaciones = Integer.parseInt(fields[2].trim());
-                                int hotelId = Integer.parseInt(fields[3].trim());
+                                int personas = Integer.parseInt(fields[3].trim());
                                 String dni = fields[4].trim();
                                 String pais = fields[5].trim();
-                                int importe = Integer.parseInt(fields[6].trim());
-                                return new Reserva();
+                                int hotel = Integer.parseInt(fields[6].trim());
+                                return new Reserva(LocalDate.parse(fechaEntrada), LocalDate.parse(fechaSalida), habitaciones,personas, dni, pais, buking.findHotelById(hotel));
                                 
                             })
-                            .collect(Collectors.toSet())
+            	            .peek(System.out::println)
+                            .collect(Collectors.toSet()));
             ;
             
         } catch (IOException e) {

@@ -10,7 +10,7 @@ public class HotelRural extends Hotel {
         this.calefaccion = calefaccion;
     }
     
-    HotelRural(boolean calefaccion) {
+    public HotelRural(boolean calefaccion) {
 		super();
 		this.calefaccion = calefaccion;
 	}

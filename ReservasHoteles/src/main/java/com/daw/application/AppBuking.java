@@ -22,7 +22,7 @@ public class AppBuking {
 
         int opcion;
         do {
-            mostrarMenu();
+            Menu();
             opcion = sc.nextInt();
             sc.nextLine();
 
@@ -65,7 +65,7 @@ public class AppBuking {
         sc.close();
     }
 
-    private static void mostrarMenu() {
+    private static void Menu() {
         System.out.println("---- M E N U ----");
         System.out.println();
         System.out.println("1. Listar todos los hoteles");
@@ -84,7 +84,7 @@ public class AppBuking {
     private static void listarHoteles() {
         System.out.println("---- Listado de Hoteles ----");
         for (Hotel hotel : buking.getHoteles()) {
-            System.out.println(hotel);
+            System.out.println(hotel.getNombre());
         }
     }
 
