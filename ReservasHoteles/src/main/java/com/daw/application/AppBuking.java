@@ -2,9 +2,9 @@ package com.daw.application;
 
 import java.time.LocalDate;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-
 import com.daw.modelos.Hotel;
 import com.daw.modelos.Reserva;
 import com.daw.service.Buking;
@@ -88,63 +88,89 @@ public class AppBuking {
         }
     }
 
-    private static void listarReservasOrdenadas() {
-        System.out.println("---- Listado de Reservas Ordenadas ----");
-        buking.getReservas().stream()
-                .sorted(Comparator.comparing(Reserva::getFechaEntrada))
-                .forEach(System.out::println);
+    public static void listarReservasOrdenadas() {
+    	
+        List<Reserva> reservas = buking.getReservasOrdenadas();
+        for (Reserva reserva : reservas) {
+            System.out.println(reserva.toString());
+        }
     }
 
     private static void mostrarReservasPorPais() {
-        System.out.println(" Reservas por Pais ");
-        buking.getReservas().stream()
-                .collect(Collectors.groupingBy(Reserva::getNacionalidad, Collectors.counting()))
-                .forEach((pais, cantidad) -> System.out.println(pais + ": " + cantidad + " reservas"));
+        System.out.println(" Reservas por País ");
+        buking.getReservasPais().forEach((pais, cantidad) -> System.out.println(pais + ": " + cantidad + " reservas"));
     }
     
-    private static void mostrarReservasActivas() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Introduce el ID del hotel: ");
-        int hotelId = sc.nextInt();
-        sc.nextLine();
 
-        Hotel hotel = buking.findHotelById(hotelId);
-        if (hotel != null) {
-            System.out.println("Reservas Activas para el Hotel " + hotel.getNombre());
-            buking.getReservas().stream()
-                    .filter(reserva -> reserva.getHotel().equals(hotel) && reserva.getFechaSalida().isBefore(LocalDate.now()))
-                    .sorted(Comparator.comparing(Reserva::getFechaSalida))
-                    .forEach(System.out::println);
-        } else {
-            System.out.println("No hemos encontrado ningun hotel con ese ID .");
-        }
+private static void mostrarReservasActivas() {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Introduce el ID del hotel: ");
+    int hotelId = sc.nextInt();
+    sc.nextLine();
+
+    Hotel hotel = buking.findHotelById(hotelId);
+    if (hotel != null) {
+        System.out.println("Reservas Activas para el Hotel " + hotel.getNombre());
+        buking.getReservas().forEach(System.out::println);
+    } else {
+        System.out.println("No hemos encontrado ningún hotel con ese ID.");
     }
+}
     
     private static void mostrarImporteReservasFinalizadasEsteAnio() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Introduce el ID del hotel: ");
-        int hotelId = sc.nextInt();
-        sc.nextLine();
-    
-        
-        Hotel hotel = buking.findHotelById(hotelId);
-        if (hotel != null) {
-            System.out.println("---- Reservas Activas para el Hotel " + hotel.getNombre() + " ----");
-            buking.getReservas().stream()
-                    .filter( reserva -> reserva.getHotel().equals(hotel) && reserva.getFechaSalida().isBefore(LocalDate.now()))
-                    .sorted(Comparator.comparing(Reserva::getFechaSalida))
-                    .forEach(System.out::println);
-        } else {
-            System.out.println("No se encontró un hotel con el ID especificado.");
-            }
-    }
+    	   Scanner sc = new Scanner(System.in);
+    	    System.out.print("Introduce el ID del hotel: ");
+    	    int hotelId = sc.nextInt();
+    	    sc.nextLine();
+
+    	    Hotel hotel = buking.findHotelById(hotelId);
+    	    if (hotel != null) {
+    	        System.out.println("Importe de Reservas Finalizadas este año para el Hotel " + hotel.getNombre());
+    	        double importeTotal = buking.getImporteReservasFinalizadas(hotelId);
+    	        System.out.println("Importe total: " + importeTotal);
+    	    } else {
+    	        System.out.println("No se encontró un hotel con el ID especificado.");
+    	    }
+    	}
     
 
     private static void insertarReserva(Scanner sc) {
     	
+    	System.out.println("---- Insertar Reserva ----");
+    	System.out.println();
+    	
+    	System.out.println("Fecha de entrada yyyyMMdd:");
+    	String fechaEntrada=sc.nextLine();
+    	LocalDate entrada = LocalDate.parse(fechaEntrada);
+    	
+    	System.out.println("Fecha de salida yyyyMMdd:");
+    	String fechaSalida=sc.nextLine();
+    	LocalDate salida=LocalDate.parse(fechaSalida);
+    	
+    	System.out.println("Nº de habitaciones:");
+    	int habitaciones=Integer.parseInt(sc.nextLine());
+    	
+    	System.out.println("Nº personas por habitacion: ");
+    	int personas=Integer.parseInt(sc.nextLine());
+    	
+    	System.out.println("DNI:");
+    	String dni=sc.nextLine();
+    	
+    	System.out.println("Nacionalidad:");
+    	String nacionalidad= sc.nextLine();
+    	
+    	System.out.println("ID del hotel: ");
+    	int hotelId = Integer.parseInt(sc.nextLine());
+    	Hotel hotel = buking.findHotelById(hotelId);
+    	
+    	if (hotel==null) {
+    		System.out.println("No se ha encontrado un hotel con ese ID");
+    	} else {
+    		buking.addReserva(entrada, salida, habitaciones, personas, dni, nacionalidad, hotel);
+    		System.out.println("Reserva anadida correctamente");
+    	}
     }
 
-   	
     	private static void eliminarReserva(Scanner sc) {
     	    System.out.println("---- Eliminar Reserva ----");
     	    System.out.print("ID de la reserva: ");
@@ -163,7 +189,6 @@ public class AppBuking {
     	    }
     	}
     
-
     private static void guardarDatosEnArchivos() {
     	
         ReservasFile.grabarCSV(buking);

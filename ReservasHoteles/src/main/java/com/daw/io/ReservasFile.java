@@ -1,6 +1,7 @@
 package com.daw.io;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.stream.Collectors;
 import com.daw.modelos.Hotel;
@@ -17,7 +18,7 @@ public class ReservasFile {
     public static Buking cargarCSV() {
         Buking buking = new Buking();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(HOTELES))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(HOTELES), StandardCharsets.UTF_8))) {
             buking.setHoteles(
                     br.lines()
                             .map(line -> {

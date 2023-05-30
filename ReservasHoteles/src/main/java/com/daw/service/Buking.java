@@ -46,7 +46,7 @@ public class Buking {
 	}
 
 /**
- * Añadir hotel
+ * Anadir hotel
  * @param hotel
  */
 	public void addHotel(Hotel hotel) {
@@ -63,9 +63,11 @@ public class Buking {
     /*
      * Añadir reserva
      */
-    public void addReserva(LocalDate fechaEntrada, LocalDate fechaSalida, int cantidadHabitaciones, int numPersonasPorHabitacion, String dni, String nacionalidad, Hotel hotel) {
+    public void addReserva(LocalDate fechaEntrada, LocalDate fechaSalida, int cantidadHabitaciones,
+    		int numPersonasPorHabitacion, String dni, String nacionalidad, Hotel hotel) {
         if (hoteles.contains(hotel)) {
-            Reserva reserva = new Reserva(fechaEntrada, fechaSalida, cantidadHabitaciones, numPersonasPorHabitacion, dni, nacionalidad, hotel);
+            Reserva reserva = new Reserva(fechaEntrada, fechaSalida, cantidadHabitaciones,
+            		numPersonasPorHabitacion, dni, nacionalidad, hotel);
             reservas.add(reserva);
         }
     }
@@ -247,24 +249,6 @@ public class Buking {
             return reserva.getHotel().getPrecioNoche() * reserva.getCantidadHabitaciones() * numDias;
         }
         return 0.0;
-    }
-
-    
-    /*
-     * Listar reservas activas por ID Hotel
-     */
-    public List<Reserva> getReservasActivas(int idHotel) {
-        List<Reserva> activeReservas = new ArrayList<>();
-        Hotel hotel = findHotelById(idHotel);
-        if (hotel != null) {
-            LocalDate today = LocalDate.now();
-            for (Reserva reserva : reservas) {
-                if (reserva.getHotel().equals(hotel) && reserva.getFechaEntrada().isBefore(today) && reserva.getFechaSalida().isAfter(today)) {
-                    activeReservas.add(reserva);
-                }
-            }
-        }
-        return activeReservas;
     }
 
     /*
