@@ -103,10 +103,10 @@ public class AppBuking {
     }
     
     private static void mostrarReservasActivas() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.print("Introduce el ID del hotel: ");
-        int hotelId = scanner.nextInt();
-        scanner.nextLine();
+        int hotelId = sc.nextInt();
+        sc.nextLine();
 
         Hotel hotel = buking.findHotelById(hotelId);
         if (hotel != null) {

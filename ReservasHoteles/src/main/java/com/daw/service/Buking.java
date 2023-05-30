@@ -259,7 +259,7 @@ public class Buking {
         if (hotel != null) {
             LocalDate today = LocalDate.now();
             for (Reserva reserva : reservas) {
-                if (reserva.getHotel().equals(hotel) && reserva.getFechaEntrada().isBefore(today.plusDays(1)) && reserva.getFechaSalida().isAfter(today.minusDays(1))) {
+                if (reserva.getHotel().equals(hotel) && reserva.getFechaEntrada().isBefore(today) && reserva.getFechaSalida().isAfter(today)) {
                     activeReservas.add(reserva);
                 }
             }
@@ -271,7 +271,7 @@ public class Buking {
      * Obtener el importe Total de las reservas ya finalizadas, por ID Hotel
      */
     public double getImporteReservasFinalizadas(int idHotel) {
-        double totalImporte = 0.0;
+        double totalImporte = 0d;
         Hotel hotel = findHotelById(idHotel);
         if (hotel != null) {
             LocalDate today = LocalDate.now();
