@@ -17,6 +17,22 @@ public class Tienda {
 		this.productos = productos;
 	}
 
+	/**
+	 * @return the productos
+	 */
+	public List<Producto> getProductos() {
+		return productos;
+	}
+
+
+	/**
+	 * @param productos the productos to set
+	 */
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
+	}
+
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -27,11 +43,11 @@ public class Tienda {
 	}
 
 
-	public void agregarProducto(Producto producto) {
-        this.productos.add(producto);
+	public void agregarProducto(Producto p) {
+        productos.add(p);
     }
 
-    public void eliminarProducto(Producto producto) {
-        this.productos.remove(producto);
+    public void eliminarProducto(Producto p) {
+        productos.remove(p);
     }
 }

@@ -13,7 +13,6 @@ public class ProductoBase extends Producto {
 		super();
 	}
 
-
 	public ProductoBase(String nombre, double precioBase, IVA iva, DetalleProducto detalleProducto) {
 		super(nombre, precioBase, iva, detalleProducto);
 		
@@ -26,14 +25,13 @@ public class ProductoBase extends Producto {
 
 
 	public double calcularTotal() {
-		double precioregalo=precioBase;
-		
-           if (esRegalo) {
-           precioregalo=precioBase+2;
-        }
-        return precioregalo;
-    }
-
+	    if (esRegalo) {
+	        return precioBase + 2;
+	    } else {
+	        return precioBase;
+	    }
+	}
+	
 	  @Override
 	    public boolean toPDF() {
 	 
