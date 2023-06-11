@@ -8,9 +8,9 @@ public class ProductoVirtual extends Producto {
 	String URLDescarga;
 	TipoVirtual tipo;
 	
-	public ProductoVirtual(String nombre, double precio, IVA iva, DetalleProducto detalleProducto, long pesoBytes, String uRLDescarga, TipoVirtual tipo) {
+	public ProductoVirtual(String nombre, double precioBase, IVA iva, DetalleProducto detalleProducto, long pesoBytes, String uRLDescarga, TipoVirtual tipo) {
 		
-		super(nombre,precio,iva,detalleProducto);
+		super(nombre,precioBase,iva,detalleProducto);
 		this.pesoBytes = pesoBytes;
 		URLDescarga = uRLDescarga;
 		this.tipo = tipo;
@@ -59,8 +59,8 @@ public class ProductoVirtual extends Producto {
 	}
 
 
-
 	public boolean toPDF() {	
+		System.out.println("Imprimendo producto "+pesoBytes+" "+URLDescarga+" "+tipo);
 		return true;
 		
 	}

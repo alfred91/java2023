@@ -13,7 +13,7 @@ public class ProductoBase extends Producto {
 		super();
 	}
 
-	public ProductoBase(String nombre, double precioBase, IVA iva, DetalleProducto detalleProducto) {
+	public ProductoBase(String nombre, double precioBase, IVA iva, DetalleProducto detalleProducto, double largo, double ancho, double alto, double peso, boolean esRegalo) {
 		super(nombre, precioBase, iva, detalleProducto);
 		
 		this.largo=largo;
