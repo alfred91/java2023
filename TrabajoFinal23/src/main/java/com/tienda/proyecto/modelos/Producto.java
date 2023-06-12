@@ -1,5 +1,8 @@
 package com.tienda.proyecto.modelos;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author Apache
  * Esta clase abstracta representa un producto en la tienda.
@@ -14,6 +17,8 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 	protected IVA iva;
 	protected DetalleProducto detalleProducto;
 	
+    private static Set<String> skuSet = new HashSet<>();
+
 	/**
 	 * Constructor vacio
 	 */
@@ -130,28 +135,40 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 	public abstract boolean toPDF();
 	
 	/**
-	 * calcula importe (abstracta) se calculara en las hijas
-	 * @return
+	 * 
+	 * @return Importe
 	 */
-	
 	public abstract double getImporte();
 	
-	
+	/**
+	 * contador a 0 para generar los sku
+	 */
 	private static int contador = 0;
 	
-	protected String generarSku() {
-	    contador++;
-	    String codigo = "prod-" + String.format("%04d", contador);
-	    return codigo;
-	}
+	/**
+	 * 
+	 * @return SKU
+	 */
+	 protected String generarSku() {
+		 
+	        String codigo = "prod-" + String.format("%04d", ++contador);
+
+	        if (skuSet.stream().anyMatch(sku -> sku.equals(codigo))) {
+	            throw new IllegalArgumentException("El código SKU generado ya está en uso: " + codigo);
+	        }
+
+	        skuSet.add(codigo);
+	        return codigo;
+	    }
 	
-	
+	/**
+	 * 
+	 * @return precio con IVA
+	 */
 	public double calcularIVA() {
 	    double precioConIVA = this.precioBase * (1 + this.iva.getValor() / 100.0);
 	    return precioConIVA;
 	}
-	
-	
 	
 	@Override
 	public int hashCode() {
