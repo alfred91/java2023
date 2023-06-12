@@ -1,9 +1,11 @@
 package com.tienda.proyecto.modelos;
 
 /**
+ * @author Apache
  * Esta clase abstracta representa un producto en la tienda.
  * Implementa la interfaz Comparable y la interfaz VistaPDF.
  */
+
 public abstract class Producto implements Comparable<Producto>,VistaPDF {
 	
 	protected String sku;

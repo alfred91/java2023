@@ -42,7 +42,9 @@ public class TiendaFile {
         try {
             List<String> lines = Files.readAllLines(getFilePath(PRODUCTOS_BASE_CSV));
 
-            // Ignorar la primera línea
+            /**
+             * Ignorar la primera línea
+             */
             lines = lines.subList(1, lines.size());
 
             return lines.stream()
