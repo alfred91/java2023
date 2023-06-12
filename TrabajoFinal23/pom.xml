@@ -3,4 +3,29 @@
   <groupId>com.daw</groupId>
   <artifactId>TrabajoFinal23</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <name>TrabajoFinal23</name>
+  
+   <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+  
+  <build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-jar-plugin</artifactId>
+      <version>3.2.0</version>
+      <configuration>
+        <archive>
+          <manifest>
+            <addClasspath>true</addClasspath>
+            <mainClass>com.tienda.proyecto.modelos.App</mainClass>
+          </manifest>
+        </archive>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+  
 </project>

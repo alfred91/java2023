@@ -62,15 +62,25 @@ public class Tienda {
 		return builder.toString();
 	}
 
-
+/**
+ * agregar un producto
+ * @param p
+ */
 	public void agregarProducto(Producto p) {
         productos.add(p);
     }
 
+	/**
+	 * eliminar un producto
+	 * @param p
+	 */
     public void eliminarProducto(Producto p) {
         productos.remove(p);
     }
     
+    /**
+     * abrir csv
+     */
     public void abrirCSV() {
     	
         String productosBaseCSV = "src/main/resources/csv/productosbase.csv";
@@ -80,7 +90,10 @@ public class Tienda {
         abrirProductosVirtualCSV(Paths.get(productosVirtualCSV));
     }
     
-    
+    /**
+     * Carga los productos Base
+     * @param productosBaseCSV
+     */
     private void abrirProductosBaseCSV(Path productosBaseCSV) {
     	 try (BufferedReader br = Files.newBufferedReader(productosBaseCSV)) {
     		 String line;
@@ -118,6 +131,10 @@ public class Tienda {
         }
     }
 
+    /**
+     * Carga los productos Virtuales
+     * @param productosVirtualCSV
+     */
     private void abrirProductosVirtualCSV(Path productosVirtualCSV) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         try (BufferedReader br = Files.newBufferedReader(productosVirtualCSV)) {
@@ -165,6 +182,10 @@ public class Tienda {
         grabarProductosVirtualCSV(Paths.get(productosVirtualCSV));
     }
 
+    /**
+     * Graba El csv de productos Base
+     * @param productosBaseCSV
+     */
     private void grabarProductosBaseCSV(Path productosBaseCSV) {
         try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(productosBaseCSV))) {
             // Escribir los encabezados en el archivo CSV

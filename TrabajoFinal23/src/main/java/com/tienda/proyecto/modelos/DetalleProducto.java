@@ -10,6 +10,14 @@ public class DetalleProducto {
     private String marca;
     private LocalDateTime fechaCreacion;
     
+    /**
+     * Constructor con parametros
+     * @param url
+     * @param foto
+     * @param categorias
+     * @param marca
+     * @param fechaCreacion
+     */
 	public DetalleProducto(String url, String foto, String categorias, String marca, LocalDateTime fechaCreacion) {
 		super();
 		this.url = url;
