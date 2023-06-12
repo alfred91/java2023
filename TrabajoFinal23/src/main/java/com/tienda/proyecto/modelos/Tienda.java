@@ -1,8 +1,8 @@
 package com.tienda.proyecto.modelos;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -62,16 +61,16 @@ public class Tienda {
 		return builder.toString();
 	}
 
-/**
- * agregar un producto
- * @param p
- */
+	/**
+	 * Agregar un producto
+	 * @param p
+	 */
 	public void agregarProducto(Producto p) {
         productos.add(p);
     }
 
 	/**
-	 * eliminar un producto
+	 * Eliminar un producto
 	 * @param p
 	 */
     public void eliminarProducto(Producto p) {
@@ -79,24 +78,19 @@ public class Tienda {
     }
     
     /**
-     * abrir csv
+     * Abrir CSV
      */
     public void abrirCSV() {
-    	
-        String productosBaseCSV = "src/main/resources/csv/productosbase.csv";
-        String productosVirtualCSV = "src/main/resources/csv/productosvirtual.csv";
-
-        abrirProductosBaseCSV(Paths.get(productosBaseCSV));
-        abrirProductosVirtualCSV(Paths.get(productosVirtualCSV));
+        abrirProductosBaseCSV();
+        abrirProductosVirtualCSV();
     }
     
     /**
-     * Carga los productos Base
-     * @param productosBaseCSV
+     * Carga los productos Base desde el archivo CSV
      */
-    private void abrirProductosBaseCSV(Path productosBaseCSV) {
-    	 try (BufferedReader br = Files.newBufferedReader(productosBaseCSV)) {
-    		 String line;
+    private void abrirProductosBaseCSV() {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/csv/productosbase.csv")))) {
+            String line;
             boolean isFirstLine = true;
             
             /**
@@ -132,12 +126,11 @@ public class Tienda {
     }
 
     /**
-     * Carga los productos Virtuales
-     * @param productosVirtualCSV
+     * Carga los productos Virtuales desde el archivo CSV
      */
-    private void abrirProductosVirtualCSV(Path productosVirtualCSV) {
+    private void abrirProductosVirtualCSV() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        try (BufferedReader br = Files.newBufferedReader(productosVirtualCSV)) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/csv/productosvirtual.csv")))) {
             String line;
             boolean isFirstLine = true;
 
@@ -175,19 +168,16 @@ public class Tienda {
     }
     
     public void grabarCSV() {
-        String productosBaseCSV = "src/main/resources/csv/productosbasecopia.csv";
-        String productosVirtualCSV = "src/main/resources/csv/productosvirtualcopia.csv";
-
-        grabarProductosBaseCSV(Paths.get(productosBaseCSV));
-        grabarProductosVirtualCSV(Paths.get(productosVirtualCSV));
+        grabarProductosBaseCSV();
+        grabarProductosVirtualCSV();
     }
 
     /**
-     * Graba El csv de productos Base
-     * @param productosBaseCSV
+     * Graba el archivo CSV de productos Base
      */
-    private void grabarProductosBaseCSV(Path productosBaseCSV) {
-        try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(productosBaseCSV))) {
+    private void grabarProductosBaseCSV() {
+        String productosBaseCSV = "productosbasecopia.csv";
+        try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(getFilePath(productosBaseCSV)))) {
             // Escribir los encabezados en el archivo CSV
             writer.println("nombre,precioBase,iva,largo,ancho,alto,peso,esRegalo");
 
@@ -213,12 +203,11 @@ public class Tienda {
     }
 
     /**
-     * Grabar un productoVirtual
-     * @param productosVirtualCSV
+     * Graba el archivo CSV de productos Virtuales
      */
-    private void grabarProductosVirtualCSV(Path productosVirtualCSV) {
-    	
-        try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(productosVirtualCSV))) {
+    private void grabarProductosVirtualCSV() {
+        String productosVirtualCSV = "productosvirtualcopia.csv";
+        try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(getFilePath(productosVirtualCSV)))) {
             /**
              * Escribir los encabezados en el archivo CSV
              */ 	
@@ -250,11 +239,25 @@ public class Tienda {
             e.printStackTrace();
         }
     }
+    
+    /**
+     * Obtiene la ruta del archivo dentro del JAR
+     * @param filename Nombre del archivo
+     * @return Ruta del archivo
+     */
+    private Path getFilePath(String filename) {
+        try {
+            return Paths.get(getClass().getResource("/csv/" + filename).toURI());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
    
     
     /**
      * 
-     * @return productos de mas de 3000 euros
+     * @return Productos con un precio superior a 3000 euros
      */
     public List<Producto> mostrarProductosConPrecioSuperiorA3000() {
             List<Producto> productosSuperioresA3000 = productos.stream()
@@ -262,87 +265,85 @@ public class Tienda {
                 .collect(Collectors.toList());
 
             return productosSuperioresA3000;       
-        
     }
-        /**
-         * Buscar
-         * @param criterio
-         */
-        public void buscar(Predicate<Producto> criterio) {
-            productos.stream()
-                    .filter(criterio)
-                    .forEach(System.out::println);
-        }
-      
-        /**
-         * 
-         * @param sku
-         * @return Producto por sku
-         */
-        public Producto getProducto(String sku) {
-            return productos.stream()
-                    .filter(p -> p.getSku().equals(sku))
-                    .findFirst()
-                    .orElse(null);
-        }
+    
+    /**
+     * Buscar productos según un criterio
+     * @param criterio Predicado para el filtro
+     */
+    public void buscar(Predicate<Producto> criterio) {
+        productos.stream()
+                .filter(criterio)
+                .forEach(System.out::println);
+    }
+  
+    /**
+     * Obtener un producto por su SKU
+     * @param sku SKU del producto
+     * @return Producto encontrado o null si no existe
+     */
+    public Producto getProducto(String sku) {
+        return productos.stream()
+                .filter(p -> p.getSku().equals(sku))
+                .findFirst()
+                .orElse(null);
+    }
 
-        /**
-         * 
-         * @return Lista de productos Virtuales
-         */
-        public List<Producto> getProductosVirtuales() {
-            return productos.stream()
-                    .filter(p -> p instanceof ProductoVirtual)
-                    .collect(Collectors.toList());
-        }
+    /**
+     * Obtener la lista de productos virtuales
+     * @return Lista de productos virtuales
+     */
+    public List<Producto> getProductosVirtuales() {
+        return productos.stream()
+                .filter(p -> p instanceof ProductoVirtual)
+                .collect(Collectors.toList());
+    }
 
-        /**
-         * 
-         * @return Productos ordenados por precio
-         */
-        public Set<Producto> getProductosPrecio() {
-            return productos.stream()
-                    .sorted(Comparator.comparingDouble(Producto::getPrecioBase))
-                    .collect(Collectors.toCollection(LinkedHashSet::new));
-        }
+    /**
+     * Obtener los productos ordenados por precio
+     * @return Conjunto de productos ordenados por precio
+     */
+    public Set<Producto> getProductosPrecio() {
+        return productos.stream()
+                .sorted(Comparator.comparingDouble(Producto::getPrecioBase))
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+    }
 
-        /**
-         * 
-         * @return Productos Agrupados por categoria
-         */
-        public Map<Object, List<Producto>> getProductosPorCategoria() {
-            return productos.stream()
-                    .collect(Collectors.groupingBy(p -> p.getDetalleProducto().getCategorias(),
-                            Collectors.toList()));
-        }      
-        
-        /**
-         * Crea y agrega un productoBase al catalogo
-         * @param nombre
-         * @param precioBase
-         * @param iva
-         * @param detalleProducto
-         * @param largo
-         * @param ancho
-         * @param alto
-         * @param peso
-         * @param esRegalo
-         */
-        public void crearYAgregarProductoBase(String nombre, double precioBase, IVA iva, DetalleProducto detalleProducto, double largo, double ancho, double alto, double peso, boolean esRegalo) {
-            ProductoBase productoBase = new ProductoBase(nombre, precioBase, iva, detalleProducto, largo, ancho, alto, peso, esRegalo);
-            agregarProducto(productoBase);
-        }
+    /**
+     * Obtener los productos agrupados por categoría
+     * @return Mapa de productos agrupados por categoría
+     */
+    public Map<Object, List<Producto>> getProductosPorCategoria() {
+        return productos.stream()
+                .collect(Collectors.groupingBy(p -> p.getDetalleProducto().getCategorias(),
+                        Collectors.toList()));
+    }      
+    
+    /**
+     * Crea y agrega un producto base al catálogo
+     * @param nombre Nombre del producto
+     * @param precioBase Precio base del producto
+     * @param iva IVA del producto
+     * @param detalleProducto Detalles del producto
+     * @param largo Largo del producto
+     * @param ancho Ancho del producto
+     * @param alto Alto del producto
+     * @param peso Peso del producto
+     * @param esRegalo Indica si el producto es un regalo
+     */
+    public void crearYAgregarProductoBase(String nombre, double precioBase, IVA iva, DetalleProducto detalleProducto, double largo, double ancho, double alto, double peso, boolean esRegalo) {
+        ProductoBase productoBase = new ProductoBase(nombre, precioBase, iva, detalleProducto, largo, ancho, alto, peso, esRegalo);
+        agregarProducto(productoBase);
+    }
 
-        /**
-         * Muestra productos virtuales tipo videojuego
-         * @return
-         */
-        public List<Producto> mostrarProductosVirtualesTipoVideo() {
-            return productos.stream()
-                    .filter(p -> p instanceof ProductoVirtual)
-                    .filter(p -> ((ProductoVirtual) p).getTipo() == TipoVirtual.VIDEO || ((ProductoVirtual) p).getTipo() == TipoVirtual.VIDEOJUEGO)
-                    .collect(Collectors.toList());
-        }
-
-        
-} 
+    /**
+     * Muestra los productos virtuales de tipo videojuego
+     * @return Lista de productos virtuales de tipo videojuego
+     */
+    public List<Producto> mostrarProductosVirtualesTipoVideo() {
+        return productos.stream()
+                .filter(p -> p instanceof ProductoVirtual)
+                .filter(p -> ((ProductoVirtual) p).getTipo() == TipoVirtual.VIDEO || ((ProductoVirtual) p).getTipo() == TipoVirtual.VIDEOJUEGO)
+                .collect(Collectors.toList());
+    }
+}
