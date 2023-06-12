@@ -23,7 +23,6 @@ public class ProductoBase extends Producto {
 		this.esRegalo=esRegalo;
 	}
 
-
 	/**
 	 * @return the largo
 	 */
@@ -118,24 +117,25 @@ public class ProductoBase extends Producto {
 	   * @param pesoFlete
 	   * @return
 	   */
-	    public double gastoTransporte(double costeFlete, double pesoFlete) {
-	        double costeTransporte = 0;
-	        if (this.peso < 10) {
-	            costeTransporte = this.precioBase + 5;
-	        } else if (this.peso >= 10 && this.peso <= 50) {
-	            costeTransporte = this.precioBase + 10;
-	        } else if (this.peso > 50) {
-	            costeTransporte = this.precioBase + 20;
-	        }
-	        return costeTransporte;
-	    }
-	  
-	  /**
-	   * Calcula el importe
-	   */
-	@Override
-	public double getImporte() {
-        double importe = getPrecioBase() + gastoTransporte(0,0) + calcularTotal() + calcularIVA();
-        return importe;
-    }
+	  public double gastoTransporte(double costeFlete, double pesoFlete) {
+		    double costeTransporte = 0;
+		    if (pesoFlete < 10) {
+		        costeTransporte = costeFlete + 5;
+		    } else if (pesoFlete >= 10 && pesoFlete <= 50) {
+		        costeTransporte = costeFlete + 10;
+		    } else if (pesoFlete > 50) {
+		        costeTransporte = costeFlete + 20;
+		    }
+		    return costeTransporte;
+		}
+
+		/**
+		 * Calcula el importe
+		 */
+		@Override
+		public double getImporte() {
+		    double importe = getPrecioBase() + gastoTransporte(0, getPeso()) + calcularTotal() + calcularIVA();
+		    return importe;
+		}
+
 }
