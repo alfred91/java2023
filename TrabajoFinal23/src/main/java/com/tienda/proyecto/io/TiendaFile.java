@@ -1,6 +1,9 @@
 package com.tienda.proyecto.io;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -40,14 +43,13 @@ public class TiendaFile {
      */
     private static List<Producto> cargarProductosBaseCSV() {
         try {
-            List<String> lines = Files.readAllLines(getFilePath(PRODUCTOS_BASE_CSV));
+            InputStream inputStream = TiendaFile.class.getResourceAsStream("/csv/" + PRODUCTOS_BASE_CSV);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
-            /**
-             * Ignorar la primera línea
-             */
-            lines = lines.subList(1, lines.size());
+            // Ignorar la primera línea
+            reader.readLine();
 
-            return lines.stream()
+            return reader.lines()
                     .map(line -> {
                         String[] data = line.split(",");
                         String nombre = data[0];
@@ -69,6 +71,7 @@ public class TiendaFile {
         }
     }
 
+
     /**
      * Carga los productos virtuales desde el archivo CSV
      *
@@ -77,12 +80,13 @@ public class TiendaFile {
     private static List<Producto> cargarProductosVirtualCSV() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         try {
-            List<String> lines = Files.readAllLines(getFilePath(PRODUCTOS_VIRTUAL_CSV));
+            InputStream inputStream = TiendaFile.class.getResourceAsStream("/csv/" + PRODUCTOS_VIRTUAL_CSV);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
             // Ignorar la primera línea
-            lines = lines.subList(1, lines.size());
+            reader.readLine();
 
-            return lines.stream()
+            return reader.lines()
                     .map(line -> {
                         String[] data = line.split(",");
                         String nombre = data[0];
@@ -106,6 +110,7 @@ public class TiendaFile {
             return null;
         }
     }
+
 
     /**
      * Graba los productos en los archivos CSV
@@ -186,7 +191,8 @@ public class TiendaFile {
      */
     private static Path getFilePath(String filename) {
         try {
-            return Paths.get(TiendaFile.class.getResource("/csv/" + filename).toURI());
+            ClassLoader classLoader = TiendaFile.class.getClassLoader();
+            return Paths.get(classLoader.getResource("csv/" + filename).toURI());
         } catch (Exception e) {
             e.printStackTrace();
             return null;
