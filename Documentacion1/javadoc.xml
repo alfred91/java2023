@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="package" author="true" classpath="C:\Users\Apache\eclipse-workspace\TrabajoFinal23\target\test-classes" destdir="C:\Users\Apache\eclipse-workspace\TrabajoFinal23\doc" doctitle="Javadoc Documentacion" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="com.tienda.proyecto.modelos,com.tienda.proyecto.io" source="17" sourcepath="C:\Users\Apache\eclipse-workspace\TrabajoFinal23\src\main\resources;C:\Users\Apache\eclipse-workspace\TrabajoFinal23\src\test\java;C:\Users\Apache\eclipse-workspace\TrabajoFinal23\src\main\java;C:\Users\Apache\eclipse-workspace\TrabajoFinal23\src\test\resources" splitindex="true" use="true" version="true">
+            <link href="https://docs.oracle.com/en/java/javase/17/docs/api/"/>
+        </javadoc>
+    </target>
+</project>
