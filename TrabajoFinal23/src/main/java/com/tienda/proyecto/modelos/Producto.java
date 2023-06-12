@@ -1,5 +1,9 @@
 package com.tienda.proyecto.modelos;
 
+/**
+ * Esta clase abstracta representa un producto en la tienda.
+ * Implementa la interfaz Comparable y la interfaz VistaPDF.
+ */
 public abstract class Producto implements Comparable<Producto>,VistaPDF {
 	
 	protected String sku;
@@ -8,9 +12,19 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 	protected IVA iva;
 	protected DetalleProducto detalleProducto;
 	
+	/**
+	 * Constructor vacio
+	 */
 	public Producto(){
 	}
 	
+	/**
+	 * Constructor con parámetros
+	 * @param nombre
+	 * @param precioBase
+	 * @param iva
+	 * @param detalleProducto
+	 */
 	public Producto(String nombre, double precioBase, IVA iva, DetalleProducto detalleProducto) {
 		super();
 		this.sku=generarSku();
@@ -108,8 +122,11 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 		return builder.toString();
 	}
 
-
+	/**
+	 * Genera un PDF
+	 */
 	public abstract boolean toPDF();
+	
 	
 	public abstract double getImporte();
 	

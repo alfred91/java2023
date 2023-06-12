@@ -60,7 +60,7 @@ public class ProductoVirtual extends Producto {
 
 
 	public boolean toPDF() {	
-		System.out.println("Imprimendo producto "+pesoBytes+" "+URLDescarga+" "+tipo);
+		System.out.println("Imprimendo producto "+nombre+" "+pesoBytes+" "+URLDescarga+" "+tipo);
 		return true;
 		
 	}
