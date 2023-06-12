@@ -127,6 +127,10 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 	 */
 	public abstract boolean toPDF();
 	
+	/**
+	 * calcula importe (abstracta) se calculara en las hijas
+	 * @return
+	 */
 	
 	public abstract double getImporte();
 	
