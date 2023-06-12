@@ -44,8 +44,7 @@ public class App {
 	                        System.out.println("---------------------------");
 	                    });
 	                    break;
-
-		                
+	               
 		            case "c":
 	                    System.out.println("Productos ordenados por precio:");
 	                    catalogo.getProductosPrecio().forEach(System.out::println);
