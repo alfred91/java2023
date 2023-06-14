@@ -4,19 +4,18 @@ package com.tienda.proyecto.modelos;
  * @author Apache
  *
  */
-
 public class ProductoBase extends Producto {
 
     private double largo;
     private double ancho;
     private double alto;
     private double peso;
-    private boolean esRegalo;
-    
+    private boolean esRegalo;    
 /**
  * Constructor vacio.
  */
     public ProductoBase() {
+    	
 	}
 
     /**

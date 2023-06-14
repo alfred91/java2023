@@ -11,6 +11,12 @@ public class DetalleProducto {
     private LocalDateTime fechaCreacion;
     
     /**
+     * Constructor vacio
+     */
+    public DetalleProducto() {
+	}
+
+	/**
      * Constructor con parametros
      * @param url
      * @param foto
@@ -19,7 +25,6 @@ public class DetalleProducto {
      * @param fechaCreacion
      */
 	public DetalleProducto(String url, String foto, String categorias, String marca, LocalDateTime fechaCreacion) {
-		super();
 		this.url = url;
 		this.foto = foto;
 		this.categorias = categorias;

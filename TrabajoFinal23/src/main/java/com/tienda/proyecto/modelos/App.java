@@ -41,10 +41,10 @@ public class App {
 		                break;
 
 		            case "b":
-	                    System.out.println("Productos por categoría:");
+	                    System.out.println("Productos por categoria:");
 	                    catalogo.getProductosPorCategoria().forEach((categoria, productosCategoria) -> {
-	                        System.out.println("Categoría: " + categoria);
-	                        System.out.println("Número de productos: " + productosCategoria.size());
+	                        System.out.println("Categoria: " + categoria);
+	                        System.out.println("Numero de productos: " + productosCategoria.size());
 	                        System.out.println("---------------------------");
 	                    });
 	                    break;
@@ -68,12 +68,12 @@ public class App {
 		                
 		                
 		            case "e":
-		                System.out.println("Crear y agregar un producto base al catálogo:");
+		                System.out.println("Crear y agregar un producto base al catalogo:");
 
 			                System.out.print("Nombre: ");
 			                String nombre = sc.nextLine();
 	
-			                System.out.print("Precio base: ");
+			                System.out.print("Precio Base: ");
 			                double precioBase = sc.nextDouble();
 			                sc.nextLine();
 	
@@ -86,13 +86,13 @@ public class App {
 			                System.out.print("Foto: ");
 			                String foto = sc.nextLine();
 	
-			                System.out.print("Categorías: ");
+			                System.out.print("Categorias: ");
 			                String categorias = sc.nextLine();
 	
 			                System.out.print("Marca: ");
 			                String marca = sc.nextLine();
 	
-			                System.out.print("Fecha de creación (M/d/yyyy): ");
+			                System.out.print("Fecha de creacion (M/d/yyyy): ");
 			                String fechaCreacionStr = sc.nextLine();
 			                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
 			                LocalDateTime fechaCreacion = LocalDate.parse(fechaCreacionStr, formatter).atStartOfDay();
@@ -109,7 +109,7 @@ public class App {
 			                System.out.print("Peso: ");
 			                double peso = sc.nextDouble();
 	
-			                System.out.print("Es regalo (true/false): ");
+			                System.out.print("Es regalo? (true/false): ");
 			                boolean esRegalo = sc.nextBoolean();
 
 		               		                DetalleProducto detalleProducto = new DetalleProducto(url, foto, categorias, marca, fechaCreacion);
@@ -137,15 +137,17 @@ public class App {
 
 		    public static void Menu() {
 		    	
-		        System.out.println(" ------ MENU ----- ");
+		        System.out.println(" -----[ MENU ]----- ");
+		        System.out.println();
 		        System.out.println("a. Muestra todos los productos cuyo precio sea superior a 3000€");
 		        System.out.println("b. Muestra las categorias con el número de productos que hay en cada una");
 		        System.out.println("c. Muestra los productos ordenados por precio");
-		        System.out.println("d. Obtén los 3 productos más baratos");
-		        System.out.println("e. Crea y añade un producto base al catalogo");
+		        System.out.println("d. Mostrar los 3 productos mas baratos");
+		        System.out.println("e. Crear y agregar un producto base al catalogo");
 		        System.out.println("f. Muestra los productos virtuales que sean de tipo Video o VideoJuego");
 		        System.out.println("g. Salir");
-		        System.out.print("Seleccione una opción: ");
+		        System.out.println();
+		        System.out.print("Seleccione una opcion: ");
 		    }
 
 }
