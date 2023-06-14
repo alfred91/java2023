@@ -130,7 +130,7 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 	}
 
 	/**
-	 * Genera un PDF
+	 * Metodo abstracto para generar un PDF
 	 */
 	public abstract boolean toPDF();
 	
@@ -141,7 +141,7 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 	public abstract double getImporte();
 	
 	/**
-	 * contador a 0 para generar los sku
+	 * contador a 0 para generar los Sku
 	 */
 	private static int contador = 0;
 	
@@ -170,6 +170,9 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 	    return precioConIVA;
 	}
 	
+	/**
+	 * Hashcode con hashing de multiplicacion
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -178,6 +181,9 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 		return result;
 	}
 
+	/**
+	 * Equals por sku
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -194,7 +200,9 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 			return false;
 		return true;
 	}
-	
+	/**
+	 * Comparador por sku
+	 */
 	  public int compareTo(Producto otroProducto) {
 	        return this.sku.compareTo(otroProducto.sku);
 	    }

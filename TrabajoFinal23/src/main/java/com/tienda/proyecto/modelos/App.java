@@ -9,7 +9,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
-
+/**
+ * 
+ * @author Apache
+ *
+ */
 public class App {
 	
 	public static void main(String[] args) {
@@ -66,47 +70,47 @@ public class App {
 		            case "e":
 		                System.out.println("Crear y agregar un producto base al catálogo:");
 
-		                System.out.print("Nombre: ");
-		                String nombre = sc.nextLine();
-
-		                System.out.print("Precio base: ");
-		                double precioBase = sc.nextDouble();
-		                sc.nextLine();
-
-		                System.out.print("IVA (GENERAL, REDUCIDO, SUPERREDUCIDO): ");
-		                IVA iva = IVA.valueOf(sc.nextLine());
-
-		                System.out.print("URL: ");
-		                String url = sc.nextLine();
-
-		                System.out.print("Foto: ");
-		                String foto = sc.nextLine();
-
-		                System.out.print("Categorías: ");
-		                String categorias = sc.nextLine();
-
-		                System.out.print("Marca: ");
-		                String marca = sc.nextLine();
-
-		                System.out.print("Fecha de creación (M/d/yyyy): ");
-		                String fechaCreacionStr = sc.nextLine();
-		                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
-		                LocalDateTime fechaCreacion = LocalDate.parse(fechaCreacionStr, formatter).atStartOfDay();
-
-		                System.out.print("Largo: ");
-		                double largo = sc.nextDouble();
-
-		                System.out.print("Ancho: ");
-		                double ancho = sc.nextDouble();
-
-		                System.out.print("Alto: ");
-		                double alto = sc.nextDouble();
-
-		                System.out.print("Peso: ");
-		                double peso = sc.nextDouble();
-
-		                System.out.print("Es regalo (true/false): ");
-		                boolean esRegalo = sc.nextBoolean();
+			                System.out.print("Nombre: ");
+			                String nombre = sc.nextLine();
+	
+			                System.out.print("Precio base: ");
+			                double precioBase = sc.nextDouble();
+			                sc.nextLine();
+	
+			                System.out.print("IVA (GENERAL, REDUCIDO, SUPERREDUCIDO): ");
+			                IVA iva = IVA.valueOf(sc.nextLine());
+	
+			                System.out.print("URL: ");
+			                String url = sc.nextLine();
+	
+			                System.out.print("Foto: ");
+			                String foto = sc.nextLine();
+	
+			                System.out.print("Categorías: ");
+			                String categorias = sc.nextLine();
+	
+			                System.out.print("Marca: ");
+			                String marca = sc.nextLine();
+	
+			                System.out.print("Fecha de creación (M/d/yyyy): ");
+			                String fechaCreacionStr = sc.nextLine();
+			                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+			                LocalDateTime fechaCreacion = LocalDate.parse(fechaCreacionStr, formatter).atStartOfDay();
+	
+			                System.out.print("Largo: ");
+			                double largo = sc.nextDouble();
+	
+			                System.out.print("Ancho: ");
+			                double ancho = sc.nextDouble();
+	
+			                System.out.print("Alto: ");
+			                double alto = sc.nextDouble();
+	
+			                System.out.print("Peso: ");
+			                double peso = sc.nextDouble();
+	
+			                System.out.print("Es regalo (true/false): ");
+			                boolean esRegalo = sc.nextBoolean();
 
 		               		                DetalleProducto detalleProducto = new DetalleProducto(url, foto, categorias, marca, fechaCreacion);
 		                catalogo.crearYAgregarProductoBase(nombre, precioBase, iva, detalleProducto, largo, ancho, alto, peso, esRegalo);
@@ -120,11 +124,10 @@ public class App {
 		 		                    
 		            case "g":
 		                    System.out.println("Saliendo del programa...");
-		                    break;
-		            case "h":System.out.println();
+		                    break;     
 		                    
 		            default:
-		                    System.out.println("Opcion no valida. Por favor, selecciona una opción válida del menú.");
+		                    System.out.println("Elige una opcion correcta.");
 		                    break;
 		            }
 		        } while (!opcion.equals("g"));

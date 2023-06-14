@@ -58,12 +58,27 @@ public class ProductoVirtual extends Producto {
 		this.tipo = tipo;
 	}
 
+	@Override
+	public boolean toPDF() {
+	    System.out.println("---------------------------------------------------");
+	    System.out.println("              PRODUCTO  VIRTUAL                   ");
+	    System.out.println("---------------------------------------------------");
+	    System.out.println("Factura de Producto:");
+	    System.out.println("  SKU: " + getSku());
+	    System.out.println("  Nombre: " + getNombre());
+	    System.out.println("  Precio Base: " + getPrecioBase());
+	    System.out.println("  IVA: " + getIva());
+	    System.out.println("  Detalles Producto: " + getDetalleProducto().toString());
+	    System.out.println("  Peso en Bytes: " + getPesoBytes());
+	    System.out.println("  URL de Descarga: " + getURLDescarga());
+	    System.out.println("  Tipo de Producto Virtual: " + getTipo());
+	    System.out.println("---------------------------------------------------");
+	    System.out.println("  Precio Total con IVA: " + calcularIVA());
+	    System.out.println("---------------------------------------------------");
 
-	public boolean toPDF() {	
-		System.out.println("Imprimendo producto "+nombre+" "+pesoBytes+" "+URLDescarga+" "+tipo);
-		return true;
-		
+	    return true;
 	}
+
 
 	public double getImporte() {
 		

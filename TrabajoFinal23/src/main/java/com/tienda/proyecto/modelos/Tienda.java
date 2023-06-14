@@ -1,7 +1,5 @@
 package com.tienda.proyecto.modelos;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedHashSet;
@@ -10,7 +8,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-
 import com.tienda.proyecto.modelos.ProductoVirtual.TipoVirtual;
 
 	/**

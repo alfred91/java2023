@@ -1,5 +1,4 @@
 package com.tienda.proyecto.io;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +19,11 @@ import com.tienda.proyecto.modelos.Producto;
 import com.tienda.proyecto.modelos.ProductoBase;
 import com.tienda.proyecto.modelos.ProductoVirtual;
 import com.tienda.proyecto.modelos.ProductoVirtual.TipoVirtual;
-
+/**
+ * 
+ * @author Apache
+ *
+ */
 public class TiendaFile {
     private static final String PRODUCTOS_BASE_CSV = "productosbase.csv";
     private static final String PRODUCTOS_VIRTUAL_CSV = "productosvirtual.csv";

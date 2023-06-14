@@ -1,4 +1,9 @@
 package com.tienda.proyecto.modelos;
+/**
+ * 
+ * @author Apache
+ *
+ */
 
 public class ProductoBase extends Producto {
 
@@ -8,11 +13,24 @@ public class ProductoBase extends Producto {
     private double peso;
     private boolean esRegalo;
     
-
+/**
+ * Constructor vacio.
+ */
     public ProductoBase() {
-		super();
 	}
 
+    /**
+     * Constructor parametrizado
+     * @param nombre
+     * @param precioBase
+     * @param iva
+     * @param detalleProducto
+     * @param largo
+     * @param ancho
+     * @param alto
+     * @param peso
+     * @param esRegalo
+     */
 	public ProductoBase(String nombre, double precioBase, IVA iva, DetalleProducto detalleProducto, double largo, double ancho, double alto, double peso, boolean esRegalo) {
 		super(nombre, precioBase, iva, detalleProducto);
 		
@@ -93,7 +111,7 @@ public class ProductoBase extends Producto {
 		this.esRegalo = esRegalo;
 	}
 /**
- * Si esRegalo es true, se suma dos euros al precioBase
+ * Si esRegalo = true, se suman dos euros al precioBase
  * @return
  */
 	public double calcularTotal() {
@@ -104,13 +122,34 @@ public class ProductoBase extends Producto {
 	    }
 	}
 	
+	/**
+	 * Metodo para imprimir un producto base tipo factura
+	 */
 	  @Override
-	    public boolean toPDF() {
-	 
-	        System.out.println("Generando PDF para el producto " + getSku() + "...");
-			return true;
-	    }
-	  
+	  public boolean toPDF() {   
+		    String regalo = isEsRegalo() ? "Si" : "No";
+
+		    System.out.println("---------------------------------------------------");
+		    System.out.println("                 PRODUCTO  BASE                    ");
+		    System.out.println("---------------------------------------------------");
+		    System.out.println("Factura de Producto:");
+		    System.out.println("  SKU: " + getSku());
+		    System.out.println("  Nombre: " + getNombre());
+		    System.out.println("  Precio Base: " + getPrecioBase());
+		    System.out.println("  IVA: " + getIva());
+		    System.out.println("  Detalles Producto: " + getDetalleProducto().toString());
+		    System.out.println("  Largo: " + getLargo());
+		    System.out.println("  Ancho: " + getAncho());
+		    System.out.println("  Alto: " + getAlto());
+		    System.out.println("  Peso: " + getPeso());
+		    System.out.println("  ¿Es un regalo?: " + regalo);
+		    System.out.println("---------------------------------------------------");
+		    System.out.println("  Precio Total con IVA: " + calcularIVA());
+		    System.out.println("---------------------------------------------------");
+
+		    return true;
+		}
+
 	  /**
 	   * Suma una determinada cantidad al precio del producto dependiendo del peso del mismo
 	   * @param costeFlete
