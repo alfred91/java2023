@@ -1,4 +1,10 @@
 package com.tienda.proyecto.modelos;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+
 /**
  * 
  * @author Apache
@@ -20,6 +26,7 @@ public class ProductoBase extends Producto {
 
     /**
      * Constructor parametrizado
+     * 
      * @param nombre
      * @param precioBase
      * @param iva
@@ -124,30 +131,63 @@ public class ProductoBase extends Producto {
 	/**
 	 * Metodo para imprimir un producto base tipo factura
 	 */
-	  @Override
-	  public boolean toPDF() {   
-		    String regalo = isEsRegalo() ? "Si" : "No";
+	@Override
+	public boolean toPDF() {
+	    try {
+	        // Crear un nuevo documento PDF
+	        PDDocument document = new PDDocument();
+	        // Crear una nueva página y añadirla al documento
+	        PDPage page = new PDPage();
+	        document.addPage(page);
 
-		    System.out.println("---------------------------------------------------");
-		    System.out.println("                 PRODUCTO  BASE                    ");
-		    System.out.println("---------------------------------------------------");
-		    System.out.println("Factura de Producto:");
-		    System.out.println("  SKU: " + getSku());
-		    System.out.println("  Nombre: " + getNombre());
-		    System.out.println("  Precio Base: " + getPrecioBase());
-		    System.out.println("  IVA: " + getIva());
-		    System.out.println("  Detalles Producto: " + getDetalleProducto().toString());
-		    System.out.println("  Largo: " + getLargo());
-		    System.out.println("  Ancho: " + getAncho());
-		    System.out.println("  Alto: " + getAlto());
-		    System.out.println("  Peso: " + getPeso());
-		    System.out.println("  ¿Es un regalo?: " + regalo);
-		    System.out.println("---------------------------------------------------");
-		    System.out.println("  Precio Total con IVA: " + calcularIVA());
-		    System.out.println("---------------------------------------------------");
+	        // Crear un nuevo flujo de contenido para añadir contenido a la página
+	        PDPageContentStream contentStream = new PDPageContentStream(document, page);
 
-		    return true;
-		}
+	        // Iniciar un nuevo bloque de texto
+	        contentStream.beginText();
+	        // Establecer la fuente y el tamaño del texto
+	        contentStream.setFont(PDType1Font.HELVETICA, 12);
+	        // Mover el cursor a la posición donde comenzará el texto
+	        contentStream.newLineAtOffset(25, 700);
+
+	        // Escribir la información del producto
+	        contentStream.showText("Nombre: " + getNombre());
+	        contentStream.newLineAtOffset(0, -15);
+	        contentStream.showText("Precio Base: " + getPrecioBase());
+	        contentStream.newLineAtOffset(0, -15);
+	        contentStream.showText("IVA: " + getIva());
+	        contentStream.newLineAtOffset(0, -15);
+	        contentStream.showText("Largo: " + getLargo());
+	        contentStream.newLineAtOffset(0, -15);
+	        contentStream.showText("Ancho: " + getAncho());
+	        contentStream.newLineAtOffset(0, -15);
+	        contentStream.showText("Alto: " + getAlto());
+	        contentStream.newLineAtOffset(0, -15);
+	        contentStream.showText("Peso: " + getPeso());
+	        contentStream.newLineAtOffset(0, -15);
+	        contentStream.showText("Es regalo: " + (isEsRegalo() ? "Si" : "No"));
+	        contentStream.newLineAtOffset(0, -15);
+	        contentStream.showText("SKU: " + getSku());
+	        contentStream.newLineAtOffset(0, -15);
+	        // Agregar información de DetalleProducto si es necesario...
+
+	        // Finalizar el bloque de texto
+	        contentStream.endText();
+
+	        // Cerrar el flujo de contenido y guardar el documento
+	        contentStream.close();
+	        document.save(getSku() + ".pdf");
+
+	        // Cerrar el documento
+	        document.close();
+
+	        return true;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	}
+
 
 	  /**
 	   * Suma una determinada cantidad al precio del producto dependiendo del peso del mismo
@@ -168,7 +208,7 @@ public class ProductoBase extends Producto {
 		}
 
 		/**
-		 * Calcula el importe
+		 * Calcula el importe total
 		 */
 		@Override
 		public double getImporte() {

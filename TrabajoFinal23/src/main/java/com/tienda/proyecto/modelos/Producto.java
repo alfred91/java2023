@@ -5,10 +5,11 @@ import java.util.Set;
 
 /**
  * @author Apache
+ * 
  * Esta clase abstracta representa un producto en la tienda.
- * Implementa la interfaz Comparable y la interfaz VistaPDF.
+ * Implementa la interfaz Comparable y VistaPDF.
+ * 
  */
-
 public abstract class Producto implements Comparable<Producto>,VistaPDF {
 	
 	protected String sku;
@@ -38,8 +39,7 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 		this.nombre = nombre;
 		this.precioBase = precioBase;
 		this.iva = iva;
-		this.detalleProducto = detalleProducto;
-		
+		this.detalleProducto = detalleProducto;		
 	}
 
 	/**
@@ -112,30 +112,13 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 		this.detalleProducto = detalleProducto;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Producto [nombre=");
-		builder.append(nombre);
-		builder.append(", sku=");
-		builder.append(sku);
-		builder.append(", precioBase=");
-		builder.append(precioBase);
-		builder.append(", iva=");
-		builder.append(iva);
-		builder.append(", detalleProducto=");
-		builder.append(detalleProducto);
-		builder.append("]");
-		return builder.toString();
-	}
-
 	/**
 	 * Metodo abstracto para generar un PDF
 	 */
 	public abstract boolean toPDF();
 	
 	/**
-	 * 
+	 * Calcula el importe del producto
 	 * @return Importe
 	 */
 	public abstract double getImporte();
@@ -146,7 +129,7 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 	private static int contador = 0;
 	
 	/**
-	 * 
+	 * Genera un nuevo SKU, comprueba si ya existe y te lanza una excepcion en caso afirmativo
 	 * @return SKU
 	 */
 	 protected String generarSku() {
@@ -169,6 +152,23 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 	    double precioConIVA = this.precioBase * (1 + this.iva.getValor() / 100.0);
 	    return precioConIVA;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Producto [nombre=");
+		builder.append(nombre);
+		builder.append(", sku=");
+		builder.append(sku);
+		builder.append(", precioBase=");
+		builder.append(precioBase);
+		builder.append(", iva=");
+		builder.append(iva);
+		builder.append(", detalleProducto=");
+		builder.append(detalleProducto);
+		builder.append("]");
+		return builder.toString();
+	}
 	
 	/**
 	 * Hashcode con hashing de multiplicacion
@@ -181,9 +181,11 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 		return result;
 	}
 
-	/**
-	 * Equals por sku
-	 */
+/**
+ * Equals por SKU
+ * @param obj Objeto a comparar con este producto.
+ * @return True si los productos son iguales, False en caso contrario.
+ */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -200,8 +202,9 @@ public abstract class Producto implements Comparable<Producto>,VistaPDF {
 			return false;
 		return true;
 	}
+	
 	/**
-	 * Comparador por sku
+	 * Comparador de productos por SKU
 	 */
 	  public int compareTo(Producto otroProducto) {
 	        return this.sku.compareTo(otroProducto.sku);

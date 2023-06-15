@@ -30,7 +30,6 @@ public class Tienda {
      * @param productos La lista de productos a asignar a la tienda.
      */
     public Tienda(List<Producto> productos) {
-		super();
 		this.productos = productos;
 	}
 
@@ -76,7 +75,7 @@ public class Tienda {
     }
     
     /**
-     * Buscar productos según un criterio
+     * Buscar productos en la lista según un criterio
      * @param criterio Predicado para el filtro
      */
     public void buscar(Predicate<Producto> criterio) {
@@ -127,7 +126,7 @@ public class Tienda {
     }     
     
     /**
-     * Crea y agrega un productoBase al catlogo, por ultimpo comprueba si el producto se ha agredado o no
+     * Crea y agrega un productoBase al catlogo y comprueba si el producto se ha agredado
      * @param nombre
      * @param precioBase
      * @param iva 
@@ -147,15 +146,15 @@ public class Tienda {
                 .anyMatch(p -> p.getNombre().equals(nombre));
 
         if (productoBaseAgregado) {
-            System.out.println("El producto ha sido agregado correctamente.");
+            System.out.println("Poducto agregado correctamente!");
         } else {
-            System.out.println("No ha sido posible agregar el producto.");
+            System.out.println("No se ha podido agregar el producto..");
         }
     }
 
     /**
-     * Muestra los productos virtuales de tipo videojuego
-     * @return Lista de productos virtuales de tipo videojuego
+     * Muestra los productos virtuales de tipo video o videojuego
+     * @return Lista de productos virtuales de tipo Video o Videojuego
      */
     public List<Producto> mostrarProductosVirtualesTipoVideo() {
         return productos.stream()

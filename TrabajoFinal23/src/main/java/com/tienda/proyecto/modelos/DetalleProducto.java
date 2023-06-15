@@ -1,7 +1,12 @@
 package com.tienda.proyecto.modelos;
 
 import java.time.LocalDateTime;
-
+/**
+ * 
+ * @author Apache
+ * Clase DetalleProducto
+ *
+ */
 public class DetalleProducto {
 	
     private String url;
@@ -17,7 +22,8 @@ public class DetalleProducto {
 	}
 
 	/**
-     * Constructor con parametros
+     * Constructor parametrizado
+     * 
      * @param url
      * @param foto
      * @param categorias

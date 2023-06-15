@@ -22,7 +22,8 @@ import com.tienda.proyecto.modelos.ProductoVirtual.TipoVirtual;
 /**
  * 
  * @author Apache
- *
+ *	Clase TiendaFile
+ *	Contiene los metodos para cargar poductosBase y Virtuales, tambien para grabarlos
  */
 public class TiendaFile {
     private static final String PRODUCTOS_BASE_CSV = "productosbase.csv";
@@ -49,7 +50,9 @@ public class TiendaFile {
             InputStream inputStream = TiendaFile.class.getResourceAsStream("/csv/" + PRODUCTOS_BASE_CSV);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
-            // Ignorar la primera línea
+            /**
+             * Ignorar la primera línea
+             */
             reader.readLine();
 
             return reader.lines()
@@ -76,7 +79,7 @@ public class TiendaFile {
 
 
     /**
-     * Carga los productos virtuales desde el archivo CSV
+     * Carga los productos virtuales desde el CSV
      *
      * @return La lista de productos virtuales cargada desde el archivo CSV
      */
@@ -86,7 +89,9 @@ public class TiendaFile {
             InputStream inputStream = TiendaFile.class.getResourceAsStream("/csv/" + PRODUCTOS_VIRTUAL_CSV);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
-            // Ignorar la primera línea
+            /**
+             * Ignorar la primera línea
+             */
             reader.readLine();
 
             return reader.lines()

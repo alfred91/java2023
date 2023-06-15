@@ -12,10 +12,14 @@ import java.util.List;
 /**
  * 
  * @author Apache
+ *Esta clase contiene el método main y contiene un menu 
  *
  */
 public class App {
-	
+	/**
+	 * Metodo main de la aplicacion
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		Tienda catalogo = new Tienda();
@@ -126,6 +130,22 @@ public class App {
 		                    System.out.println("Saliendo del programa...");
 		                    break;     
 		                    
+		            case "h":
+		                System.out.println("Imprimir detalles de un producto en PDF");
+		                System.out.print("Ingresa el SKU del producto: ");
+		                String sku = sc.nextLine();
+		                Producto producto = catalogo.getProducto(sku);
+		                if (producto != null && producto instanceof ProductoBase) {
+		                    if (((ProductoBase) producto).toPDF()) {
+		                        System.out.println("Se generó el archivo PDF con los detalles del producto con éxito");
+		                    } else {
+		                        System.out.println("Hubo un error al generar el archivo PDF");
+		                    }
+		                } else {
+		                    System.out.println("No se encontró un ProductoBase con el SKU proporcionado");
+		                }
+		                break;
+		            		                    
 		            default:
 		                    System.out.println("Elige una opcion correcta.");
 		                    break;
@@ -134,7 +154,10 @@ public class App {
 
 		        sc.close();
 		    }
-
+			
+			/**
+			 * Esto es un menu para mostrar y agregar productos a la tienda
+			 */
 		    public static void Menu() {
 		    	
 		        System.out.println(" -----[ MENU ]----- ");
@@ -146,6 +169,7 @@ public class App {
 		        System.out.println("e. Crear y agregar un producto base al catalogo");
 		        System.out.println("f. Muestra los productos virtuales que sean de tipo Video o VideoJuego");
 		        System.out.println("g. Salir");
+		        System.out.println("H Imprimir productoBase a pdf (experimental)");
 		        System.out.println();
 		        System.out.print("Seleccione una opcion: ");
 		    }
