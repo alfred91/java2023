@@ -20,10 +20,11 @@ import com.tienda.proyecto.modelos.ProductoBase;
 import com.tienda.proyecto.modelos.ProductoVirtual;
 import com.tienda.proyecto.modelos.ProductoVirtual.TipoVirtual;
 /**
- * 
  * @author Apache
+ * 
  *	Clase TiendaFile
- *	Contiene los metodos para cargar poductosBase y Virtuales, tambien para grabarlos
+ *	Contiene los metodos para cargar poductosBase y productosVirtuales, tambien para grabarlos
+ *
  */
 public class TiendaFile {
     private static final String PRODUCTOS_BASE_CSV = "productosbase.csv";
@@ -118,7 +119,6 @@ public class TiendaFile {
             return null;
         }
     }
-
 
     /**
      * Graba los productos en los archivos CSV

@@ -8,7 +8,7 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 /**
  * 
  * @author Apache
- *
+ * Clase ProductoBase, hereda de Producto
  */
 public class ProductoBase extends Producto {
 
@@ -129,28 +129,45 @@ public class ProductoBase extends Producto {
 	}
 	
 	/**
-	 * Metodo para imprimir un producto base tipo factura
+	 * Metodo para imprimir un PDF de un ProductoBase con sus detalles, sobreescribe al metodo de la clase padre Producto
 	 */
 	@Override
 	public boolean toPDF() {
 	    try {
-	        // Crear un nuevo documento PDF
+	        /**
+	         * Crear un nuevo documento PDF
+	         */
 	        PDDocument document = new PDDocument();
-	        // Crear una nueva página y añadirla al documento
+	        
+	        /**
+	         * Crear una nueva página y agregarla al documento
+	         */
 	        PDPage page = new PDPage();
 	        document.addPage(page);
 
-	        // Crear un nuevo flujo de contenido para añadir contenido a la página
+	        /**
+	         * Crear un nuevo flujo de contenido para agregar contenido a la pagina
+	         */
 	        PDPageContentStream contentStream = new PDPageContentStream(document, page);
 
-	        // Iniciar un nuevo bloque de texto
+	        /**
+	         * Iniciar un nuevo bloque de texto
+	         */
 	        contentStream.beginText();
-	        // Establecer la fuente y el tamaño del texto
+	        
+	        /**
+	         * Establece la fuente y el tamaño del texto
+	         */
 	        contentStream.setFont(PDType1Font.HELVETICA, 12);
-	        // Mover el cursor a la posición donde comenzará el texto
+	        
+	        /**
+	         *  Mover el cursor a la posicion donde comineza el texto
+	         */
 	        contentStream.newLineAtOffset(25, 700);
 
-	        // Escribir la información del producto
+	        /**
+	         *  Escribir la informacion del producto
+	         */
 	        contentStream.showText("Nombre: " + getNombre());
 	        contentStream.newLineAtOffset(0, -15);
 	        contentStream.showText("Precio Base: " + getPrecioBase());
@@ -169,16 +186,13 @@ public class ProductoBase extends Producto {
 	        contentStream.newLineAtOffset(0, -15);
 	        contentStream.showText("SKU: " + getSku());
 	        contentStream.newLineAtOffset(0, -15);
-	        // Agregar información de DetalleProducto si es necesario...
-
-	        // Finalizar el bloque de texto
+	        
+	        /**
+	         *  Finaliza el texto y cierra el flujo de contenido, guarda el documento y lo cierra
+	         */
 	        contentStream.endText();
-
-	        // Cerrar el flujo de contenido y guardar el documento
 	        contentStream.close();
 	        document.save(getSku() + ".pdf");
-
-	        // Cerrar el documento
 	        document.close();
 
 	        return true;
@@ -188,12 +202,11 @@ public class ProductoBase extends Producto {
 	    }
 	}
 
-
 	  /**
 	   * Suma una determinada cantidad al precio del producto dependiendo del peso del mismo
 	   * @param costeFlete
 	   * @param pesoFlete
-	   * @return
+	   * @return costeTransporte
 	   */
 	  public double gastoTransporte(double costeFlete, double pesoFlete) {
 		    double costeTransporte = 0;
@@ -209,6 +222,7 @@ public class ProductoBase extends Producto {
 
 		/**
 		 * Calcula el importe total
+		 * @return importe
 		 */
 		@Override
 		public double getImporte() {

@@ -1,5 +1,14 @@
 package com.tienda.proyecto.modelos;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+/**
+ * 
+ * @author Apache
+ * Clase ProductoVirtual, hereda de Producto
+ */
 public class ProductoVirtual extends Producto {
 
 	public enum TipoVirtual {MUSICA,VIDEO,IMAGEN,VIDEOJUEGO,PROGRAMA}
@@ -57,30 +66,87 @@ public class ProductoVirtual extends Producto {
 	public void setTipo(TipoVirtual tipo) {
 		this.tipo = tipo;
 	}
-
+/**
+ * Metodo para imprimir un PDF de un ProductoVirtual, sobreescribe al metodo de la clase padre Producto
+ */
 	@Override
 	public boolean toPDF() {
-	    System.out.println("---------------------------------------------------");
-	    System.out.println("              PRODUCTO  VIRTUAL                   ");
-	    System.out.println("---------------------------------------------------");
-	    System.out.println("Factura de Producto:");
-	    System.out.println("  SKU: " + getSku());
-	    System.out.println("  Nombre: " + getNombre());
-	    System.out.println("  Precio Base: " + getPrecioBase());
-	    System.out.println("  IVA: " + getIva());
-	    System.out.println("  Detalles Producto: " + getDetalleProducto().toString());
-	    System.out.println("  Peso en Bytes: " + getPesoBytes());
-	    System.out.println("  URL de Descarga: " + getURLDescarga());
-	    System.out.println("  Tipo de Producto Virtual: " + getTipo());
-	    System.out.println("---------------------------------------------------");
-	    System.out.println("  Precio Total con IVA: " + calcularIVA());
-	    System.out.println("---------------------------------------------------");
+	    try {
+	        /**
+	         * Crear un nuevo documento PDF
+	         */
+	        PDDocument document = new PDDocument();
+	        
+	        /**
+	         *  Crear una nueva pagina y agregarla al documento
+	         */
+	        PDPage page = new PDPage();
+	        document.addPage(page);
 
-	    return true;
+	        /**
+	         * Crear un nuevo flujo de contenido para agregar contenido a la pagina
+	         */
+	        PDPageContentStream contentStream = new PDPageContentStream(document, page);
+
+	        /**
+	         * Iniciar un nuevo bloque de texto
+	         */
+	        contentStream.beginText();
+	        
+	        /**
+	         * Establece la fuente y el tamaño del texto
+	         */
+	        contentStream.setFont(PDType1Font.HELVETICA, 12);
+	        
+	        /**
+	         * Mueve el cursor a la posicion donde empieza el texto
+	         */
+	        contentStream.newLineAtOffset(25, 700);
+
+	        /*
+	         * Escribir la informacion de Producto
+	         */
+	        contentStream.showText("Nombre: " + getNombre());
+	        contentStream.newLineAtOffset(0, -15);
+	        contentStream.showText("Precio Base: " + getPrecioBase());
+	        contentStream.newLineAtOffset(0, -15);
+	        contentStream.showText("IVA: " + getIva());
+	        contentStream.newLineAtOffset(0, -15);
+	        
+	        /**
+	         * Agrega la informacion de ProductoVirtual
+	         */
+	        contentStream.showText("Peso en Bytes: " + getPesoBytes());
+	        contentStream.newLineAtOffset(0, -15);
+	        contentStream.showText("URL de Descarga: " + getURLDescarga());
+	        contentStream.newLineAtOffset(0, -15);
+	        contentStream.showText("Tipo de Producto Virtual: " + getTipo());
+	        contentStream.newLineAtOffset(0, -15);
+	        contentStream.showText("SKU: " + getSku());
+	        contentStream.newLineAtOffset(0, -15);
+
+	        /**
+	         * Finaliza el texto, cierra el flujo de contenido y guarda el documento
+	         * Cierra el documento
+	         */
+	        contentStream.endText();
+	        contentStream.close();
+	        document.save(getSku() + ".pdf");
+	        document.close();
+
+	        return true;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return false;
+	    }
 	}
 
 
-	public double getImporte() {
+	/**
+	 * Metodo para calcular el importe con IVA
+	 * @return calcularIVA
+	 */
+	public double getImporte() {		
 		
 		return this.calcularIVA();
 	}

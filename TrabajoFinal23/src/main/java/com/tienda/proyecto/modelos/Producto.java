@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * @author Apache
  * 
- * Esta clase abstracta representa un producto en la tienda.
+ * Clase abstracta Producto, representa un producto en la tienda.
  * Implementa la interfaz Comparable y VistaPDF.
  * 
  */

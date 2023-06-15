@@ -9,10 +9,11 @@ import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import com.tienda.proyecto.modelos.ProductoVirtual.TipoVirtual;
-
-	/**
-	 * La clase Tienda representa una tienda virtual que gestiona una lista de productos.
-	 */
+/**
+ * 
+ * @author Apache
+ * Clase Tienda, representa una tienda virtual que gestiona una lista de productos.
+ */
 public class Tienda {
 	
     private List<Producto> productos;
